@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario de Donación</title>
+  <link rel="stylesheet" href="styles/DonacionesF.css">
+</head>
+<body>
+
+  <div class="formulario">
+    <h2>Formulario para Donación</h2>
+    <div class="contenedor">
+      
+      <div class="seccion">
+        <label for="nombre">Nombre completo:</label>
+        <input type="text" id="nombre" placeholder="Ej. Juan Pérez">
+
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" placeholder="Ej. correo@ejemplo.com">
+
+        <label for="monto">Monto a donar:</label>
+        <input type="number" id="monto" placeholder="$0.00">
+
+        <label>Método de pago:</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox"> Tarjeta de crédito/débito</label>
+          <label><input type="checkbox"> Transferencia bancaria</label>
+          <label><input type="checkbox"> PayPal</label>
+          <label><input type="checkbox"> Otro</label>
+        </div>
+      </div>
+
+      <div class="seccion">
+        <p class="subtitulo">En caso de elegir tarjeta</p>
+        
+        <label for="nombreTarjeta">Nombre en la tarjeta:</label>
+        <input type="text" id="nombreTarjeta" placeholder="Nombre tal como aparece">
+
+        <label for="numeroTarjeta">Número de tarjeta:</label>
+        <input type="text" id="numeroTarjeta" placeholder="XXXX XXXX XXXX XXXX">
+
+        <label for="fechaVencimiento">Fecha de vencimiento:</label>
+        <input type="month" id="fechaVencimiento">
+
+        <label for="cvv">Código de seguridad (CVV):</label>
+        <input type="password" id="cvv" maxlength="4" placeholder="XXX">
+      </div>
+
+      <div class="seccion">
+        <label>Tipo de material a donar:</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox"> Pienso / Comida húmeda</label>
+          <label><input type="checkbox"> Mantas / Camas</label>
+          <label><input type="checkbox"> Medicamentos / Material veterinario</label>
+          <label><input type="checkbox"> Juguetes / Correas</label>
+        </div>
+        <label for="materialOtro">Otro (especificar):</label>
+        <textarea id="materialOtro" rows="3" placeholder="Describe otros materiales..."></textarea>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
