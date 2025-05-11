@@ -1,0 +1,137 @@
+/* Reset general */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    background: linear-gradient(to bottom right, #f8f9fa, #e0c3fc);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+}
+
+/* Contenedor principal */
+.formulario {
+    width: 100%;
+    max-width: 800px;
+    background: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos */
+.formulario h1 {
+    font-size: 2rem;
+    text-align: center;
+    color: #5a189a;
+    margin-bottom: 30px;
+}
+
+.seccion h2 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #4b2995;
+}
+
+/* Secciones */
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Inputs y textareas */
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="month"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #7b2ff7;
+    box-shadow: 0 0 5px rgba(123, 47, 247, 0.3);
+    outline: none;
+}
+
+/* Checkbox personalizado */
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.checkbox-group input[type="checkbox"],
+.checkbox-group input[type="radio"] {
+    accent-color: #7b2ff7; /* mejora el color del check en navegadores modernos */
+}
+
+/* Botón de envío */
+.boton-contenedor {
+    text-align: center;
+}
+
+button[type="submit"] {
+    background: #7b2ff7;
+    color: white;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background: #5c1ed5;
+}
+
+/* Responsive pequeño */
+@media (max-width: 600px) {
+    .formulario {
+        padding: 20px;
+    }
+
+    .formulario h1 {
+        font-size: 1.6rem;
+    }
+
+    .seccion h2 {
+        font-size: 1.2rem;
+    }
+}
+.error {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: -15px;
+  margin-bottom: 15px;
+  display: block;
+}

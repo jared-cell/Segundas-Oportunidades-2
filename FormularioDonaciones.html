@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Donación</title>
+  <link rel="stylesheet" href="styles/FormularioDonaciones.css">
+</head>
+<body>
+
+<div class="formulario">
+  <h1>Formulario de Donación</h1>
+
+  <form id="formDonacion" class="contenedor" novalidate>
+
+    <!-- SECCIÓN: Datos personales -->
+    <div class="seccion">
+      <h2>Información Personal</h2>
+
+      <label for="nombre">Nombre completo:</label>
+      <input type="text" id="nombre" name="nombre" readonly placeholder="Ej. Juan Pérez">
+      <span class="error" id="errorNombre"></span>
+
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" name="email" readonly placeholder="Ej. correo@ejemplo.com">
+      <span class="error" id="errorEmail"></span>
+    </div>
+
+    <!-- SECCIÓN: Donación económica -->
+    <div class="seccion">
+      <h2>Donación Económica</h2>
+
+      <label for="monto">Monto a donar:</label>
+      <input type="number" id="monto" name="monto" placeholder="$0.00">
+      <span class="error" id="errorMonto"></span>
+
+      <label>Método de pago:</label>
+      <div class="checkbox-group">
+        <label><input type="radio" name="metodoPago" value="tarjeta"> Tarjeta de crédito/débito</label>
+        <label><input type="radio" name="metodoPago" value="transferencia"> Transferencia bancaria</label>
+        <label><input type="radio" name="metodoPago" value="paypal"> PayPal</label>
+        <label><input type="radio" name="metodoPago" value="otro"> Otro</label>
+      </div>
+      <span class="error" id="errorMetodoPago"></span>
+    </div>
+
+    <!-- SECCIÓN: Datos de tarjeta -->
+    <div class="seccion" id="seccionTarjeta" style="display: none;">
+      <h2>Datos de Tarjeta</h2>
+
+      <label for="nombreTarjeta">Nombre en la tarjeta:</label>
+      <input type="text" id="nombreTarjeta" name="nombreTarjeta" placeholder="Nombre tal como aparece">
+      <span class="error" id="errorNombreTarjeta"></span>
+
+      <label for="numeroTarjeta">Número de tarjeta:</label>
+      <input type="text" id="numeroTarjeta" name="numeroTarjeta" placeholder="XXXX XXXX XXXX XXXX">
+      <span class="error" id="errorNumeroTarjeta"></span>
+
+      <label for="fechaVencimiento">Fecha de vencimiento:</label>
+      <input type="month" id="fechaVencimiento" name="fechaVencimiento">
+      <span class="error" id="errorFechaVencimiento"></span>
+
+      <label for="cvv">Código de seguridad (CVV):</label>
+      <input type="password" id="cvv" name="cvv" maxlength="4" placeholder="XXX">
+      <span class="error" id="errorCvv"></span>
+    </div>
+
+    <!-- SECCIÓN: Material donado -->
+    <div class="seccion">
+      <h2>Donación de Materiales</h2>
+
+      <label>Tipo de material:</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="material[]" value="comida"> Pienso / Comida húmeda</label>
+        <label><input type="checkbox" name="material[]" value="mantas"> Mantas / Camas</label>
+        <label><input type="checkbox" name="material[]" value="medicamentos"> Medicamentos / Material veterinario</label>
+        <label><input type="checkbox" name="material[]" value="juguetes"> Juguetes / Correas</label>
+      </div>
+
+      <label for="materialOtro">Otro (especificar):</label>
+      <textarea id="materialOtro" name="materialOtro" rows="3" placeholder="Describe otros materiales..."></textarea>
+    </div>
+
+    <!-- Botón de enviar -->
+    <div class="boton-contenedor">
+      <button type="submit">Enviar Donación</button>
+    </div>
+
+  </form>
+</div>
+
+<!-- SCRIPT VALIDACIÓN SIMPLE -->
+<script>
+  const form = document.getElementById('formDonacion');
+  const metodoPagoRadios = document.querySelectorAll('input[name="metodoPago"]');
+  const seccionTarjeta = document.getElementById('seccionTarjeta');
+
+  // Mostrar datos de tarjeta si eligen "tarjeta"
+  metodoPagoRadios.forEach(radio => {
+    radio.addEventListener('change', function() {
+      seccionTarjeta.style.display = (this.value === 'tarjeta') ? 'block' : 'none';
+    });
+  });
+
+  form.addEventListener('submit', function(event) {
+    let valid = true;
+
+    // Limpia errores anteriores
+    document.querySelectorAll('.error').forEach(span => span.textContent = '');
+
+    // Validar monto
+    const monto = document.getElementById('monto');
+    if (monto.value.trim() === '' || parseFloat(monto.value) <= 0) {
+      document.getElementById('errorMonto').textContent = 'Ingrese un monto válido.';
+      valid = false;
+    }
+
+    // Validar método de pago
+    const metodoPagoSeleccionado = document.querySelector('input[name="metodoPago"]:checked');
+    if (!metodoPagoSeleccionado) {
+      document.getElementById('errorMetodoPago').textContent = 'Seleccione un método de pago.';
+      valid = false;
+    }
+
+    // Si eligió tarjeta, validar datos de tarjeta
+    if (metodoPagoSeleccionado && metodoPagoSeleccionado.value === 'tarjeta') {
+      const nombreTarjeta = document.getElementById('nombreTarjeta');
+      const numeroTarjeta = document.getElementById('numeroTarjeta');
+      const fechaVencimiento = document.getElementById('fechaVencimiento');
+      const cvv = document.getElementById('cvv');
+
+      if (nombreTarjeta.value.trim() === '') {
+        document.getElementById('errorNombreTarjeta').textContent = 'Ingrese el nombre en la tarjeta.';
+        valid = false;
+      }
+      if (numeroTarjeta.value.trim() === '' || numeroTarjeta.value.length < 16) {
+        document.getElementById('errorNumeroTarjeta').textContent = 'Ingrese un número de tarjeta válido.';
+        valid = false;
+      }
+      if (fechaVencimiento.value.trim() === '') {
+        document.getElementById('errorFechaVencimiento').textContent = 'Ingrese la fecha de vencimiento.';
+        valid = false;
+      }
+      if (cvv.value.trim() === '' || cvv.value.length < 3) {
+        document.getElementById('errorCvv').textContent = 'Ingrese el CVV válido.';
+        valid = false;
+      }
+    }
+
+    if (!valid) {
+      event.preventDefault(); // Bloquea el envío del formulario si hay errores
+    }
+  });
+</script>
+
+</body>
+</html>
