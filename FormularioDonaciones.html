@@ -31,7 +31,7 @@
       <h2>Donación Económica</h2>
 
       <label for="monto">Monto a donar:</label>
-      <input type="number" id="monto" name="monto" placeholder="$0.00">
+      <input type="text" id="monto" name="monto" placeholder="$0.00" inputmode="numeric">
       <span class="error" id="errorMonto"></span>
 
       <label>Método de pago:</label>
@@ -53,7 +53,7 @@
       <span class="error" id="errorNombreTarjeta"></span>
 
       <label for="numeroTarjeta">Número de tarjeta:</label>
-      <input type="text" id="numeroTarjeta" name="numeroTarjeta" placeholder="XXXX XXXX XXXX XXXX">
+      <input type="text" id="numeroTarjeta" name="numeroTarjeta" placeholder="Ingrese los 16 dígitos" maxlength="16" inputmode="numeric">
       <span class="error" id="errorNumeroTarjeta"></span>
 
       <label for="fechaVencimiento">Fecha de vencimiento:</label>
@@ -102,20 +102,19 @@
     });
   });
 
+  // Validar número de tarjeta: solo números y 16 dígitos
+  const numeroTarjeta = document.getElementById('numeroTarjeta');
+  numeroTarjeta.addEventListener('input', function () {
+    this.value = this.value.replace(/\D/g, ''); // Elimina caracteres no numéricos
+  });
+
   form.addEventListener('submit', function(event) {
     let valid = true;
 
     // Limpia errores anteriores
     document.querySelectorAll('.error').forEach(span => span.textContent = '');
 
-    // Validar monto
-    const monto = document.getElementById('monto');
-    if (monto.value.trim() === '' || parseFloat(monto.value) <= 0) {
-      document.getElementById('errorMonto').textContent = 'Ingrese un monto válido.';
-      valid = false;
-    }
-
-    // Validar método de pago
+    // Validar datos de tarjeta si eligen tarjeta
     const metodoPagoSeleccionado = document.querySelector('input[name="metodoPago"]:checked');
     if (!metodoPagoSeleccionado) {
       document.getElementById('errorMetodoPago').textContent = 'Seleccione un método de pago.';
@@ -124,31 +123,14 @@
 
     // Si eligió tarjeta, validar datos de tarjeta
     if (metodoPagoSeleccionado && metodoPagoSeleccionado.value === 'tarjeta') {
-      const nombreTarjeta = document.getElementById('nombreTarjeta');
-      const numeroTarjeta = document.getElementById('numeroTarjeta');
-      const fechaVencimiento = document.getElementById('fechaVencimiento');
-      const cvv = document.getElementById('cvv');
-
-      if (nombreTarjeta.value.trim() === '') {
-        document.getElementById('errorNombreTarjeta').textContent = 'Ingrese el nombre en la tarjeta.';
-        valid = false;
-      }
-      if (numeroTarjeta.value.trim() === '' || numeroTarjeta.value.length < 16) {
-        document.getElementById('errorNumeroTarjeta').textContent = 'Ingrese un número de tarjeta válido.';
-        valid = false;
-      }
-      if (fechaVencimiento.value.trim() === '') {
-        document.getElementById('errorFechaVencimiento').textContent = 'Ingrese la fecha de vencimiento.';
-        valid = false;
-      }
-      if (cvv.value.trim() === '' || cvv.value.length < 3) {
-        document.getElementById('errorCvv').textContent = 'Ingrese el CVV válido.';
+      if (numeroTarjeta.value.length !== 16) {
+        document.getElementById('errorNumeroTarjeta').textContent = 'El número de tarjeta debe tener exactamente 16 dígitos.';
         valid = false;
       }
     }
 
     if (!valid) {
-      event.preventDefault(); // Bloquea el envío del formulario si hay errores
+      event.preventDefault();
     }
   });
 </script>
