@@ -1,7 +1,7 @@
 /* Estilo general del body */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to right, #74ebd5, #9face6);
+    background: linear-gradient(to right, #e7f52d, #fdfa39);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -54,7 +54,7 @@ body {
 
 /* Botón */
 button {
-    background-color: #6c63ff;
+    background-color: #fd2a2a;
     color: white;
     border: none;
     padding: 0.7rem 1.2rem;
@@ -65,5 +65,5 @@ button {
 }
 
 button:hover {
-    background-color: #5548c8;
+    background-color:  #d34d4d;
 }

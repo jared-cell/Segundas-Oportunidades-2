@@ -1,14 +1,14 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f2f0c9;
+    background-color: #faf03c;
     margin: 0;
     padding: 0;
 }
 
 
 header {
-    background-color: #ffffff;
+    background-color: #faf03c;
     padding: 20px;
     text-align: center;
     font-size: 24px;
@@ -48,7 +48,7 @@ header {
 }
 
 .button {
-    background-color: #ff6f91;
+    background-color: #fd2a2a;
     color: white;
     padding: 12px 24px;
     text-decoration: none;
@@ -58,5 +58,5 @@ header {
 }
 
 .button:hover {
-    background-color: #ff3c6d;
+    background-color: #d34d4d;
 }

@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #4facfe, #00f2fe);
+    background: linear-gradient(to right, #e7f52d, #fdfa39);
     height: 100vh;
     margin: 0;
     display: flex;
@@ -27,7 +27,7 @@ p {
 }
 
 button {
-    background-color: #4facfe;
+    background-color: #fd2a2a;
     color: white;
     padding: 0.7rem 1.2rem;
     border: none;
@@ -38,5 +38,5 @@ button {
 }
 
 button:hover {
-    background-color: #00c3ff;
+    background-color: #d34d4d;
 }

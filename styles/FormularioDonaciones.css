@@ -7,7 +7,7 @@
 
 /* Body */
 body {
-    background: linear-gradient(to bottom right, #f8f9fa, #e0c3fc);
+    background: linear-gradient(to bottom right, #e7f52d, #fdfa39);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
     min-height: 100vh;
@@ -99,7 +99,7 @@ textarea:focus {
 }
 
 button[type="submit"] {
-    background: #7b2ff7;
+    background: #fd2a2a;
     color: white;
     padding: 12px 30px;
     font-size: 1.1rem;
@@ -111,7 +111,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background: #5c1ed5;
+    background: #d34d4d;
 }
 
 /* Responsive pequeño */

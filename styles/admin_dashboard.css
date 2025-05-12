@@ -8,16 +8,16 @@
 /* Estilos generales */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #ffffff;
+    background-color: #faf03c;
     color: #333;
 }
 
 /* Navegación superior */
 header nav {
-    background: #fff;
+    background: #faf03c;
     padding: 20px;
     text-align: left;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid #faf03c;
 }
 
 header nav h1 {
@@ -79,7 +79,7 @@ header nav p {
 
 /* Botón en las cards */
 .card button {
-    background: #7b2ff7;
+    background: #fd2a2a;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -91,5 +91,5 @@ header nav p {
 }
 
 .card button:hover {
-    background: #5c1ed5;
+    background: #d34d4d;
 }

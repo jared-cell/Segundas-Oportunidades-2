@@ -1,7 +1,7 @@
 body {
             margin: 0;
             padding: 0;
-            background-color: #f3f0ff;
+            background-color: #faf03c;
             font-family: 'Arial', sans-serif;
         }
 
@@ -29,7 +29,7 @@ body {
         }
 
         .box {
-            background-color: #f88da0;
+            background-color: #fafafa;
             border-radius: 15px;
             padding: 20px;
             width: 45%;
@@ -59,7 +59,7 @@ body {
 
         .adopt-button,
         .menu-button {
-            background-color: #8b0000;
+            background-color: #fd2a2a;
             color: white;
             padding: 12px 30px;
             border-radius: 20px;
@@ -71,5 +71,5 @@ body {
 
         .adopt-button:hover,
         .menu-button:hover {
-            background-color: #a30000;
+            background-color: #d34d4d;
         }

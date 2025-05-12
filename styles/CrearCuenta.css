@@ -1,7 +1,7 @@
 /* Estilos generales */
 body {
     font-family: 'Arial', sans-serif;
-    background: #f4f7fc;
+    background: #faf03c;
     margin: 0;
     padding: 0;
 }
@@ -67,7 +67,7 @@ button {
     width: 100%;
     padding: 12px;
     font-size: 1.2rem;
-    background-color: #007bff;
+    background-color: #fd2a2a;
     color: white;
     border: none;
     border-radius: 5px;
@@ -77,10 +77,10 @@ button {
 
 /* Efecto hover del botón */
 button:hover {
-    background-color: #0056b3;
+    background-color:#d34d4d;
 }
 
 /* Efecto de activación del botón */
 button:active {
-    background-color: #003d80;
+    background-color: #d34d4d;
 }

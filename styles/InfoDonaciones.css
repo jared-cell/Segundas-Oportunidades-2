@@ -2,7 +2,7 @@ body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #f9f9f9, #eaeaea);
+            background: linear-gradient(135deg,  #e7f52d, #fdfa39);
             color: #333;
         }
 
@@ -60,11 +60,11 @@ body {
         }
 
         .donate-button {
-            background-color: #4CAF50;
+            background-color: #e43f3f;
         }
 
         .donate-button:hover {
-            background-color: #45a049;
+            background-color: #9e6161;
             transform: translateY(-3px);
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
         }
@@ -75,11 +75,11 @@ body {
         }
 
         .menu-button {
-            background-color: #007BFF;
+            background-color: #fd2a2a;
         }
 
         .menu-button:hover {
-            background-color: #0056b3;
+            background-color: #d34d4d;
             transform: translateY(-3px);
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
         }
