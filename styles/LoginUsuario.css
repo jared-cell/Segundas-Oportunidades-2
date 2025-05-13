@@ -1,7 +1,7 @@
 /* Estilo general del body */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to right, #e7f52d, #fdfa39);
+    background: linear-gradient(to right, #8ac6d1, #a390ee, #8ed1a5); /* azul, lila, verde */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,7 +21,7 @@ body {
 
 /* Título */
 .container h2 {
-    color: #4a4a4a;
+    color: #5d4b8a; /* lila medio */
     margin-bottom: 1.5rem;
 }
 
@@ -35,26 +35,26 @@ body {
 .form-group label {
     display: block;
     margin-bottom: 0.5rem;
-    color: #333;
+    color: #3a3a3a;
 }
 
 /* Campos de entrada */
 .form-group input {
     width: 100%;
     padding: 0.6rem;
-    border: 1px solid #ccc;
+    border: 1px solid #b3b3cc;
     border-radius: 8px;
     transition: border-color 0.3s;
 }
 
 .form-group input:focus {
-    border-color: #6c63ff;
+    border-color: #6c63ff; /* lila */
     outline: none;
 }
 
 /* Botón */
 button {
-    background-color: #fd2a2a;
+    background-color: #5cbf90; /* verde medio */
     color: white;
     border: none;
     padding: 0.7rem 1.2rem;
@@ -65,5 +65,5 @@ button {
 }
 
 button:hover {
-    background-color:  #d34d4d;
+    background-color: #4ea87e;
 }

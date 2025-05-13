@@ -7,7 +7,7 @@
 
 /* Body */
 body {
-    background: linear-gradient(to bottom right, #e7f52d, #fdfa39);
+    background: linear-gradient(to bottom right, #FADADD, #CDEFFC); /* Rosa suave a azul pastel */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
     min-height: 100vh;
@@ -21,7 +21,7 @@ body {
 .formulario {
     width: 100%;
     max-width: 800px;
-    background: #fff;
+    background: #FFFFFF;
     padding: 40px;
     border-radius: 15px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
@@ -31,14 +31,14 @@ body {
 .formulario h1 {
     font-size: 2rem;
     text-align: center;
-    color: #5a189a;
+    color: #8E44AD; /* Morado pastel vivo */
     margin-bottom: 30px;
 }
 
 .seccion h2 {
     font-size: 1.4rem;
     margin-bottom: 15px;
-    color: #4b2995;
+    color: #5C5470; /* Gris-lila elegante */
 }
 
 /* Secciones */
@@ -59,16 +59,17 @@ textarea {
     padding: 12px 15px;
     margin-top: 5px;
     margin-bottom: 20px;
-    border: 1px solid #ccc;
+    border: 1px solid #D0BFFF; /* Lila claro */
     border-radius: 8px;
     font-size: 1rem;
     transition: all 0.3s ease;
+    background-color: #F3F0FF;
 }
 
 input:focus,
 textarea:focus {
-    border-color: #7b2ff7;
-    box-shadow: 0 0 5px rgba(123, 47, 247, 0.3);
+    border-color: #A084E8;
+    box-shadow: 0 0 6px rgba(160, 132, 232, 0.4);
     outline: none;
 }
 
@@ -90,7 +91,7 @@ textarea:focus {
 
 .checkbox-group input[type="checkbox"],
 .checkbox-group input[type="radio"] {
-    accent-color: #7b2ff7; /* mejora el color del check en navegadores modernos */
+    accent-color: #A084E8;
 }
 
 /* Botón de envío */
@@ -99,8 +100,8 @@ textarea:focus {
 }
 
 button[type="submit"] {
-    background: #fd2a2a;
-    color: white;
+    background: #A5D6A7; /* Verde pastel con visibilidad */
+    color: #2C2C2C;
     padding: 12px 30px;
     font-size: 1.1rem;
     font-weight: bold;
@@ -111,7 +112,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background: #d34d4d;
+    background: #81C784;
 }
 
 /* Responsive pequeño */
@@ -128,17 +129,20 @@ button[type="submit"]:hover {
         font-size: 1.2rem;
     }
 }
+
+/* Estilo de errores */
 .error {
-  color: red;
-  font-size: 0.9rem;
-  margin-top: -15px;
-  margin-bottom: 15px;
-  display: block;
+    color: #e74c3c;
+    font-size: 0.9rem;
+    margin-top: -15px;
+    margin-bottom: 15px;
+    display: block;
 }
+
+/* Quitar apariencia nativa */
 input[type="text"],
 input[type="email"],
 textarea {
-    -moz-appearance: none; /* Firefox */
-    appearance: none; /* Modern browsers */
+    -moz-appearance: none;
+    appearance: none;
 }
-

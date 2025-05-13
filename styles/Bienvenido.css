@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #e7f52d, #fdfa39);
+    background: linear-gradient(to right, #FADADD, #D9B8FF); /* De rosa pastel a lila */
     height: 100vh;
     margin: 0;
     display: flex;
@@ -9,26 +9,28 @@ body {
 }
 
 .container {
-    background: white;
+    background: #FFFFFF;
     padding: 2rem 3rem;
     border-radius: 15px;
     text-align: center;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    max-width: 400px;
+    width: 100%;
 }
 
 h1 {
-    color: #333;
+    color: #5C5470; /* Gris morado elegante */
     margin-bottom: 1rem;
 }
 
 p {
-    color: #555;
+    color: #666;
     margin-bottom: 2rem;
 }
 
 button {
-    background-color: #fd2a2a;
-    color: white;
+    background-color: #A5D6A7; /* Verde pastel definido */
+    color: #2C2C2C;
     padding: 0.7rem 1.2rem;
     border: none;
     border-radius: 10px;
@@ -38,5 +40,5 @@ button {
 }
 
 button:hover {
-    background-color: #d34d4d;
+    background-color: #81C784; /* Verde pastel más intenso al pasar el ratón */
 }

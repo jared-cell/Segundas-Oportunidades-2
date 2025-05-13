@@ -1,7 +1,7 @@
 /* Estilos generales */
 body {
     font-family: 'Arial', sans-serif;
-    background: #faf03c;
+    background: linear-gradient(to right, #FADADD, #D9B8FF); /* De rosa pastel a lila suave */
     margin: 0;
     padding: 0;
 }
@@ -11,8 +11,8 @@ body {
     max-width: 600px;
     margin: 50px auto;
     padding: 20px;
-    background: #fff;
-    border-radius: 8px;
+    background: #FFFFFF;
+    border-radius: 12px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
@@ -21,7 +21,7 @@ body {
 h2 {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: #333;
+    color: #5C5470; /* Gris lila elegante */
 }
 
 /* Estilos de los campos del formulario */
@@ -46,11 +46,12 @@ input[type="password"] {
     width: 100%;
     padding: 10px;
     font-size: 1rem;
-    border: 1px solid #ddd;
+    border: 1px solid #D0BFFF; /* Lila claro */
     border-radius: 5px;
     margin-top: 5px;
     box-sizing: border-box;
     transition: border-color 0.3s ease;
+    background-color: #F3F0FF;
 }
 
 /* Efecto de enfoque en los campos */
@@ -58,7 +59,7 @@ input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="tel"]:focus,
 input[type="password"]:focus {
-    border-color: #007bff;
+    border-color: #A084E8; /* Morado pastel definido */
     outline: none;
 }
 
@@ -67,8 +68,8 @@ button {
     width: 100%;
     padding: 12px;
     font-size: 1.2rem;
-    background-color: #fd2a2a;
-    color: white;
+    background-color: #A5D6A7; /* Verde pastel con fuerza */
+    color: #2C2C2C;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -77,10 +78,10 @@ button {
 
 /* Efecto hover del botón */
 button:hover {
-    background-color:#d34d4d;
+    background-color: #81C784; /* Verde pastel más vivo */
 }
 
 /* Efecto de activación del botón */
 button:active {
-    background-color: #d34d4d;
+    background-color: #6FBF73;
 }

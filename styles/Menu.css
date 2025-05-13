@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(to right, #e7f52d, #fdfa39);
+    background: linear-gradient(to right, #8ac6d1, #a390ee, #8ed1a5); /* azul, lila, verde */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -10,17 +10,17 @@ body {
 .header {
     text-align: center;
     padding: 2rem 1rem;
-    background-color: #e7f52d;
+    background-color: #a390ee; /* lila medio */
 }
 
 .header h1 {
     margin-bottom: 0.5rem;
     font-size: 2rem;
-    color: #333;
+    color: #f0f0f0;
 }
 
 .header p {
-    color: #555;
+    color: #e0e0e0;
     font-size: 1.1rem;
 }
 
@@ -34,7 +34,7 @@ body {
 }
 
 .grid-item {
-    background-color: #fd2a2a;
+    background-color: #5cbf90; /* verde medio */
     border-radius: 15px;
     padding: 2rem;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
@@ -45,15 +45,15 @@ body {
 
 .grid-item:hover {
     transform: scale(1.02);
-    background-color: #d34d4d;
+    background-color: #4ea87e; /* verde más oscuro */
 }
 
 .grid-item h2 {
-    color: #faf9f9;
+    color: #ffffff;
     margin-bottom: 0.5rem;
 }
 
 .grid-item p {
-    color: #faf9f9;
-    font-size: 1rem;
+    color: #f8f8f8;
+    font-size: 1rem;
 }

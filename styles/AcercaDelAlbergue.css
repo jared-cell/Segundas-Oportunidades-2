@@ -1,20 +1,18 @@
-
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #faf03c;
+    background-color: #F9D5E5; 
     margin: 0;
     padding: 0;
 }
 
-
 header {
-    background-color: #faf03c;
+    background-color: #D9B8FF; 
     padding: 20px;
     text-align: center;
-    font-size: 24px;
+    font-size: 26px;
     font-weight: bold;
+    color: #3E3E3E;
 }
-
 
 .container {
     display: flex;
@@ -24,14 +22,14 @@ header {
     gap: 20px;
 }
 
-
 .card {
-    background-color: #fff0f5;
+    background-color: #B3E5FC; 
     border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     width: 300px;
     padding: 20px;
     text-align: center;
+    border: 1px solid #CCCCCC;
 }
 
 .card img {
@@ -41,22 +39,22 @@ header {
     border-radius: 8px;
 }
 
-
 .menu-button {
     text-align: center;
     margin: 30px 0;
 }
 
 .button {
-    background-color: #fd2a2a;
-    color: white;
+    background-color: #A5D6A7; 
+    color: #2C2C2C;
     padding: 12px 24px;
     text-decoration: none;
     font-size: 16px;
     border-radius: 8px;
     transition: background-color 0.3s;
+    border: none;
 }
 
 .button:hover {
-    background-color: #d34d4d;
+    background-color: #81C784; 
 }

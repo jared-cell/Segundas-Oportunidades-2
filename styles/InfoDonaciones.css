@@ -1,110 +1,114 @@
 body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg,  #e7f52d, #fdfa39);
-            color: #333;
-        }
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #FADADD, #CDEFFC); /* Rosa a azul pastel */
+    color: #333;
+}
 
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
-            background: #fff;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-            border-radius: 12px;
-            animation: fadeIn 1s ease-in-out;
-        }
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #FFFFFF;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    animation: fadeIn 1s ease-in-out;
+}
 
-        header {
-            text-align: center;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #ddd;
-            animation: slideDown 1s ease-out;
-        }
+header {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #E0C8F5; /* Lila pastel suave */
+    animation: slideDown 1s ease-out;
+}
 
-        header h1 {
-            font-size: 2.5rem;
-            margin: 0;
-            color: #444;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
+header h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    color: #5C5470; /* Gris-morado elegante */
+    text-shadow: 2px 2px 4px rgba(160, 132, 232, 0.2);
+}
 
-        .info-box {
-            padding: 20px;
-            line-height: 1.8;
-            font-size: 1.2rem;
-            text-align: justify;
-            color: #555;
-            animation: fadeIn 1.2s ease-in-out;
-        }
+.info-box {
+    padding: 20px;
+    line-height: 1.8;
+    font-size: 1.2rem;
+    text-align: justify;
+    color: #555;
+    animation: fadeIn 1.2s ease-in-out;
+}
 
-        .button-section {
-            display: flex;
-            justify-content: center;
-            gap: 20px; /* Espacio entre los botones */
-            margin-top: 30px;
-        }
+.button-section {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
 
-        .donate-button,
-        .menu-button {
-            display: inline-block;
-            padding: 15px 30px;
-            color: white;
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: bold;
-            border-radius: 8px;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-        }
+.donate-button,
+.menu-button {
+    display: inline-block;
+    padding: 15px 30px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
 
-        .donate-button {
-            background-color: #e43f3f;
-        }
+/* Botón donar: lila pastel más fuerte */
+.donate-button {
+    background-color: #A084E8;
+}
 
-        .donate-button:hover {
-            background-color: #9e6161;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-        }
+.donate-button:hover {
+    background-color: #8661C1;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(160, 132, 232, 0.4);
+}
 
-        .donate-button:active {
-            transform: translateY(2px);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        }
+.donate-button:active {
+    transform: translateY(2px);
+    box-shadow: 0 4px 6px rgba(160, 132, 232, 0.3);
+}
 
-        .menu-button {
-            background-color: #fd2a2a;
-        }
+/* Botón menú: verde pastel */
+.menu-button {
+    background-color: #A5D6A7;
+    color: #2C2C2C;
+}
 
-        .menu-button:hover {
-            background-color: #d34d4d;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-        }
+.menu-button:hover {
+    background-color: #81C784;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(129, 199, 132, 0.4);
+}
 
-        .menu-button:active {
-            transform: translateY(2px);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        }
+.menu-button:active {
+    transform: translateY(2px);
+    box-shadow: 0 4px 6px rgba(129, 199, 132, 0.3);
+}
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
 
-        @keyframes slideDown {
-            from {
-                transform: translateY(-20px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
+@keyframes slideDown {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
