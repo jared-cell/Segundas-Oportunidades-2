@@ -1,148 +1,78 @@
-/* Reset general */
-* {
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    background: linear-gradient(to bottom right, #FADADD, #D9B8FF); /* Rosa a lila pastel */
+    font-family: 'Arial', sans-serif;
 }
 
-/* Body */
-body {
-    background: linear-gradient(to bottom right, #FADADD, #CDEFFC); /* Rosa suave a azul pastel */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #333;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 40px 20px;
+.container {
+    width: 90%;
+    margin: auto;
+    padding: 20px;
 }
 
-/* Contenedor principal */
-.formulario {
-    width: 100%;
-    max-width: 800px;
-    background: #FFFFFF;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
-
-/* Títulos */
-.formulario h1 {
-    font-size: 2rem;
+header {
     text-align: center;
-    color: #8E44AD; /* Morado pastel vivo */
     margin-bottom: 30px;
 }
 
-.seccion h2 {
-    font-size: 1.4rem;
-    margin-bottom: 15px;
-    color: #5C5470; /* Gris-lila elegante */
+header h1 {
+    font-size: 48px;
+    color: #5C5470; /* Gris morado suave */
 }
 
-/* Secciones */
-.contenedor {
+.info-boxes {
     display: flex;
-    flex-direction: column;
-    gap: 30px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
 }
 
-/* Inputs y textareas */
-input[type="text"],
-input[type="email"],
-input[type="number"],
-input[type="month"],
-input[type="password"],
-textarea {
-    width: 100%;
-    padding: 12px 15px;
-    margin-top: 5px;
-    margin-bottom: 20px;
-    border: 1px solid #D0BFFF; /* Lila claro */
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    background-color: #F3F0FF;
+.box {
+    background-color: #FFFFFF;
+    border: 1px solid #E0C8F5; /* Borde lila muy suave */
+    border-radius: 15px;
+    padding: 20px;
+    width: 45%;
+    min-width: 300px;
+    color: #3E3E3E;
+    text-align: justify;
+    font-size: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-input:focus,
-textarea:focus {
-    border-color: #A084E8;
-    box-shadow: 0 0 6px rgba(160, 132, 232, 0.4);
-    outline: none;
-}
-
-/* Checkbox personalizado */
-.checkbox-group {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 10px;
-    margin-bottom: 20px;
-}
-
-.checkbox-group label {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-}
-
-.checkbox-group input[type="checkbox"],
-.checkbox-group input[type="radio"] {
-    accent-color: #A084E8;
-}
-
-/* Botón de envío */
-.boton-contenedor {
+.image-section {
     text-align: center;
+    margin-bottom: 30px;
 }
 
-button[type="submit"] {
-    background: #A5D6A7; /* Verde pastel con visibilidad */
+.image-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 3px solid #CDEFFC; /* Azul pastel claro */
+}
+
+.button-section {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.adopt-button,
+.menu-button {
+    background-color: #A5D6A7; /* Verde pastel medio */
     color: #2C2C2C;
     padding: 12px 30px;
-    font-size: 1.1rem;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 18px;
     font-weight: bold;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
-button[type="submit"]:hover {
-    background: #81C784;
-}
-
-/* Responsive pequeño */
-@media (max-width: 600px) {
-    .formulario {
-        padding: 20px;
-    }
-
-    .formulario h1 {
-        font-size: 1.6rem;
-    }
-
-    .seccion h2 {
-        font-size: 1.2rem;
-    }
-}
-
-/* Estilo de errores */
-.error {
-    color: #e74c3c;
-    font-size: 0.9rem;
-    margin-top: -15px;
-    margin-bottom: 15px;
-    display: block;
-}
-
-/* Quitar apariencia nativa */
-input[type="text"],
-input[type="email"],
-textarea {
-    -moz-appearance: none;
-    appearance: none;
+.adopt-button:hover,
+.menu-button:hover {
+    background-color: #81C784;
 }
