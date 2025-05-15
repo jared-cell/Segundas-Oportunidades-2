@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const mysql = require('mysql2');
 const session = require('express-session');
+
 const server = express();
 
 // Configurar EJS
@@ -83,29 +84,20 @@ server.post('/registro', (req, res) => {
     });
 });
 
-// Login (admins por nombre y password, usuarios por correo y password)
+// Login unificado (admins por nombre y password, usuarios por correo y password)
 server.post('/login', (req, res) => {
-    const { correo, password } = req.body;
+    const { usuario, password } = req.body;
 
-    if (!correo || !password) {
+    if (!usuario || !password) {
         return res.render('Login', { error: 'Por favor, completa todos los campos.', success: null, title: 'Login' });
     }
 
-    // Buscar admin por nombre y password
-    db.query('SELECT * FROM administradores WHERE nombre = ? AND password = ?', [correo, password], (err, adminResults) => {
-        if (err) {
-            console.error('❌ Error al consultar administradores:', err);
-            return res.render('Login', { error: 'Error en el servidor.', success: null, title: 'Login' });
-        }
+    // Verificar si es un correo (contiene "@")
+    const esCorreo = usuario.includes('@');
 
-        if (adminResults.length > 0) {
-            req.session.user = adminResults[0];
-            req.session.isAdmin = true;
-            return res.redirect('/admin_dashboard');
-        }
-
-        // Buscar usuario normal por correo y password
-        db.query('SELECT * FROM usuarios WHERE correo = ? AND password = ?', [correo, password], (err, userResults) => {
+    if (esCorreo) {
+        // Es un usuario regular
+        db.query('SELECT * FROM usuarios WHERE correo = ? AND password = ?', [usuario, password], (err, userResults) => {
             if (err) {
                 console.error('❌ Error al consultar usuarios:', err);
                 return res.render('Login', { error: 'Error en el servidor.', success: null, title: 'Login' });
@@ -119,7 +111,23 @@ server.post('/login', (req, res) => {
                 return res.render('Login', { error: 'Correo o contraseña incorrectos.', success: null, title: 'Login' });
             }
         });
-    });
+    } else {
+        // Es un administrador
+        db.query('SELECT * FROM administradores WHERE nombre = ? AND password = ?', [usuario, password], (err, adminResults) => {
+            if (err) {
+                console.error('❌ Error al consultar administradores:', err);
+                return res.render('Login', { error: 'Error en el servidor.', success: null, title: 'Login' });
+            }
+
+            if (adminResults.length > 0) {
+                req.session.user = adminResults[0];
+                req.session.isAdmin = true;
+                return res.redirect('/admin_dashboard');
+            } else {
+                return res.render('Login', { error: 'Nombre o contraseña incorrectos.', success: null, title: 'Login' });
+            }
+        });
+    }
 });
 
 // Middleware para proteger rutas de usuarios autenticados
@@ -131,7 +139,7 @@ function authUser(req, res, next) {
     }
 }
 
-// Middleware para proteger rutas de admin
+// Middleware para proteger rutas de administradores
 function authAdmin(req, res, next) {
     if (req.session.user && req.session.isAdmin) {
         next();

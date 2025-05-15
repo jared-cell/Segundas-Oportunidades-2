@@ -30,7 +30,7 @@ header h1 {
 
 .box {
     background-color: #FFFFFF;
-    border: 1px solid #E0C8F5; /* Borde lila muy suave */
+    border: 1px solid #E0C8F5; 
     border-radius: 15px;
     padding: 20px;
     width: 45%;
