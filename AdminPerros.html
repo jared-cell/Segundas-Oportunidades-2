@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Perritos</title>
+  <link rel="stylesheet" href="styles/AdminPerros.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="top-bar">
+    <a href="admin_dashboard.html" class="btn-back">← Panel de Administración</a>
+  </div>
+
+  <div class="container">
+    <header class="header">
+      <h1>Gestión de Perritos</h1>
+      <button class="add-button">+ Agregar Nuevo Perrito</button>
+    </header>
+
+    <section class="dog-section">
+      <h2>Lista de Perritos Registrados</h2>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Foto</th>
+              <th>Nombre</th>
+              <th>Raza</th>
+              <th>Tamaño</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><img src="luna.jpg" alt="Luna"></td>
+              <td>Luna</td>
+              <td>Labrador</td>
+              <td>Grande</td>
+              <td><span class="status disponible">Disponible</span></td>
+              <td>
+                <button class="action-button edit">✏️</button>
+                <button class="action-button delete">🗑️</button>
+              </td>
+            </tr>
+            <tr>
+              <td><img src="max.jpg" alt="Max"></td>
+              <td>Max</td>
+              <td>Beagle</td>
+              <td>Mediano</td>
+              <td><span class="status adoptado">Adoptado</span></td>
+              <td>
+                <button class="action-button edit">✏️</button>
+                <button class="action-button delete">🗑️</button>
+              </td>
+            </tr>
+            <tr>
+              <td><img src="nina.jpg" alt="Nina"></td>
+              <td>Nina</td>
+              <td>Poodle</td>
+              <td>Pequeño</td>
+              <td><span class="status revision">En Revisión</span></td>
+              <td>
+                <button class="action-button edit">✏️</button>
+                <button class="action-button delete">🗑️</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+</body>
+</html>

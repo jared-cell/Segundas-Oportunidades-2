@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="styles/admin_dashboard.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Albergue</h1>
+            <p>Panel de Administración</p>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2>Secciones principales</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Gestión de Perritos</h3>
+                <p>Administra los perritos del albergue.</p>
+                <button onclick="gestionarMascotas()">Ver Perritos</button>
+            </div>
+            <div class="card">
+                <h3>Gestión de Adopciones</h3>
+                <p>Gestiona solicitudes y procesos de adopción.</p>
+                <button onclick="gestionarAdopciones()">Ver Adopciones</button>
+            </div>
+            <div class="card">
+                <h3>Gestión de Donaciones</h3>
+                <p>Revisa y administra donaciones recibidas.</p>
+                <button onclick="gestionarDonaciones()">Ver Donaciones</button>
+            </div>
+            <div class="card">
+                <h3>Reportes</h3>
+                <p>Consulta reportes y estadísticas.</p>
+                <button onclick="verReportes()">Ver Reportes</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function gestionarMascotas() {
+            window.location.href = '/gestionar_mascotas';
+        }
+        function gestionarAdopciones() {
+            window.location.href = '/gestionar_adopciones';
+        }
+        function gestionarDonaciones() {
+            window.location.href = '/gestionar_donaciones';
+        }
+        function verReportes() {
+            window.location.href = '/reportes';
+        }
+    </script>
+</body>
+</html>

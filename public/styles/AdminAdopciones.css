@@ -1,0 +1,133 @@
+/* Tipografía y colores */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f7f9fc;
+  margin: 0;
+  padding: 0;
+  color: #2d3748;
+}
+
+.top-bar {
+  background-color: #6c63ff;
+  padding: 20px;
+}
+
+.back-button {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  background-color: #554ee0;
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #2d3748;
+}
+
+.table-container {
+  overflow-x: auto;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px;
+}
+
+th, td {
+  text-align: left;
+  padding: 16px 20px;
+  font-size: 15px;
+}
+
+thead {
+  background-color: #6c63ff;
+  color: white;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f1f5f9;
+}
+
+.status {
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.status.pendiente {
+  background-color: #fbd38d;
+  color: #744210;
+}
+
+.status.aprobada {
+  background-color: #c6f6d5;
+  color: #276749;
+}
+
+/* Botones */
+.btn {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-right: 6px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.btn.aprobar {
+  background-color: #38a169;
+  color: white;
+}
+
+.btn.aprobar:hover {
+  background-color: #2f855a;
+}
+
+.btn.rechazar {
+  background-color: #e53e3e;
+  color: white;
+}
+
+.btn.rechazar:hover {
+  background-color: #c53030;
+}
+
+.btn.ver {
+  background-color: #3182ce;
+  color: white;
+}
+
+.btn.ver:hover {
+  background-color: #2b6cb0;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  table, thead, tbody, th, td, tr {
+    font-size: 13px;
+  }
+
+  .btn {
+    padding: 6px 10px;
+  }
+}
