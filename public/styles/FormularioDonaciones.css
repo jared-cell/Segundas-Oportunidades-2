@@ -1,140 +1,88 @@
-/* RESET GENERAL */
-* {
-    box-sizing: border-box;
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #D8E1FF, #E3D7FF); /* Azul cielo claro a lila pálido */
     margin: 0;
     padding: 0;
 }
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to right, #fdf0f3, #e0c3fc);
-    padding: 40px 20px;
-    color: #333;
-}
-
-/* CONTENEDOR PRINCIPAL */
-.formulario {
-    max-width: 800px;
-    margin: auto;
-    background: #ffffff;
-    padding: 30px 40px;
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-
-/* TÍTULOS */
-.formulario h1 {
+/* Contenedor principal */
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #FFFFFF;
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
     text-align: center;
-    margin-bottom: 25px;
-    color: #6a1b9a;
 }
 
-.seccion h2 {
-    color: #512da8;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    font-size: 20px;
+/* Título */
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #574B90; /* Morado elegante */
 }
 
-/* CAMPOS DE ENTRADA */
+/* Estilos de los campos del formulario */
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+/* Etiquetas de los campos */
+label {
+    font-size: 1rem;
+    color: #4B4E6D; /* Gris azulado */
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Campos de entrada */
 input[type="text"],
 input[type="email"],
-input[type="password"],
-input[type="month"],
-textarea {
+input[type="tel"],
+input[type="password"] {
     width: 100%;
-    padding: 12px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #B2A4FF; /* Lila pastel */
+    border-radius: 6px;
     margin-top: 5px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 12px;
-    font-size: 16px;
-    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+    background-color: #F2F0FF; /* Fondo lavanda claro */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-input:focus,
-textarea:focus {
-    border-color: #ab47bc;
+/* Efecto de enfoque en los campos */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+input[type="password"]:focus {
+    border-color: #8E8FFA; /* Azul lavanda */
+    box-shadow: 0 0 5px rgba(142, 143, 250, 0.5);
     outline: none;
 }
 
-/* CHECKBOXES Y RADIO */
-.checkbox-group {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    margin-top: 10px;
-}
-
-.checkbox-group label {
-    font-size: 15px;
-}
-
-/* ERRORES */
-.error {
-    color: red;
-    font-size: 13px;
-    margin-top: -10px;
-    margin-bottom: 10px;
-}
-
-/* BOTÓN DE ENVÍO */
-.boton-contenedor {
-    text-align: center;
-    margin-top: 30px;
-}
-
-button[type="submit"] {
-    background-color: #8e24aa;
-    color: white;
-    padding: 14px 32px;
-    font-size: 17px;
-    font-weight: bold;
+/* Botón de envío */
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    background-color: #6A67CE; /* Azul-morado vibrante */
+    color: #FFFFFF;
     border: none;
-    border-radius: 25px;
+    border-radius: 6px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease;
 }
 
-button[type="submit"]:hover {
-    background-color: #6a1b9a;
-    transform: scale(1.03);
+/* Efecto hover del botón */
+button:hover {
+    background-color: #5C59C7; /* Un poco más oscuro */
 }
 
-/* RESPONSIVE */
-@media (max-width: 600px) {
-    .formulario {
-        padding: 25px 20px;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    input[type="password"],
-    input[type="month"],
-    textarea {
-        font-size: 15px;
-    }
-
-    .seccion h2 {
-        font-size: 18px;
-    }
-
-    button[type="submit"] {
-        width: 100%;
-    }
+/* Efecto de activación del botón */
+button:active {
+    background-color: #4E4AB6; /* Azul más profundo */
 }
-.boton-volver {
-  display: inline-block;
-  margin-left: 15px;
-  padding: 10px 20px;
-  background-color: #777;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
-}
-
-.boton-volver:hover {
-  background-color: #555;
-}
-

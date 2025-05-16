@@ -30,7 +30,7 @@ header h1 {
 
 .box {
     background-color: #FFFFFF;
-    border: 1px solid #E0C8F5; 
+    border: 1px solid #E0C8F5; /* Lila pastel claro */
     border-radius: 15px;
     padding: 20px;
     width: 45%;
@@ -62,7 +62,7 @@ header h1 {
 
 .adopt-button,
 .menu-button {
-    background-color: #A5D6A7; /* Verde pastel medio */
+    background-color: #B39DDB; /* Lila pastel */
     color: #2C2C2C;
     padding: 12px 30px;
     border-radius: 20px;
@@ -74,5 +74,5 @@ header h1 {
 
 .adopt-button:hover,
 .menu-button:hover {
-    background-color: #81C784;
+    background-color: #9575CD; /* Morado más fuerte al hacer hover */
 }

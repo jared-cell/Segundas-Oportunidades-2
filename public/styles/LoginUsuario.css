@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f7f7f7;
+    background: linear-gradient(135deg, #EBD8FD, #CDEFFC); /* Lila a azul pastel */
     margin: 0;
     padding: 0;
     display: flex;
@@ -12,15 +12,15 @@ body {
 .container {
     background-color: #fff;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
     width: 300px;
     text-align: center;
 }
 
 h2 {
     margin-bottom: 20px;
-    color: #333;
+    color: #5E35B1; /* Morado elegante */
 }
 
 .form-group {
@@ -31,16 +31,22 @@ h2 {
 label {
     display: block;
     margin-bottom: 5px;
-    color: #555;
+    color: #666;
 }
 
 input {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 1px solid #D0BFFF; /* Borde lila claro */
+    border-radius: 8px;
     font-size: 14px;
+    background-color: #F3F0FF; /* Fondo lavanda suave */
+}
+
+input:focus {
+    border-color: #A084E8;
+    outline: none;
 }
 
 .btn {
@@ -48,15 +54,16 @@ input {
     width: 100%;
     padding: 10px 20px;
     color: #fff;
-    background-color: #3498db;
+    background-color: #A084E8;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
     font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
 .btn:hover {
-    background-color: #2980b9;
+    background-color: #8661C1;
 }
 
 .message {
@@ -68,13 +75,13 @@ input {
 }
 
 .message.error {
-    background-color: #e74c3c;
-    color: #fff;
+    background-color: #CE93D8; /* Rosa lila tenue */
+    color: #4A148C;
 }
 
 .message.success {
-    background-color: #2ecc71;
-    color: #fff;
+    background-color: #B39DDB; /* Lila claro */
+    color: #2E1B5F;
 }
 
 .register-link {
@@ -82,10 +89,10 @@ input {
 }
 
 .register-link a {
-    color: #3498db;
+    color: #7E57C2;
     text-decoration: none;
 }
 
 .register-link a:hover {
-    text-decoration: underline;
+    text-decoration: underline;
 }

@@ -29,7 +29,7 @@ p {
 }
 
 button {
-    background-color: #A5D6A7; /* Verde pastel definido */
+    background-color: #B39DDB; /* Lila pastel */
     color: #2C2C2C;
     padding: 0.7rem 1.2rem;
     border: none;
@@ -40,5 +40,5 @@ button {
 }
 
 button:hover {
-    background-color: #81C784; /* Verde pastel más intenso al pasar el ratón */
+    background-color: #9575CD; /* Lila más intenso al pasar el ratón */
 }

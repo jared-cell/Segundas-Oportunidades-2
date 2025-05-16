@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(to right, #8ac6d1, #a390ee, #8ed1a5); /* azul, lila, verde */
+    background: linear-gradient(to right, #B8E4F0, #D3C4F3, #C7EBD5); /* azul pastel, lila suave, verde menta */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -10,17 +10,17 @@ body {
 .header {
     text-align: center;
     padding: 2rem 1rem;
-    background-color: #a390ee; /* lila medio */
+    background-color: #BFAEF6; /* Lila pastel medio */
 }
 
 .header h1 {
     margin-bottom: 0.5rem;
     font-size: 2rem;
-    color: #f0f0f0;
+    color: #ffffff;
 }
 
 .header p {
-    color: #e0e0e0;
+    color: #f3f3f3;
     font-size: 1.1rem;
 }
 
@@ -34,26 +34,26 @@ body {
 }
 
 .grid-item {
-    background-color: #5cbf90; /* verde medio */
+    background-color: #A6E3B9; /* Verde menta suave */
     border-radius: 15px;
     padding: 2rem;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
     text-align: center;
     cursor: pointer;
     transition: transform 0.3s ease, background-color 0.3s;
 }
 
 .grid-item:hover {
-    transform: scale(1.02);
-    background-color: #4ea87e; /* verde más oscuro */
+    transform: scale(1.03);
+    background-color: #90D6A5; /* Verde un poco más intenso */
 }
 
 .grid-item h2 {
-    color: #ffffff;
+    color: #4B3F72; /* Morado grisáceo profundo */
     margin-bottom: 0.5rem;
 }
 
 .grid-item p {
-    color: #f8f8f8;
+    color: #555;
     font-size: 1rem;
 }

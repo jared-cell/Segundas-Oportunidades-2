@@ -51,7 +51,7 @@ input[type="password"] {
     margin-top: 5px;
     box-sizing: border-box;
     transition: border-color 0.3s ease;
-    background-color: #F3F0FF;
+    background-color: #F3F0FF; /* Fondo lavanda pálido */
 }
 
 /* Efecto de enfoque en los campos */
@@ -68,8 +68,8 @@ button {
     width: 100%;
     padding: 12px;
     font-size: 1.2rem;
-    background-color: #A5D6A7; /* Verde pastel con fuerza */
-    color: #2C2C2C;
+    background-color: #7C83FD; /* Azul violeta suave */
+    color: #FFFFFF;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -78,10 +78,10 @@ button {
 
 /* Efecto hover del botón */
 button:hover {
-    background-color: #81C784; /* Verde pastel más vivo */
+    background-color: #6C63FF; /* Azul morado más intenso */
 }
 
 /* Efecto de activación del botón */
 button:active {
-    background-color: #6FBF73;
+    background-color: #5A54E0; /* Azul oscuro para pulsación */
 }

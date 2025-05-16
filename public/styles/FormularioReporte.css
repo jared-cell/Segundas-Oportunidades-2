@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to right, #fdf0f3, #e0c3fc);
+    background: linear-gradient(to right, #e3f2fd, #ede7f6); /* Azul claro a lila muy suave */
     padding: 40px 20px;
     color: #333;
 }
@@ -19,18 +19,18 @@ body {
     background: #ffffff;
     padding: 30px 40px;
     border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 /* TÍTULOS */
 .formulario h1 {
     text-align: center;
     margin-bottom: 25px;
-    color: #6a1b9a;
+    color: #5e35b1; /* Morado profundo */
 }
 
 .seccion h2 {
-    color: #512da8;
+    color: #3949ab; /* Azul medio con un toque morado */
     margin-top: 20px;
     margin-bottom: 10px;
     font-size: 20px;
@@ -46,15 +46,17 @@ textarea {
     padding: 12px;
     margin-top: 5px;
     margin-bottom: 15px;
-    border: 1px solid #ccc;
+    border: 1px solid #b39ddb; /* Lila pastel */
     border-radius: 12px;
     font-size: 16px;
-    transition: border-color 0.3s ease;
+    background-color: #f3e5f5; /* Fondo lavanda claro */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 input:focus,
 textarea:focus {
-    border-color: #ab47bc;
+    border-color: #7e57c2; /* Morado intermedio */
+    box-shadow: 0 0 5px rgba(126, 87, 194, 0.4);
     outline: none;
 }
 
@@ -72,7 +74,7 @@ textarea:focus {
 
 /* ERRORES */
 .error {
-    color: red;
+    color: #d32f2f;
     font-size: 13px;
     margin-top: -10px;
     margin-bottom: 10px;
@@ -85,7 +87,7 @@ textarea:focus {
 }
 
 button[type="submit"] {
-    background-color: #8e24aa;
+    background-color: #673ab7; /* Morado vibrante */
     color: white;
     padding: 14px 32px;
     font-size: 17px;
@@ -97,7 +99,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: #6a1b9a;
+    background-color: #5e35b1; /* Un poco más oscuro */
     transform: scale(1.03);
 }
 
@@ -120,6 +122,6 @@ button[type="submit"]:hover {
     }
 
     button[type="submit"] {
-        width: 100%;
+        width:100%;
     }
 }

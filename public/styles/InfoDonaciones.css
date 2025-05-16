@@ -2,7 +2,7 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #FADADD, #CDEFFC); /* Rosa a azul pastel */
+    background: linear-gradient(135deg, #EBD8FD, #CDEFFC); /* Lila a azul pastel */
     color: #333;
 }
 
@@ -19,15 +19,15 @@ body {
 header {
     text-align: center;
     padding-bottom: 20px;
-    border-bottom: 2px solid #E0C8F5; /* Lila pastel suave */
+    border-bottom: 2px solid #D1C4E9; /* Lila pastel */
     animation: slideDown 1s ease-out;
 }
 
 header h1 {
     font-size: 2.5rem;
     margin: 0;
-    color: #5C5470; /* Gris-morado elegante */
-    text-shadow: 2px 2px 4px rgba(160, 132, 232, 0.2);
+    color: #5E35B1; /* Morado elegante */
+    text-shadow: 2px 2px 4px rgba(126, 87, 194, 0.2);
 }
 
 .info-box {
@@ -59,7 +59,7 @@ header h1 {
     transition: all 0.3s ease;
 }
 
-/* Botón donar: lila pastel más fuerte */
+/* Botón donar: morado pastel fuerte */
 .donate-button {
     background-color: #A084E8;
 }
@@ -75,21 +75,21 @@ header h1 {
     box-shadow: 0 4px 6px rgba(160, 132, 232, 0.3);
 }
 
-/* Botón menú: verde pastel */
+/* Botón menú: azul pastel */
 .menu-button {
-    background-color: #A5D6A7;
+    background-color: #81D4FA; /* Azul pastel suave */
     color: #2C2C2C;
 }
 
 .menu-button:hover {
-    background-color: #81C784;
+    background-color: #4FC3F7;
     transform: translateY(-3px);
-    box-shadow: 0 8px 15px rgba(129, 199, 132, 0.4);
+    box-shadow: 0 8px 15px rgba(79, 195, 247, 0.4);
 }
 
 .menu-button:active {
     transform: translateY(2px);
-    box-shadow: 0 4px 6px rgba(129, 199, 132, 0.3);
+    box-shadow: 0 4px 6px rgba(79, 195, 247, 0.3);
 }
 
 /* Animaciones */
@@ -109,6 +109,6 @@ header h1 {
     }
     to {
         transform: translateY(0);
-        opacity: 1;
-    }
+        opacity: 1;
+}
 }

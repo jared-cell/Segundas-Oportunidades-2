@@ -1,13 +1,13 @@
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #f7f9fc;
+  background-color: #eceeff; /* Azul lavanda muy claro */
   margin: 0;
   padding: 0;
   color: #2d3748;
 }
 
 .top-bar {
-  background-color: #6c63ff;
+  background-color: #7a5fff; /* Morado vibrante */
   padding: 20px;
   display: flex;
   justify-content: flex-start;
@@ -17,7 +17,7 @@ body {
   color: white;
   text-decoration: none;
   font-weight: 600;
-  background-color: #554ee0;
+  background-color: #5a4bcf; /* Morado más oscuro */
   padding: 10px 20px;
   border-radius: 8px;
   transition: background-color 0.3s ease;
@@ -44,11 +44,11 @@ body {
 h1 {
   font-size: 2rem;
   margin: 0;
-  color: #2d3748;
+  color: #4a3b8a; /* Tono morado sobrio */
 }
 
 .add-button {
-  background-color: #38a169;
+  background-color: #5a67d8; /* Azul-morado */
   color: white;
   font-weight: 600;
   padding: 10px 20px;
@@ -59,12 +59,13 @@ h1 {
 }
 
 .add-button:hover {
-  background-color: #2f855a;
+  background-color: #4c51bf;
 }
 
 .dog-section h2 {
   font-size: 1.5rem;
   margin-bottom: 15px;
+  color: #4a3b8a;
 }
 
 .table-container {
@@ -88,12 +89,12 @@ th, td {
 }
 
 thead {
-  background-color: #6c63ff;
+  background-color: #7a5fff; /* Encabezado con morado principal */
   color: white;
 }
 
 tbody tr:nth-child(even) {
-  background-color: #f1f5f9;
+  background-color: #ede7f6; /* Lavanda claro */
 }
 
 img {
@@ -113,11 +114,11 @@ img {
 }
 
 .action-button.edit:hover {
-  color: #2b6cb0;
+  color: #5a67d8; /* Azul morado suave */
 }
 
 .action-button.delete:hover {
-  color: #e53e3e;
+  color: #e53e3e; /* Rojo para eliminar */
 }
 
 /* Estados */
@@ -130,18 +131,18 @@ img {
 }
 
 .status.disponible {
-  background-color: #c6f6d5;
-  color: #2f855a;
+  background-color: #d1c4e9; /* Lavanda claro */
+  color: #4a3b8a;
 }
 
 .status.adoptado {
-  background-color: #fed7d7;
-  color: #c53030;
+  background-color: #f3c7f3; /* Rosa lavanda */
+  color: #97266d;
 }
 
 .status.revision {
-  background-color: #faf089;
-  color: #b7791f;
+  background-color: #c3dafe; /* Azul cielo muy claro */
+  color: #2b6cb0;
 }
 
 /* Responsive */

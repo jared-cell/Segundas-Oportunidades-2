@@ -1,17 +1,17 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #F9D5E5; 
+    background-color: #E6E6FA; /* lavanda suave */
     margin: 0;
     padding: 0;
 }
 
 header {
-    background-color: #D9B8FF; 
+    background-color: #7E57C2; /* morado profundo */
     padding: 20px;
     text-align: center;
     font-size: 26px;
     font-weight: bold;
-    color: #3E3E3E;
+    color: #FFFFFF;
 }
 
 .container {
@@ -23,13 +23,13 @@ header {
 }
 
 .card {
-    background-color: #B3E5FC; 
+    background-color: #D1C4E9; /* lavanda claro */
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     width: 300px;
     padding: 20px;
     text-align: center;
-    border: 1px solid #CCCCCC;
+    border: 1px solid #B39DDB; /* morado suave */
 }
 
 .card img {
@@ -45,8 +45,8 @@ header {
 }
 
 .button {
-    background-color: #A5D6A7; 
-    color: #2C2C2C;
+    background-color: #64B5F6; /* azul suave */
+    color: #FFFFFF;
     padding: 12px 24px;
     text-decoration: none;
     font-size: 16px;
@@ -56,5 +56,5 @@ header {
 }
 
 .button:hover {
-    background-color: #81C784; 
+    background-color: #42A5F5; /* azul más oscuro al pasar el mouse */
 }

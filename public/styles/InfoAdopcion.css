@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom right, #FADADD, #D9B8FF); /* Rosa a lila pastel */
+    background: linear-gradient(to bottom right, #E3F2FD, #E1D5FA); /* Azul pastel a lila claro */
     font-family: 'Arial', sans-serif;
 }
 
@@ -18,7 +18,7 @@ header {
 
 header h1 {
     font-size: 48px;
-    color: #5C5470; /* Gris morado suave */
+    color: #5E35B1; /* Morado profundo suave */
 }
 
 .info-boxes {
@@ -30,15 +30,15 @@ header h1 {
 
 .box {
     background-color: #FFFFFF;
-    border: 1px solid #E0C8F5; /* Borde lila muy suave */
+    border: 1px solid #C5CAE9; /* Azul-lila muy suave */
     border-radius: 15px;
     padding: 20px;
     width: 45%;
     min-width: 300px;
-    color: #3E3E3E;
+    color: #3A3A4F; /* Gris azulado */
     text-align: justify;
     font-size: 16px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 12px rgba(93, 64, 170, 0.07);
 }
 
 .image-section {
@@ -50,7 +50,7 @@ header h1 {
     max-width: 100%;
     height: auto;
     border-radius: 10px;
-    border: 3px solid #CDEFFC; /* Azul pastel claro */
+    border: 3px solid #B3E5FC; /* Azul pastel claro */
 }
 
 .button-section {
@@ -62,8 +62,8 @@ header h1 {
 
 .adopt-button,
 .menu-button {
-    background-color: #A5D6A7; /* Verde pastel medio */
-    color: #2C2C2C;
+    background-color: #9575CD; /* Morado lavanda */
+    color: #FFFFFF;
     padding: 12px 30px;
     border-radius: 20px;
     text-decoration: none;
@@ -74,5 +74,5 @@ header h1 {
 
 .adopt-button:hover,
 .menu-button:hover {
-    background-color: #81C784;
+    background-color: #7E57C2; /* Morado más oscuro */
 }

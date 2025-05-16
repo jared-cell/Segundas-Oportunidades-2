@@ -1,14 +1,14 @@
 /* Tipografía y colores */
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #f7f9fc;
+  background-color: #f4f7ff; /* azul muy claro */
   margin: 0;
   padding: 0;
   color: #2d3748;
 }
 
 .top-bar {
-  background-color: #6c63ff;
+  background-color: #7a5fff; /* morado vibrante */
   padding: 20px;
 }
 
@@ -16,7 +16,7 @@ body {
   color: #fff;
   text-decoration: none;
   font-weight: 600;
-  background-color: #554ee0;
+  background-color: #5a4bcf;
   padding: 10px 20px;
   border-radius: 8px;
 }
@@ -35,9 +35,9 @@ h1 {
 
 .table-container {
   overflow-x: auto;
-  background-color: #fff;
+  background-color: #ffffff;
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
 
 table {
@@ -53,12 +53,12 @@ th, td {
 }
 
 thead {
-  background-color: #6c63ff;
+  background-color: #7a5fff;
   color: white;
 }
 
 tbody tr:nth-child(even) {
-  background-color: #f1f5f9;
+  background-color: #edf2fa; /* azul muy claro */
 }
 
 .status {
@@ -69,12 +69,12 @@ tbody tr:nth-child(even) {
 }
 
 .status.pendiente {
-  background-color: #fbd38d;
+  background-color: #fcdcae;
   color: #744210;
 }
 
 .status.aprobada {
-  background-color: #c6f6d5;
+  background-color: #c8f5ea;
   color: #276749;
 }
 
@@ -91,12 +91,12 @@ tbody tr:nth-child(even) {
 }
 
 .btn.aprobar {
-  background-color: #38a169;
+  background-color: #48bb78;
   color: white;
 }
 
 .btn.aprobar:hover {
-  background-color: #2f855a;
+  background-color: #38a169;
 }
 
 .btn.rechazar {
@@ -109,12 +109,12 @@ tbody tr:nth-child(even) {
 }
 
 .btn.ver {
-  background-color: #3182ce;
+  background-color: #5a67d8; /* morado azulado */
   color: white;
 }
 
 .btn.ver:hover {
-  background-color: #2b6cb0;
+  background-color: #434190;
 }
 
 /* Responsivo */
