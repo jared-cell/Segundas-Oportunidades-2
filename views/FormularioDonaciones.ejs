@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formulario de Donación</title>
-  <link rel="stylesheet" href="styles/FormularioDonaciones.css">
+  <link rel="stylesheet" href="/styles/FormularioDonaciones.css">
 </head>
 <body>
 
@@ -13,20 +13,18 @@
 
   <form id="formDonacion" class="contenedor" novalidate>
 
-    <!-- SECCIÓN: Datos personales -->
     <div class="seccion">
       <h2>Información Personal</h2>
 
       <label for="nombre">Nombre completo:</label>
-      <input type="text" id="nombre" name="nombre" readonly placeholder="Ej. Juan Pérez">
+      <input type="text" id="nombre" name="nombre" readonly placeholder="Ej. Juan Pérez" value="<%= user?.nombre || '' %>">
       <span class="error" id="errorNombre"></span>
 
       <label for="email">Correo electrónico:</label>
-      <input type="email" id="email" name="email" readonly placeholder="Ej. correo@ejemplo.com">
+      <input type="email" id="email" name="email" readonly placeholder="Ej. correo@ejemplo.com" value="<%= user?.correo || '' %>">
       <span class="error" id="errorEmail"></span>
     </div>
 
-    <!-- SECCIÓN: Donación económica -->
     <div class="seccion">
       <h2>Donación Económica</h2>
 
@@ -44,7 +42,6 @@
       <span class="error" id="errorMetodoPago"></span>
     </div>
 
-    <!-- SECCIÓN: Datos de tarjeta -->
     <div class="seccion" id="seccionTarjeta" style="display: none;">
       <h2>Datos de Tarjeta</h2>
 
@@ -65,7 +62,6 @@
       <span class="error" id="errorCvv"></span>
     </div>
 
-    <!-- SECCIÓN: Material donado -->
     <div class="seccion">
       <h2>Donación de Materiales</h2>
 
@@ -81,47 +77,42 @@
       <textarea id="materialOtro" name="materialOtro" rows="3" placeholder="Describe otros materiales..."></textarea>
     </div>
 
-    <!-- Botón de enviar -->
+  
     <div class="boton-contenedor">
-      <button type="submit">Enviar Donación</button>
-    </div>
+  <button type="submit">Enviar Donación</button>
+  <a href="/menu" class="boton-volver">Volver al Menú</a>
+</div>
+
 
   </form>
 </div>
 
-<!-- SCRIPT VALIDACIÓN SIMPLE -->
 <script>
   const form = document.getElementById('formDonacion');
   const metodoPagoRadios = document.querySelectorAll('input[name="metodoPago"]');
   const seccionTarjeta = document.getElementById('seccionTarjeta');
 
-  // Mostrar datos de tarjeta si eligen "tarjeta"
   metodoPagoRadios.forEach(radio => {
     radio.addEventListener('change', function() {
       seccionTarjeta.style.display = (this.value === 'tarjeta') ? 'block' : 'none';
     });
   });
 
-  // Validar número de tarjeta: solo números y 16 dígitos
   const numeroTarjeta = document.getElementById('numeroTarjeta');
   numeroTarjeta.addEventListener('input', function () {
-    this.value = this.value.replace(/\D/g, ''); // Elimina caracteres no numéricos
+    this.value = this.value.replace(/\D/g, '');
   });
 
   form.addEventListener('submit', function(event) {
     let valid = true;
-
-    // Limpia errores anteriores
     document.querySelectorAll('.error').forEach(span => span.textContent = '');
 
-    // Validar datos de tarjeta si eligen tarjeta
     const metodoPagoSeleccionado = document.querySelector('input[name="metodoPago"]:checked');
     if (!metodoPagoSeleccionado) {
       document.getElementById('errorMetodoPago').textContent = 'Seleccione un método de pago.';
       valid = false;
     }
 
-    // Si eligió tarjeta, validar datos de tarjeta
     if (metodoPagoSeleccionado && metodoPagoSeleccionado.value === 'tarjeta') {
       if (numeroTarjeta.value.length !== 16) {
         document.getElementById('errorNumeroTarjeta').textContent = 'El número de tarjeta debe tener exactamente 16 dígitos.';
@@ -129,9 +120,7 @@
       }
     }
 
-    if (!valid) {
-      event.preventDefault();
-    }
+    if (!valid) event.preventDefault();
   });
 </script>
 

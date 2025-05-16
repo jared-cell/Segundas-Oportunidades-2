@@ -123,18 +123,3 @@ button[type="submit"]:hover {
         width: 100%;
     }
 }
-.boton-volver {
-  display: inline-block;
-  margin-left: 15px;
-  padding: 10px 20px;
-  background-color: #777;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
-}
-
-.boton-volver:hover {
-  background-color: #555;
-}
-

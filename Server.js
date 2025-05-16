@@ -1,3 +1,6 @@
+// ============================
+// 📦 IMPORTACIONES Y CONFIG
+// ============================
 const express = require('express');
 const path = require('path');
 const mysql = require('mysql2');
@@ -5,23 +8,27 @@ const session = require('express-session');
 
 const server = express();
 
-// Configurar EJS
+// ============================
+// ⚙️ CONFIGURACIÓN DE EJS Y MIDDLEWARES
+// ============================
 server.set('view engine', 'ejs');
 server.set('views', path.join(__dirname, 'views'));
-
-// Middleware estático y parseo
 server.use(express.static(path.join(__dirname, 'public')));
 server.use(express.urlencoded({ extended: false }));
 
-// Configurar sesión
+// ============================
+// 🔐 CONFIGURACIÓN DE SESIÓN
+// ============================
 server.use(session({
     secret: 'tu_clave_secreta_aqui',
     resave: false,
     saveUninitialized: false,
-    cookie: { maxAge: 600000 } // sesión dura 10 minutos
+    cookie: { maxAge: 600000 } // 10 minutos
 }));
 
-// Conexión a MySQL
+// ============================
+// 🔗 CONEXIÓN A BASE DE DATOS
+// ============================
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -38,22 +45,43 @@ db.connect(err => {
     console.log('✅ Conectado a la base de datos MySQL');
 });
 
-// Página principal
+// ============================
+// 🛡️ MIDDLEWARES DE AUTENTICACIÓN
+// ============================
+function authUser(req, res, next) {
+    if (req.session.user && !req.session.isAdmin) {
+        next();
+    } else {
+        res.redirect('/login');
+    }
+}
+
+function authAdmin(req, res, next) {
+    if (req.session.user && req.session.isAdmin) {
+        next();
+    } else {
+        res.redirect('/login');
+    }
+}
+
+// ============================
+// 🌐 RUTAS PÚBLICAS
+// ============================
 server.get('/', (req, res) => {
     res.render('bienvenido', { title: 'Bienvenido' });
 });
 
-// Mostrar formulario login
 server.get('/login', (req, res) => {
     res.render('Login', { error: null, success: req.query.success || null, title: 'Login' });
 });
 
-// Mostrar formulario registro
 server.get('/registro', (req, res) => {
     res.render('crearCuenta', { error: null, title: 'Crear Cuenta' });
 });
 
-// Registrar usuario
+// ============================
+// 📝 REGISTRO DE USUARIOS
+// ============================
 server.post('/registro', (req, res) => {
     const { nombre, direccion, telefono, correo, password } = req.body;
 
@@ -84,7 +112,9 @@ server.post('/registro', (req, res) => {
     });
 });
 
-// Login unificado (admins por nombre y password, usuarios por correo y password)
+// ============================
+// 🔐 LOGIN DE USUARIOS Y ADMINISTRADORES
+// ============================
 server.post('/login', (req, res) => {
     const { usuario, password } = req.body;
 
@@ -92,11 +122,10 @@ server.post('/login', (req, res) => {
         return res.render('Login', { error: 'Por favor, completa todos los campos.', success: null, title: 'Login' });
     }
 
-    // Verificar si es un correo (contiene "@")
     const esCorreo = usuario.includes('@');
 
     if (esCorreo) {
-        // Es un usuario regular
+        // Login usuario
         db.query('SELECT * FROM usuarios WHERE correo = ? AND password = ?', [usuario, password], (err, userResults) => {
             if (err) {
                 console.error('❌ Error al consultar usuarios:', err);
@@ -112,7 +141,7 @@ server.post('/login', (req, res) => {
             }
         });
     } else {
-        // Es un administrador
+        // Login admin
         db.query('SELECT * FROM administradores WHERE nombre = ? AND password = ?', [usuario, password], (err, adminResults) => {
             if (err) {
                 console.error('❌ Error al consultar administradores:', err);
@@ -130,35 +159,9 @@ server.post('/login', (req, res) => {
     }
 });
 
-// Middleware para proteger rutas de usuarios autenticados
-function authUser(req, res, next) {
-    if (req.session.user && !req.session.isAdmin) {
-        next();
-    } else {
-        res.redirect('/login');
-    }
-}
-
-// Middleware para proteger rutas de administradores
-function authAdmin(req, res, next) {
-    if (req.session.user && req.session.isAdmin) {
-        next();
-    } else {
-        res.redirect('/login');
-    }
-}
-
-// Panel admin
-server.get('/admin_dashboard', authAdmin, (req, res) => {
-    res.render('admin_dashboard', { title: 'Panel de Administrador', user: req.session.user });
-});
-
-// Menú principal usuario protegido
-server.get('/menu', authUser, (req, res) => {
-    res.render('menu', { title: 'Menú Principal', user: req.session.user, success: req.query.success || null });
-});
-
-// Ruta para cerrar sesión
+// ============================
+// 🚪 CERRAR SESIÓN
+// ============================
 server.get('/logout', (req, res) => {
     req.session.destroy(err => {
         if (err) {
@@ -168,7 +171,42 @@ server.get('/logout', (req, res) => {
     });
 });
 
-// Iniciar servidor
+// ============================
+// 🐾 RUTAS AUTENTICADAS USUARIO
+// ============================
+server.get('/menu', authUser, (req, res) => {
+    res.render('Menu', { title: 'Menú Principal', user: req.session.user, success: req.query.success || null });
+});
+
+server.get('/infoadopciones', authUser, (req, res) => {
+    res.render('InfoAdopcion', { title: 'Adopciones', user: req.session.user });
+});
+
+// NUEVA RUTA que pediste para mostrar InfoDonaciones
+server.get('/infodonaciones', authUser, (req, res) => {
+    res.render('InfoDonaciones', { title: 'Donaciones', user: req.session.user });
+});
+
+// Formulario donaciones
+server.get('/formdonacion', authUser, (req, res) => {
+    res.render('FormularioDonaciones', { title: 'Donación', user: req.session.user });
+});
+
+// Acerca del albergue
+server.get('/acerca', authUser, (req, res) => {
+    res.render('AcercaDelAlbergue', { title: 'Acerca del Albergue' });
+});
+
+// ============================
+// 🧑‍💻 PANEL ADMINISTRADOR
+// ============================
+server.get('/admin_dashboard', authAdmin, (req, res) => {
+    res.render('admin_dashboard', { title: 'Panel de Administrador', user: req.session.user });
+});
+
+// ============================
+// 🚀 INICIAR SERVIDOR
+// ============================
 const PORT = 4000;
 server.listen(PORT, () => {
     console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
