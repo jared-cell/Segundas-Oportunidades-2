@@ -1,11 +1,4 @@
-const express = require('express');
-const session = require('express-session');
-const { verificarCorreo, registrarUsuario, loginUsuario, loginAdmin } = require('./bd');
-
-const server = express();
-
-server.use(express.urlencoded({ extended: true }));
-server.use(session({ secret: 'secreto', resave: false, saveUninitialized: true }));
+// ... OMITIDO POR BREVEDAD (las importaciones y configuración inicial) ...
 
 // ============================
 // 📝 REGISTRO DE USUARIOS
@@ -79,4 +72,54 @@ server.post('/login', (req, res) => {
             }
         });
     }
+});
+
+// ============================
+// 🚪 CERRAR SESIÓN
+// ============================
+server.get('/logout', (req, res) => {
+    req.session.destroy(err => {
+        if (err) {
+            console.error('Error al cerrar sesión:', err);
+        }
+        res.redirect('/login');
+    });
+});
+
+// ============================
+// 🐾 RUTAS AUTENTICADAS USUARIO
+// ============================
+server.get('/menu', authUser, (req, res) => {
+    res.render('Menu', { title: 'Menú Principal', user: req.session.user, success: req.query.success || null });
+});
+
+server.get('/infoadopciones', authUser, (req, res) => {
+    res.render('InfoAdopcion', { title: 'Adopciones', user: req.session.user });
+});
+
+server.get('/infodonaciones', authUser, (req, res) => {
+    res.render('InfoDonaciones', { title: 'Donaciones', user: req.session.user });
+});
+
+server.get('/formdonacion', authUser, (req, res) => {
+    res.render('FormularioDonaciones', { title: 'Donación', user: req.session.user });
+});
+
+server.get('/acerca', authUser, (req, res) => {
+    res.render('AcercaDelAlbergue', { title: 'Acerca del Albergue' });
+});
+
+// ============================
+// 🧑‍💻 PANEL ADMINISTRADOR
+// ============================
+server.get('/admin_dashboard', authAdmin, (req, res) => {
+    res.render('admin_dashboard', { title: 'Panel de Administrador', user: req.session.user });
+});
+
+// ============================
+// 🚀 INICIAR SERVIDOR
+// ============================
+const PORT = 4000;
+server.listen(PORT, () => {
+    console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
 });
