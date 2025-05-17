@@ -1,4 +1,11 @@
-// ... OMITIDO POR BREVEDAD (las importaciones y configuración inicial) ...
+const express = require('express');
+const session = require('express-session');
+const { verificarCorreo, registrarUsuario, loginUsuario, loginAdmin } = require('./bd');
+
+const server = express();
+
+server.use(express.urlencoded({ extended: true }));
+server.use(session({ secret: 'secreto', resave: false, saveUninitialized: true }));
 
 // ============================
 // 📝 REGISTRO DE USUARIOS
@@ -10,7 +17,7 @@ server.post('/registro', (req, res) => {
         return res.render('crearCuenta', { error: 'Por favor, completa todos los campos.', title: 'Crear Cuenta' });
     }
 
-    db.query('SELECT * FROM usuarios WHERE correo = ?', [correo], (err, results) => {
+    verificarCorreo(correo, (err, results) => {
         if (err) {
             console.error('❌ Error al verificar correo:', err);
             return res.render('crearCuenta', { error: 'Error en el servidor.', title: 'Crear Cuenta' });
@@ -19,17 +26,13 @@ server.post('/registro', (req, res) => {
             return res.render('crearCuenta', { error: 'Este correo ya está registrado.', title: 'Crear Cuenta' });
         }
 
-        db.query(
-            'INSERT INTO usuarios (nombre, direccion, telefono, correo, password) VALUES (?, ?, ?, ?, ?)',
-            [nombre, direccion, telefono, correo, password],
-            err => {
-                if (err) {
-                    console.error('❌ Error al insertar usuario:', err);
-                    return res.render('crearCuenta', { error: 'Error al registrar el usuario.', title: 'Crear Cuenta' });
-                }
-                res.redirect('/login?success=Registro completado con éxito. Ahora puedes iniciar sesión.');
+        registrarUsuario({ nombre, direccion, telefono, correo, password }, err => {
+            if (err) {
+                console.error('❌ Error al registrar usuario:', err);
+                return res.render('crearCuenta', { error: 'Error al registrar el usuario.', title: 'Crear Cuenta' });
             }
-        );
+            res.redirect('/login?success=Registro completado con éxito. Ahora puedes iniciar sesión.');
+        });
     });
 });
 
@@ -46,7 +49,7 @@ server.post('/login', (req, res) => {
     const esCorreo = usuario.includes('@');
 
     if (esCorreo) {
-        db.query('SELECT * FROM usuarios WHERE correo = ? AND password = ?', [usuario, password], (err, userResults) => {
+        loginUsuario(usuario, password, (err, userResults) => {
             if (err) {
                 console.error('❌ Error al consultar usuarios:', err);
                 return res.render('Login', { error: 'Error en el servidor.', success: null, title: 'Login' });
@@ -61,7 +64,7 @@ server.post('/login', (req, res) => {
             }
         });
     } else {
-        db.query('SELECT * FROM administradores WHERE nombre = ? AND password = ?', [usuario, password], (err, adminResults) => {
+        loginAdmin(usuario, password, (err, adminResults) => {
             if (err) {
                 console.error('❌ Error al consultar administradores:', err);
                 return res.render('Login', { error: 'Error en el servidor.', success: null, title: 'Login' });
@@ -74,6 +77,6 @@ server.post('/login', (req, res) => {
             } else {
                 return res.render('Login', { error: 'Nombre o contraseña incorrectos.', success: null, title: 'Login' });
             }
-        });
-    }
+        });
+    }
 });
