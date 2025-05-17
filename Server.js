@@ -1,4 +1,83 @@
-// ... OMITIDO POR BREVEDAD (las importaciones y configuración inicial) ...
+// ============================
+// 📦 IMPORTACIONES Y CONFIG
+// ============================
+const express = require('express');
+const path = require('path');
+const mysql = require('mysql2');
+const session = require('express-session');
+
+const server = express();
+
+// ============================
+// ⚙️ CONFIGURACIÓN DE EJS Y MIDDLEWARES
+// ============================
+server.set('view engine', 'ejs');
+server.set('views', path.join(__dirname, 'views'));
+server.use(express.static(path.join(__dirname, 'public')));
+server.use(express.urlencoded({ extended: false }));
+
+// ============================
+// 🔐 CONFIGURACIÓN DE SESIÓN
+// ============================
+server.use(session({
+    secret: 'tu_clave_secreta_aqui',
+    resave: false,
+    saveUninitialized: false,
+    cookie: { maxAge: 600000 } // 10 minutos
+}));
+
+// ============================
+// 🔗 CONEXIÓN A BASE DE DATOS
+// ============================
+const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '', // asegúrate de poner aquí tu password real si lo tienes
+    database: 'albergue',
+    charset: 'utf8mb4'
+});
+
+db.connect(err => {
+    if (err) {
+        console.error('❌ Error de conexión a MySQL:', err.message);
+        process.exit(1);
+    }
+    console.log('✅ Conectado a la base de datos MySQL');
+});
+
+// ============================
+// 🛡️ MIDDLEWARES DE AUTENTICACIÓN
+// ============================
+function authUser(req, res, next) {
+    if (req.session.user && !req.session.isAdmin) {
+        next();
+    } else {
+        res.redirect('/login');
+    }
+}
+
+function authAdmin(req, res, next) {
+    if (req.session.user && req.session.isAdmin) {
+        next();
+    } else {
+        res.redirect('/login');
+    }
+}
+
+// ============================
+// 🌐 RUTAS PÚBLICAS
+// ============================
+server.get('/', (req, res) => {
+    res.render('bienvenido', { title: 'Bienvenido' });
+});
+
+server.get('/login', (req, res) => {
+    res.render('Login', { error: null, success: req.query.success || null, title: 'Login' });
+});
+
+server.get('/registro', (req, res) => {
+    res.render('crearCuenta', { error: null, title: 'Crear Cuenta' });
+});
 
 // ============================
 // 📝 REGISTRO DE USUARIOS
@@ -74,6 +153,56 @@ server.post('/login', (req, res) => {
             } else {
                 return res.render('Login', { error: 'Nombre o contraseña incorrectos.', success: null, title: 'Login' });
             }
-        });
-    }
+        });
+    }
+});
+
+// ============================
+// 🚪 CERRAR SESIÓN
+// ============================
+server.get('/logout', (req, res) => {
+    req.session.destroy(err => {
+        if (err) {
+            console.error('Error al cerrar sesión:', err);
+        }
+        res.redirect('/login');
+    });
+});
+
+// ============================
+// 🐾 RUTAS AUTENTICADAS USUARIO
+// ============================
+server.get('/menu', authUser, (req, res) => {
+    res.render('Menu', { title: 'Menú Principal', user: req.session.user, success: req.query.success || null });
+});
+
+server.get('/infoadopciones', authUser, (req, res) => {
+    res.render('InfoAdopcion', { title: 'Adopciones', user: req.session.user });
+});
+
+server.get('/infodonaciones', authUser, (req, res) => {
+    res.render('InfoDonaciones', { title: 'Donaciones', user: req.session.user });
+});
+
+server.get('/formdonacion', authUser, (req, res) => {
+    res.render('FormularioDonaciones', { title: 'Donación', user: req.session.user });
+});
+
+server.get('/acerca', authUser, (req, res) => {
+    res.render('AcercaDelAlbergue', { title: 'Acerca del Albergue' });
+});
+
+// ============================
+// 🧑‍💻 PANEL ADMINISTRADOR
+// ============================
+server.get('/admin_dashboard', authAdmin, (req, res) => {
+    res.render('admin_dashboard', { title: 'Panel de Administrador', user: req.session.user });
+});
+
+// ============================
+// 🚀 INICIAR SERVIDOR
+// ============================
+const PORT = 4000;
+server.listen(PORT, () => {
+    console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
 });
