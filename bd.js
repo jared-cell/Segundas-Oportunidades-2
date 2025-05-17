@@ -1,46 +1,45 @@
+// bd.js
 const mysql = require('mysql2');
 
+// Configuración de conexión
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: '', // tu contraseña
-    database: 'Alverge'
+    password: '',
+    database: 'albergue',
+    charset: 'utf8mb4'
 });
 
+// Conectar
 db.connect(err => {
     if (err) {
-        console.error('❌ Error al conectar a la base de datos:', err);
-    } else {
-        console.log('✅ Conexión a la base de datos exitosa');
+        console.error('❌ Error de conexión a MySQL:', err.message);
+        process.exit(1);
     }
+    console.log('✅ Conectado a la base de datos MySQL');
 });
+
+// Funciones exportadas
 
 function verificarCorreo(correo, callback) {
     db.query('SELECT * FROM usuarios WHERE correo = ?', [correo], callback);
 }
 
-function registrarUsuario({ nombre, direccion, telefono, correo, password }, callback) {
+function registrarUsuario(usuario, callback) {
+    const { nombre, direccion, telefono, correo, paswsword } = usuario;
     db.query(
-        'INSERT INTO usuarios (nombre, direccion, telefono, correo, password) VALUES (?, ?, ?, ?, ?)',
-        [nombre, direccion, telefono, correo, password],
+        'INSERT INTO usuarios (nombre, direccion, telefono, correo, paswsword) VALUES (?, ?, ?, ?, ?)',
+        [nombre, direccion, telefono, correo, paswsword],
         callback
     );
 }
 
-function loginUsuario(correo, password, callback) {
-    db.query(
-        'SELECT * FROM usuarios WHERE correo = ? AND password = ?',
-        [correo, password],
-        callback
-    );
+function loginUsuario(correo, paswsword, callback) {
+    db.query('SELECT * FROM usuarios WHERE correo = ? AND paswsword = ?', [correo, paswsword], callback);
 }
 
-function loginAdmin(nombre, password, callback) {
-    db.query(
-        'SELECT * FROM administradores WHERE nombre = ? AND password = ?',
-        [nombre, password],
-        callback
-    );
+function loginAdmin(nombre, paswsword, callback) {
+    db.query('SELECT * FROM administradores WHERE nombre = ? AND paswsword = ?', [nombre, paswsword], callback);
 }
 
 module.exports = {

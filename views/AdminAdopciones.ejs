@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Gestión de Adopciones</title>
+  <link rel="stylesheet" href="/styles/AdminAdopciones.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="top-bar">
+    <a href="/admin_dashboard" class="back-button">← Volver al Panel de Administración</a>
+  </div>
+
+  <div class="container">
+    <h1>Solicitudes de Adopción</h1>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Adoptante</th>
+            <th>Correo</th>
+            <th>Teléfono</th>
+            <th>Perrito</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% solicitudes.forEach(solicitud => { %>
+            <tr>
+              <td><%= solicitud.adoptante %></td>
+              <td><%= solicitud.correo %></td>
+              <td><%= solicitud.telefono %></td>
+              <td><%= solicitud.nombre_perro %></td>
+              <td>
+                <span class="status <%= solicitud.estado.toLowerCase() %>">
+                  <%= solicitud.estado %>
+                </span>
+              </td>
+              <td>
+                <% if (solicitud.estado === 'Pendiente') { %>
+                  <form action="/admin/adopciones/aprobar" method="POST" style="display:inline;">
+                    <input type="hidden" name="id" value="<%= solicitud.id %>">
+                    <button class="btn aprobar">✅ Aprobar</button>
+                  </form>
+                  <form action="/admin/adopciones/rechazar" method="POST" style="display:inline;">
+                    <input type="hidden" name="id" value="<%= solicitud.id %>">
+                    <button class="btn rechazar">❌ Rechazar</button>
+                  </form>
+                <% } else { %>
+                  <form action="/admin/adopciones/ver" method="GET" style="display:inline;">
+                    <input type="hidden" name="id" value="<%= solicitud.id %>">
+                    <button class="btn ver">👁️ Ver Detalles</button>
+                  </form>
+                <% } %>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
