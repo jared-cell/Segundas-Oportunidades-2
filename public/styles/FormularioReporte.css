@@ -1,127 +1,147 @@
-/* RESET GENERAL */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+/* FormularioReporte.css - Estilo Reporte Canino */
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to right, #e3f2fd, #ede7f6); /* Azul claro a lila muy suave */
-    padding: 40px 20px;
-    color: #333;
-}
-
-/* CONTENEDOR PRINCIPAL */
+/* Contenedor general */
 .formulario {
-    max-width: 800px;
-    margin: auto;
-    background: #ffffff;
-    padding: 30px 40px;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 30px auto;
+  background: #fffaf0; /* color crema, cálido */
+  padding: 30px 35px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(139, 69, 19, 0.2); /* sombra marrón suave */
+  font-family: 'Comic Sans MS', cursive, sans-serif; /* más amigable */
+  color: #4e342e; /* marrón oscuro */
+  border: 2px solid #a0522d; /* borde marrón madera */
 }
 
-/* TÍTULOS */
-.formulario h1 {
-    text-align: center;
-    margin-bottom: 25px;
-    color: #5e35b1; /* Morado profundo */
+/* Títulos */
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #d2691e; /* chocolate */
+  text-shadow: 1px 1px 2px #8b4513;
+  font-weight: bold;
+  font-size: 2.2em;
 }
 
 .seccion h2 {
-    color: #3949ab; /* Azul medio con un toque morado */
-    margin-top: 20px;
-    margin-bottom: 10px;
-    font-size: 20px;
+  margin-bottom: 18px;
+  color: #8b4513;
+  border-bottom: 3px solid #d2691e;
+  padding-bottom: 8px;
+  font-weight: 700;
 }
 
-/* CAMPOS DE ENTRADA */
+/* Labels */
+label {
+  display: block;
+  margin-top: 16px;
+  font-weight: 600;
+  font-size: 1.05em;
+}
+
+/* Inputs y textarea */
 input[type="text"],
 input[type="email"],
-input[type="password"],
-input[type="month"],
+input[type="date"],
 textarea {
-    width: 100%;
-    padding: 12px;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    border: 1px solid #b39ddb; /* Lila pastel */
-    border-radius: 12px;
-    font-size: 16px;
-    background-color: #f3e5f5; /* Fondo lavanda claro */
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  padding: 10px 14px;
+  margin-top: 8px;
+  border: 2px solid #a0522d;
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: border-color 0.3s ease;
+  box-shadow: inset 1px 1px 5px #f5deb3; /* interior cálido */
+  background-color: #fff8dc; /* beige suave */
 }
 
-input:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
 textarea:focus {
-    border-color: #7e57c2; /* Morado intermedio */
-    box-shadow: 0 0 5px rgba(126, 87, 194, 0.4);
-    outline: none;
+  border-color: #d2691e;
+  outline: none;
+  box-shadow: 0 0 8px #d2691e;
 }
 
-/* CHECKBOXES Y RADIO */
-.checkbox-group {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    margin-top: 10px;
+/* Radios y checkboxes */
+.checkbox-group label,
+.radio-group label {
+  font-weight: 500;
+  display: inline-block;
+  margin-right: 22px;
+  cursor: pointer;
+  font-size: 1em;
+  color: #5d4037;
 }
 
-.checkbox-group label {
-    font-size: 15px;
+input[type="radio"],
+input[type="checkbox"] {
+  margin-right: 6px;
+  cursor: pointer;
+  accent-color: #d2691e; /* para navegadores que soportan */
 }
 
-/* ERRORES */
-.error {
-    color: #d32f2f;
-    font-size: 13px;
-    margin-top: -10px;
-    margin-bottom: 10px;
-}
-
-/* BOTÓN DE ENVÍO */
+/* Botones contenedor */
 .boton-contenedor {
-    text-align: center;
-    margin-top: 30px;
+  margin-top: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
+/* Botón Enviar */
 button[type="submit"] {
-    background-color: #673ab7; /* Morado vibrante */
-    color: white;
-    padding: 14px 32px;
-    font-size: 17px;
-    font-weight: bold;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+  background-color: #d2691e; /* chocolate cálido */
+  border: none;
+  padding: 14px 34px;
+  color: #fffaf0;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 5px 12px rgba(210, 105, 30, 0.7);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
 }
 
 button[type="submit"]:hover {
-    background-color: #5e35b1; /* Un poco más oscuro */
-    transform: scale(1.03);
+  background-color: #a0522d;
+  box-shadow: 0 7px 18px rgba(160, 82, 45, 0.9);
 }
 
-/* RESPONSIVE */
-@media (max-width: 600px) {
-    .formulario {
-        padding: 25px 20px;
-    }
+/* Botón Volver */
+.boton-volver {
+  background-color: transparent;
+  color: #a0522d;
+  border: 3px solid #a0522d;
+  padding: 12px 30px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-    input[type="text"],
-    input[type="email"],
-    input[type="password"],
-    input[type="month"],
-    textarea {
-        font-size: 15px;
-    }
+.boton-volver:hover {
+  background-color: #a0522d;
+  color: #fffaf0;
+  box-shadow: 0 6px 14px rgba(160, 82, 45, 0.8);
+}
 
-    .seccion h2 {
-        font-size: 18px;
-    }
+/* Mensajes de error */
+.error {
+  color: #b71c1c;
+  font-size: 14px;
+  margin-top: 6px;
+  font-weight: 600;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
-    button[type="submit"] {
-        width:100%;
-    }
+/* Estilo extra para texto y checkbox agrupados */
+.checkbox-group, .radio-group {
+  margin-top: 6px;
+  margin-bottom: 12px;
 }

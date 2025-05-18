@@ -1,43 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title><%= title %></title>
-    <link rel="stylesheet" href="/styles/Menu.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/styles/Menu.css" />
 </head>
 <body>
-    <div class="header">
-        <h1>Bienvenido <%= user.nombre %> al Albergue</h1>
-        <p>Haz clic en cualquiera de los recuadros para navegar por la información o hacer una acción.</p>
-        <a href="/logout">Cerrar sesión</a>
-    </div>
+  <header class="header">
+    <h1>Bienvenido <%= user ? user.nombre : 'invitado' %> al Albergue</h1>
+    <p>Haz clic en cualquiera de los recuadros para navegar por la información o hacer una acción.</p>
+    <a href="/logout">Cerrar sesión</a>
+  </header>
 
-    <div class="grid-container">
-        <!-- 🐾 Acerca del Albergue -->
-        <div class="grid-item" onclick="location.href='/acerca'">
-            <h2>🐾 Acerca del Albergue</h2>
-            <p>Conoce nuestra misión, visión y valores.</p>
-        </div>
+  <main class="grid-container">
+  <a href="/acerca_del_albergue" class="grid-item">
+    <h2>🐾 Acerca del Albergue</h2>
+    <p>Conoce nuestra misión, visión y valores.</p>
+  </a>
 
-        <!-- 🏠 Adopciones -->
-       <div class="grid-item" onclick="location.href='/infoadopciones'">
+  <a href="/perros" class="grid-item">
     <h2>🏠 Adopciones</h2>
     <p>Explora perros disponibles y cómo adoptar.</p>
-</div>
+  </a>
 
+  <a href="/info_donaciones" class="grid-item">
+    <h2>💰 Donaciones</h2>
+    <p>Apoya con alimentos, dinero o tiempo voluntario.</p>
+  </a>
 
-        <!-- 💰 Donaciones -->
-        <div class="grid-item" onclick="location.href='/infodonaciones'">
-            <h2>💰 Donaciones</h2>
-            <p>Apoya con alimentos, dinero o tiempo voluntario.</p>
-        </div>
+  <a href="/form_reporte" class="grid-item">
+    <h2>📢 Reporte</h2>
+    <p>Denuncia casos de abandono o maltrato animal.</p>
+  </a>
+</main>
 
-        <!-- 📢 Reportes -->
-        <div class="grid-item" onclick="location.href='/reportes'">
-            <h2>📢 Reporte</h2>
-            <p>Denuncia casos de abandono o maltrato animal.</p>
-        </div>
-    </div>
 </body>
 </html>

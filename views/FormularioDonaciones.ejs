@@ -1,27 +1,37 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Formulario de Donación</title>
-  <link rel="stylesheet" href="/styles/FormularioDonaciones.css">
+  <link rel="stylesheet" href="/styles/FormularioDonaciones.css" />
 </head>
 <body>
 
 <div class="formulario">
   <h1>Formulario de Donación</h1>
 
-  <form id="formDonacion" class="contenedor" novalidate>
+  <% if (error) { %>
+    <p style="color: red; font-weight: bold;"><%= error %></p>
+  <% } %>
+  <% if (success) { %>
+    <p style="color: green; font-weight: bold;"><%= success %></p>
+  <% } %>
+
+  <form id="formDonacion" action="/donaciones/guardar" method="POST" class="contenedor" novalidate>
+
+    <!-- Campo oculto id_usuario -->
+    <input type="hidden" name="id_usuario" value="<%= user?.id || '' %>" />
 
     <div class="seccion">
       <h2>Información Personal</h2>
 
       <label for="nombre">Nombre completo:</label>
-      <input type="text" id="nombre" name="nombre" readonly placeholder="Ej. Juan Pérez" value="<%= user?.nombre || '' %>">
+      <input type="text" id="nombre" name="nombre" value="<%= user?.nombre || '' %>" readonly>
       <span class="error" id="errorNombre"></span>
 
       <label for="email">Correo electrónico:</label>
-      <input type="email" id="email" name="email" readonly placeholder="Ej. correo@ejemplo.com" value="<%= user?.correo || '' %>">
+      <input type="email" id="email" name="email" value="<%= user?.correo || '' %>" readonly>
       <span class="error" id="errorEmail"></span>
     </div>
 
@@ -29,12 +39,12 @@
       <h2>Donación Económica</h2>
 
       <label for="monto">Monto a donar:</label>
-      <input type="text" id="monto" name="monto" placeholder="$0.00" inputmode="numeric">
+      <input type="number" id="monto" name="monto" placeholder="0.00" min="0.01" step="0.01" inputmode="decimal" required>
       <span class="error" id="errorMonto"></span>
 
       <label>Método de pago:</label>
       <div class="checkbox-group">
-        <label><input type="radio" name="metodoPago" value="tarjeta"> Tarjeta de crédito/débito</label>
+        <label><input type="radio" name="metodoPago" value="tarjeta" required> Tarjeta de crédito/débito</label>
         <label><input type="radio" name="metodoPago" value="transferencia"> Transferencia bancaria</label>
         <label><input type="radio" name="metodoPago" value="paypal"> PayPal</label>
         <label><input type="radio" name="metodoPago" value="otro"> Otro</label>
@@ -67,22 +77,20 @@
 
       <label>Tipo de material:</label>
       <div class="checkbox-group">
-        <label><input type="checkbox" name="material[]" value="comida"> Pienso / Comida húmeda</label>
-        <label><input type="checkbox" name="material[]" value="mantas"> Mantas / Camas</label>
-        <label><input type="checkbox" name="material[]" value="medicamentos"> Medicamentos / Material veterinario</label>
-        <label><input type="checkbox" name="material[]" value="juguetes"> Juguetes / Correas</label>
+        <label><input type="checkbox" name="material" value="comida"> Pienso / Comida húmeda</label>
+        <label><input type="checkbox" name="material" value="mantas"> Mantas / Camas</label>
+        <label><input type="checkbox" name="material" value="medicamentos"> Medicamentos / Material veterinario</label>
+        <label><input type="checkbox" name="material" value="juguetes"> Juguetes / Correas</label>
       </div>
 
       <label for="materialOtro">Otro (especificar):</label>
       <textarea id="materialOtro" name="materialOtro" rows="3" placeholder="Describe otros materiales..."></textarea>
     </div>
 
-  
     <div class="boton-contenedor">
-  <button type="submit">Enviar Donación</button>
-  <a href="/menu" class="boton-volver">Volver al Menú</a>
-</div>
-
+      <button type="submit">Enviar Donación</button>
+      <a href="/menu" class="boton-volver">Volver al Menú</a>
+    </div>
 
   </form>
 </div>
@@ -91,19 +99,19 @@
   const form = document.getElementById('formDonacion');
   const metodoPagoRadios = document.querySelectorAll('input[name="metodoPago"]');
   const seccionTarjeta = document.getElementById('seccionTarjeta');
+  const numeroTarjeta = document.getElementById('numeroTarjeta');
 
   metodoPagoRadios.forEach(radio => {
-    radio.addEventListener('change', function() {
+    radio.addEventListener('change', function () {
       seccionTarjeta.style.display = (this.value === 'tarjeta') ? 'block' : 'none';
     });
   });
 
-  const numeroTarjeta = document.getElementById('numeroTarjeta');
   numeroTarjeta.addEventListener('input', function () {
     this.value = this.value.replace(/\D/g, '');
   });
 
-  form.addEventListener('submit', function(event) {
+  form.addEventListener('submit', function (event) {
     let valid = true;
     document.querySelectorAll('.error').forEach(span => span.textContent = '');
 
@@ -118,6 +126,13 @@
         document.getElementById('errorNumeroTarjeta').textContent = 'El número de tarjeta debe tener exactamente 16 dígitos.';
         valid = false;
       }
+      // Podrías agregar más validaciones de tarjeta aquí (nombreTarjeta, fechaVencimiento, cvv)
+    }
+
+    const monto = parseFloat(document.getElementById('monto').value);
+    if (isNaN(monto) || monto <= 0) {
+      document.getElementById('errorMonto').textContent = 'Ingrese un monto válido mayor a 0.';
+      valid = false;
     }
 
     if (!valid) event.preventDefault();

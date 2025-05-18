@@ -1,78 +1,118 @@
+/* ======= Estilos globales para el contenedor principal ======= */
 body {
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(to bottom right, #E3F2FD, #E1D5FA); /* Azul pastel a lila claro */
-    font-family: 'Arial', sans-serif;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #B8E4F0, #D3C4F3, #C7EBD5);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  color: #333;
 }
 
 .container {
-    width: 90%;
-    margin: auto;
-    padding: 20px;
+  max-width: 800px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  padding: 2rem 3rem;
 }
 
-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
+/* ======= Header ======= */
 header h1 {
-    font-size: 48px;
-    color: #5E35B1; /* Morado profundo suave */
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #4B3F72;
 }
 
+/* ======= Info boxes ======= */
 .info-boxes {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .box {
-    background-color: #FFFFFF;
-    border: 1px solid #C5CAE9; /* Azul-lila muy suave */
-    border-radius: 15px;
-    padding: 20px;
-    width: 45%;
-    min-width: 300px;
-    color: #3A3A4F; /* Gris azulado */
-    text-align: justify;
-    font-size: 16px;
-    box-shadow: 0 4px 12px rgba(93, 64, 170, 0.07);
+  background-color: #A6E3B9; /* Verde menta suave */
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #2f2f2f;
 }
 
+/* ======= Sección de imágenes (vacía por ahora) ======= */
 .image-section {
-    text-align: center;
-    margin-bottom: 30px;
+  height: 180px; /* espacio reservado */
+  margin-bottom: 2rem;
+  border-radius: 15px;
+  background: #D3C4F3; /* lila suave */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #6e6e6e;
+  font-style: italic;
+  user-select: none;
 }
 
-.image-section img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    border: 3px solid #B3E5FC; /* Azul pastel claro */
-}
-
+/* ======= Botones ======= */
 .button-section {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
-.adopt-button,
 .menu-button {
-    background-color: #9575CD; /* Morado lavanda */
-    color: #FFFFFF;
-    padding: 12px 30px;
-    border-radius: 20px;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(74, 60, 134, 0.3);
+  color: #fff;
+  user-select: none;
 }
 
-.adopt-button:hover,
-.menu-button:hover {
-    background-color: #7E57C2; /* Morado más oscuro */
+.adopt-button {
+  background-color: #4B3F72; /* Morado grisáceo profundo */
+}
+
+.adopt-button:hover {
+  background-color: #392d59;
+  transform: scale(1.05);
+}
+
+.back-button {
+  background-color: #A6E3B9; /* Verde menta suave */
+  color: #4B3F72;
+  border: 2px solid #4B3F72;
+}
+
+.back-button:hover {
+  background-color: #90D6A5;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* ======= Responsive ======= */
+@media (max-width: 600px) {
+  .container {
+    padding: 1.5rem 1.5rem;
+  }
+  .button-section {
+    flex-direction: column;
+  }
+  .menu-button {
+    width: 100%;
+    text-align: center;
+  }
 }

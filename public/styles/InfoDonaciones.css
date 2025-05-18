@@ -13,14 +13,14 @@ body {
     background: #FFFFFF;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
-    animation: fadeIn 1s ease-in-out;
+    /* animation eliminada */
 }
 
 header {
     text-align: center;
     padding-bottom: 20px;
     border-bottom: 2px solid #D1C4E9; /* Lila pastel */
-    animation: slideDown 1s ease-out;
+    /* animation eliminada */
 }
 
 header h1 {
@@ -36,7 +36,7 @@ header h1 {
     font-size: 1.2rem;
     text-align: justify;
     color: #555;
-    animation: fadeIn 1.2s ease-in-out;
+    /* animation eliminada */
 }
 
 .button-section {
@@ -92,23 +92,4 @@ header h1 {
     box-shadow: 0 4px 6px rgba(79, 195, 247, 0.3);
 }
 
-/* Animaciones */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes slideDown {
-    from {
-        transform: translateY(-20px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-}
-}
+/* Se eliminaron las animaciones @keyframes */
