@@ -10,14 +10,28 @@
 <div class="formulario">
   <h1>Formulario de Donación</h1>
 
+<<<<<<< HEAD
   <form id="formDonacion" class="contenedor" novalidate method="POST" action="/donaciones/guardar">
     <!-- Campo oculto para el ID del usuario -->
+=======
+  <% if (error) { %>
+    <p style="color: red; font-weight: bold;"><%= error %></p>
+  <% } %>
+  <% if (success) { %>
+    <p style="color: green; font-weight: bold;"><%= success %></p>
+  <% } %>
+
+  <form id="formDonacion" action="/donaciones/guardar" method="POST" class="contenedor" novalidate>
+
+    <!-- Campo oculto id_usuario -->
+>>>>>>> c001f92c18387878fd31110a8302fd268c3734e3
     <input type="hidden" name="id_usuario" value="<%= user?.id || '' %>" />
 
     <!-- Información Personal -->
     <div class="seccion">
       <h2>Información Personal</h2>
       <label for="nombre">Nombre completo:</label>
+<<<<<<< HEAD
       <input
         type="text"
         id="nombre"
@@ -36,12 +50,21 @@
         placeholder="Ej. correo@ejemplo.com"
         value="<%= user?.correo || '' %>"
       />
+=======
+      <input type="text" id="nombre" name="nombre" value="<%= user?.nombre || '' %>" readonly>
+      <span class="error" id="errorNombre"></span>
+
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" name="email" value="<%= user?.correo || '' %>" readonly>
+      <span class="error" id="errorEmail"></span>
+>>>>>>> c001f92c18387878fd31110a8302fd268c3734e3
     </div>
 
     <!-- Donación Económica -->
     <div class="seccion">
       <h2>Donación Económica</h2>
       <label for="monto">Monto a donar:</label>
+<<<<<<< HEAD
       <input
         type="number"
         id="monto"
@@ -78,6 +101,17 @@
             <%= formData?.metodoPago === 'paypal' ? 'checked' : '' %>
           /> PayPal
         </label>
+=======
+      <input type="number" id="monto" name="monto" placeholder="0.00" min="0.01" step="0.01" inputmode="decimal" required>
+      <span class="error" id="errorMonto"></span>
+
+      <label>Método de pago:</label>
+      <div class="checkbox-group">
+        <label><input type="radio" name="metodoPago" value="tarjeta" required> Tarjeta de crédito/débito</label>
+        <label><input type="radio" name="metodoPago" value="transferencia"> Transferencia bancaria</label>
+        <label><input type="radio" name="metodoPago" value="paypal"> PayPal</label>
+        <label><input type="radio" name="metodoPago" value="otro"> Otro</label>
+>>>>>>> c001f92c18387878fd31110a8302fd268c3734e3
       </div>
     </div>
 
@@ -86,6 +120,7 @@
       <h2>Donación de Materiales</h2>
       <label>Tipo de material:</label>
       <div class="checkbox-group">
+<<<<<<< HEAD
         <label>
           <input
             type="checkbox"
@@ -126,6 +161,12 @@
             <%= (formData?.material && formData.material.includes('otro')) ? 'checked' : '' %>
           /> Otro
         </label>
+=======
+        <label><input type="checkbox" name="material" value="comida"> Pienso / Comida húmeda</label>
+        <label><input type="checkbox" name="material" value="mantas"> Mantas / Camas</label>
+        <label><input type="checkbox" name="material" value="medicamentos"> Medicamentos / Material veterinario</label>
+        <label><input type="checkbox" name="material" value="juguetes"> Juguetes / Correas</label>
+>>>>>>> c001f92c18387878fd31110a8302fd268c3734e3
       </div>
 
       <label for="materialOtro">Otro (especificar):</label>
@@ -136,17 +177,41 @@
         placeholder="Describe otros materiales..."><%= formData?.materialOtro || '' %></textarea>
     </div>
 
+<<<<<<< HEAD
     <!-- Botones -->
+=======
+>>>>>>> c001f92c18387878fd31110a8302fd268c3734e3
     <div class="boton-contenedor">
       <button type="submit">Enviar Donación</button>
       <a href="/menu" class="boton-volver">Volver al Menú</a>
     </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> c001f92c18387878fd31110a8302fd268c3734e3
   </form>
 </div>
 
 <script>
   const form = document.getElementById('formDonacion');
+<<<<<<< HEAD
 
+=======
+  const metodoPagoRadios = document.querySelectorAll('input[name="metodoPago"]');
+  const seccionTarjeta = document.getElementById('seccionTarjeta');
+  const numeroTarjeta = document.getElementById('numeroTarjeta');
+
+  metodoPagoRadios.forEach(radio => {
+    radio.addEventListener('change', function () {
+      seccionTarjeta.style.display = (this.value === 'tarjeta') ? 'block' : 'none';
+    });
+  });
+
+  numeroTarjeta.addEventListener('input', function () {
+    this.value = this.value.replace(/\D/g, '');
+  });
+
+>>>>>>> c001f92c18387878fd31110a8302fd268c3734e3
   form.addEventListener('submit', function (event) {
     let valid = true;
 
@@ -167,6 +232,13 @@
         metodoPagoSeleccionado = radios[i].value;
         break;
       }
+      // Podrías agregar más validaciones de tarjeta aquí (nombreTarjeta, fechaVencimiento, cvv)
+    }
+
+    const monto = parseFloat(document.getElementById('monto').value);
+    if (isNaN(monto) || monto <= 0) {
+      document.getElementById('errorMonto').textContent = 'Ingrese un monto válido mayor a 0.';
+      valid = false;
     }
 
     if (!metodoPagoSeleccionado) {

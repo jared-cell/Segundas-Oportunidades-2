@@ -23,7 +23,11 @@
           <img src="/imagenes/<%= perro.imagen %>" alt="Foto de <%= perro.nombre %>" />
           <h3><%= perro.nombre %></h3>
           <p><strong>Raza:</strong> <%= perro.raza %></p>
+<<<<<<< HEAD
           <a href="/perros/<%= perro.id %>" class="btn-detalle" aria-describedby="detalle-<%= perro.id %>">Ver más detalles</a>
+=======
+          <a href="/detallesperros/<%= perro.id %>" class="btn-detalle" aria-describedby="detalle-<%= perro.id %>">Ver más detalles</a>
+>>>>>>> c001f92c18387878fd31110a8302fd268c3734e3
           <span id="detalle-<%= perro.id %>" class="visually-hidden">Detalles completos del perro <%= perro.nombre %></span>
         </article>
       <% }) %>
