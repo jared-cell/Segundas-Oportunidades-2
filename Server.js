@@ -1,8 +1,9 @@
-<<<<<<< HEAD
+// ============================
+// 📦 IMPORTACIONES Y CONFIGURACIÓN INICIAL
+// ============================
 const express = require('express');
 const path = require('path');
 const session = require('express-session');
-
 const {
   verificarCorreo,
   registrarUsuario,
@@ -16,49 +17,50 @@ const {
 
 const app = express();
 
-// 🌟 Configuración vistas y archivos estáticos 🌟
+// ============================
+// ⚙️ CONFIGURACIÓN DE VISTAS Y MIDDLEWARES
+// ============================
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
-
-// 📝 Middleware para leer datos de formulario y JSON 📝
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// 🔐 Configuración de sesiones 🔐
+// ============================
+// 🔒 CONFIGURACIÓN DE SESIÓN
+// ============================
 app.use(
   session({
-    secret: 'proyecto_secreto_segundas_oportunidades',
+    secret: process.env.SESSION_SECRET || 'proyecto_secreto_segundas_oportunidades',
     resave: false,
     saveUninitialized: false,
     cookie: { maxAge: 600000 }, // 10 minutos
   })
 );
 
-// 🚦 Middleware para proteger rutas de usuario 🚦
+// ============================
+// 🛡️ MIDDLEWARES DE AUTENTICACIÓN
+// ============================
 function authUser(req, res, next) {
-  if (req.session.user && !req.session.isAdmin) {
-    return next();
-  }
+  if (req.session.user && !req.session.isAdmin) return next();
   res.redirect('/login?error=Por+favor+inicia+sesión+como+usuario');
 }
 
-// 🚦 Middleware para proteger rutas de administrador 🚦
 function authAdmin(req, res, next) {
-  if (req.session.user && req.session.isAdmin) {
-    return next();
-  }
+  if (req.session.user && req.session.isAdmin) return next();
   res.redirect('/login?error=Por+favor+inicia+sesión+como+administrador');
 }
 
-// ---------- RUTAS PÚBLICAS ----------
+// ============================
+// 🌐 RUTAS PÚBLICAS
+// ============================
 
-// 🏠 Página principal
+// Página principal
 app.get('/', (req, res) => {
   res.render('bienvenido', { title: 'Bienvenido' });
 });
 
-// 🔑 Login
+// Login
 app.get('/login', (req, res) => {
   res.render('Login', {
     error: req.query.error || null,
@@ -67,106 +69,28 @@ app.get('/login', (req, res) => {
   });
 });
 
-// 📝 Registro de usuarios
+// Registro de usuarios
 app.get('/registro', (req, res) => {
   res.render('crearCuenta', { error: null, title: 'Crear Cuenta' });
 });
 
+// Registro de usuarios (POST)
 app.post('/registro', async (req, res) => {
   const { nombre, direccion, telefono, correo, password } = req.body;
-
   if (!nombre || !direccion || !telefono || !correo || !password) {
     return res.render('crearCuenta', {
       error: 'Por favor, completa todos los campos.',
       title: 'Crear Cuenta',
     });
-=======
-// ============================
-// 📦 IMPORTACIONES
-// ============================
-const express = require('express');
-const path = require('path');
-const session = require('express-session');
-const {
-  verificarCorreo,
-  registrarUsuario,
-  loginUsuario,
-  loginAdmin,
-  registrarDonacion,
-  registrarReporte,
-  obtenerPerros,
-  obtenerPerroPorId
-} = require('./bd');
-
-const server = express();
-
-// ============================
-// ⚙️ CONFIGURACIÓN DE VISTAS Y MIDDLEWARES
-// ============================
-server.set('view engine', 'ejs');
-server.set('views', path.join(__dirname, 'views'));
-server.use(express.static(path.join(__dirname, 'public')));
-server.use(express.urlencoded({ extended: false }));
-
-// ============================
-// 🔒 CONFIGURACIÓN DE SESIÓN
-// ============================
-server.use(session({
-  secret: 'segundas_oportunidades_123',
-  resave: false,
-  saveUninitialized: false,
-  cookie: { maxAge: 600000 } // 10 minutos
-}));
-
-// ============================
-// 🛡️ MIDDLEWARES DE AUTENTICACIÓN
-// ============================
-function authUser(req, res, next) {
-  if (req.session.user && !req.session.isAdmin) return next();
-  res.redirect('/login');
-}
-
-function authAdmin(req, res, next) {
-  if (req.session.user && req.session.isAdmin) return next();
-  res.redirect('/login');
-}
-
-// ============================
-// 🌐 RUTAS PÚBLICAS
-// ============================
-server.get('/', (req, res) => {
-  res.render('bienvenido', { title: 'Bienvenido' });
-});
-
-server.get('/login', (req, res) => {
-  res.render('Login', { error: null, success: req.query.success || null, title: 'Login' });
-});
-
-server.get('/registro', (req, res) => {
-  res.render('crearCuenta', { error: null, title: 'Crear Cuenta' });
-});
-
-// ============================
-// 🖍️ REGISTRO DE USUARIOS
-// ============================
-server.post('/registro', async (req, res) => {
-  const { nombre, direccion, telefono, correo, password } = req.body;
-
-  if (!nombre || !direccion || !telefono || !correo || !password) {
-    return res.render('crearCuenta', { error: 'Por favor, completa todos los campos.', title: 'Crear Cuenta' });
->>>>>>> c001f92c18387878fd31110a8302fd268c3734e3
   }
-
   try {
     const existentes = await verificarCorreo(correo);
     if (existentes.length > 0) {
-<<<<<<< HEAD
       return res.render('crearCuenta', {
         error: 'Este correo ya está registrado.',
         title: 'Crear Cuenta',
       });
     }
-
     await registrarUsuario({ nombre, direccion, telefono, correo, password });
     res.redirect('/login?success=Registro+completado+con+éxito');
   } catch (error) {
@@ -178,43 +102,19 @@ server.post('/registro', async (req, res) => {
   }
 });
 
-// POST Login usuario/admin
+// Login usuario/admin (POST)
 app.post('/login', async (req, res) => {
-=======
-      return res.render('crearCuenta', { error: 'Este correo ya está registrado.', title: 'Crear Cuenta' });
-    }
-
-    await registrarUsuario({ nombre, direccion, telefono, correo, password });
-    res.redirect('/login?success=Registro completado con éxito. Ahora puedes iniciar sesión.');
-  } catch (err) {
-    console.error('Error al registrar usuario:', err);
-    res.render('crearCuenta', { error: 'Error en el servidor.', title: 'Crear Cuenta' });
-  }
-});
-
-// ============================
-// 🔐 LOGIN DE USUARIOS Y ADMINS
-// ============================
-server.post('/login', async (req, res) => {
->>>>>>> c001f92c18387878fd31110a8302fd268c3734e3
   const { usuario, password } = req.body;
-
   if (!usuario || !password) {
     return res.render('Login', {
       error: 'Por favor, completa todos los campos.',
       success: null,
-<<<<<<< HEAD
       title: 'Login',
-=======
-      title: 'Login'
->>>>>>> c001f92c18387878fd31110a8302fd268c3734e3
     });
   }
-
   try {
     if (usuario.includes('@')) {
-<<<<<<< HEAD
-      // Login usuario con correo
+      // Login usuario
       const usuarios = await loginUsuario(usuario, password);
       if (usuarios.length > 0) {
         req.session.user = usuarios[0];
@@ -227,7 +127,7 @@ server.post('/login', async (req, res) => {
         title: 'Login',
       });
     } else {
-      // Login admin con nombre
+      // Login admin
       const admins = await loginAdmin(usuario, password);
       if (admins.length > 0) {
         req.session.user = admins[0];
@@ -250,51 +150,19 @@ server.post('/login', async (req, res) => {
   }
 });
 
-// 🔒 Logout
+// Logout
 app.get('/logout', (req, res) => {
   req.session.destroy((err) => {
-=======
-      // Login de usuario
-      const userResults = await loginUsuario(usuario);
-      if (userResults.length > 0 && userResults[0].password === password) {
-        req.session.user = userResults[0];
-        req.session.isAdmin = false;
-        return res.redirect('/menu');
-      } else {
-        return res.render('Login', { error: 'Correo o contraseña incorrectos.', success: null, title: 'Login' });
-      }
-    } else {
-      // Login de admin
-      const adminResults = await loginAdmin(usuario);
-      if (adminResults.length > 0 && adminResults[0].password === password) {
-        req.session.user = adminResults[0];
-        req.session.isAdmin = true;
-        return res.redirect('/admin_dashboard');
-      } else {
-        return res.render('Login', { error: 'Nombre de administrador o contraseña incorrectos.', success: null, title: 'Login' });
-      }
-    }
-  } catch (err) {
-    console.error('Error en el login:', err);
-    res.render('Login', { error: 'Error interno del servidor.', success: null, title: 'Login' });
-  }
-});
-
-// ============================
-// 🚪 CERRAR SESIÓN
-// ============================
-server.get('/logout', (req, res) => {
-  req.session.destroy(err => {
->>>>>>> c001f92c18387878fd31110a8302fd268c3734e3
     if (err) console.error('Error al cerrar sesión:', err);
     res.redirect('/login');
   });
 });
 
-<<<<<<< HEAD
-// ---------- RUTAS PARA USUARIOS (requieren sesión usuario) ----------
+// ============================
+// 🧭 RUTAS PARA USUARIOS (requieren sesión usuario)
+// ============================
 
-// 📋 Menú principal de usuario
+// Menú principal de usuario
 app.get('/menu', authUser, (req, res) => {
   res.render('Menu', {
     title: 'Menú Principal',
@@ -302,33 +170,13 @@ app.get('/menu', authUser, (req, res) => {
   });
 });
 
-// ℹ️ Página "Acerca del albergue"
+// Acerca del albergue
 app.get('/acerca', authUser, (req, res) => {
   res.render('AcercaDelAlbergue', { title: 'Acerca del albergue' });
 });
 
-// 🐕 Página de adopciones — listado de perros
-app.get('/infoadopciones', authUser, async (req, res) => {
-  try {
-    const perros = await obtenerPerros();
-    res.render('InfoAdopcion', {
-      title: 'Adopciones',
-      perros,
-      user: req.session.user,
-    });
-  } catch (error) {
-    console.error('Error al obtener perros:', error);
-    res.render('InfoAdopcion', {
-      title: 'Adopciones',
-      perros: [],
-      user: req.session.user,
-      error: 'No se pudieron cargar los perros para adopción.',
-    });
-  }
-});
-
-// ➡️ Nueva ruta: Después de "Adoptar", muestra la lista de perros (Perros.ejs)
-app.get('/adoptar', authUser, async (req, res) => {
+// Listado de perros para adopción
+app.get('/adopciones', authUser, async (req, res) => {
   try {
     const perros = await obtenerPerros();
     res.render('Perros', {
@@ -347,8 +195,8 @@ app.get('/adoptar', authUser, async (req, res) => {
   }
 });
 
-// 🐶 Ruta para mostrar detalles de un perro específico
-app.get('/perros/:id', authUser, async (req, res) => {
+// Detalle de un perro específico
+app.get('/adopciones/:id', authUser, async (req, res) => {
   const id = req.params.id;
   try {
     const perro = await obtenerPerroPorId(id);
@@ -356,18 +204,18 @@ app.get('/perros/:id', authUser, async (req, res) => {
       return res.status(404).render('404', { title: 'Perro no encontrado' });
     }
     res.render('DetallePerros', {
-  title: 'Detalle de los Perros',
-  perro: perro[0],
-  user: req.session.user,
-});
+      title: 'Detalle de los Perros',
+      perro: perro[0],
+      user: req.session.user,
+    });
   } catch (error) {
     console.error('Error al obtener perro:', error);
     res.status(500).render('500', { title: 'Error Interno del Servidor' });
   }
 });
 
-// 💰 Información y formulario de donaciones
-app.get('/infodonaciones', authUser, (req, res) => {
+// Información y formulario de donaciones
+app.get('/donaciones', authUser, (req, res) => {
   res.render('InfoDonaciones', { title: 'Donaciones', user: req.session.user });
 });
 
@@ -383,18 +231,15 @@ app.get('/donaciones/formulario', authUser, (req, res) => {
 
 app.post('/donaciones/guardar', authUser, async (req, res) => {
   const { monto, metodoPago, material, materialOtro } = req.body;
-
   let errores = [];
   const montoParseado = parseFloat(monto);
 
   if (!monto || isNaN(montoParseado) || montoParseado <= 0) {
     errores.push('Por favor, ingresa un monto válido mayor que 0.');
   }
-
   if (!metodoPago) {
     errores.push('Selecciona un método de pago.');
   }
-
   if (errores.length > 0) {
     return res.render('FormularioDonaciones', {
       title: 'Formulario de Donaciones',
@@ -450,22 +295,19 @@ app.post('/donaciones/guardar', authUser, async (req, res) => {
   }
 });
 
-// 📝 Reportes
+// Formulario de reportes
 app.get('/reportes/formulario', authUser, (req, res) => {
   res.render('FormularioReporte', {
     title: 'Formulario de Reportes',
     user: req.session.user,
     error: null,
     success: null,
-    formData: {}, // Datos vacíos al inicio
+    formData: {},
   });
 });
 
-// Ruta para guardar el reporte
 app.post('/reportes/guardar', authUser, async (req, res) => {
   const { tipodemaltrato, fecha, pruebas, pruebasOtro } = req.body;
-
-  // Validación básica
   if (!tipodemaltrato || !fecha) {
     return res.render('FormularioReporte', {
       title: 'Formulario de Reportes',
@@ -475,12 +317,8 @@ app.post('/reportes/guardar', authUser, async (req, res) => {
       formData: req.body,
     });
   }
-
   try {
-    // Convertir pruebas a string si viene como array
     const pruebasFormatted = Array.isArray(pruebas) ? pruebas.join(',') : pruebas || '';
-
-    // Guardar reporte en la base de datos
     await registrarReporte({
       id_usuario: req.session.user.id,
       tipodemaltrato,
@@ -488,8 +326,6 @@ app.post('/reportes/guardar', authUser, async (req, res) => {
       pruebas: pruebasFormatted,
       pruebasOtro: pruebasOtro || null,
     });
-
-    // Mostrar mensaje de éxito y limpiar formulario
     res.render('FormularioReporte', {
       title: 'Formulario de Reportes',
       user: req.session.user,
@@ -499,8 +335,6 @@ app.post('/reportes/guardar', authUser, async (req, res) => {
     });
   } catch (error) {
     console.error('Error al registrar reporte:', error);
-
-    // Mostrar error y mantener datos en formulario
     res.render('FormularioReporte', {
       title: 'Formulario de Reportes',
       user: req.session.user,
@@ -511,8 +345,9 @@ app.post('/reportes/guardar', authUser, async (req, res) => {
   }
 });
 
-// ---------- RUTAS PARA ADMINISTRADORES ----------
-
+// ============================
+// 🛠️ RUTAS PARA ADMINISTRADORES
+// ============================
 app.get('/admin_dashboard', authAdmin, (req, res) => {
   res.render('adminDashboard', {
     title: 'Panel de Administración',
@@ -520,88 +355,22 @@ app.get('/admin_dashboard', authAdmin, (req, res) => {
   });
 });
 
-// ---------------------------------------------------------------
-
-// 🔊 Iniciar servidor
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Servidor iniciado en http://localhost:${PORT}`);
-=======
 // ============================
-// 🧭 RUTAS DEL MENÚ PRINCIPAL (usuario logueado)
+// 🔥 MANEJO DE ERRORES GENERALES
 // ============================
-server.get('/menu', authUser, (req, res) => {
-  res.render('Menu', { usuario: req.session.user });
+app.use((req, res) => {
+  res.status(404).render('404', { title: 'Página no encontrada' });
 });
 
-server.get('/acerca', authUser, (req, res) => {
-  res.render('Acerca del albergue');
-});
-
-server.get('/donaciones', authUser, (req, res) => {
-  res.render('InfoDonaciones');
-});
-
-server.get('/donaciones/formulario', authUser, (req, res) => {
-  res.render('FormularioDonaciones');
-});
-
-server.post('/donaciones/formulario', authUser, async (req, res) => {
-  try {
-    await registrarDonacion(req.body);
-    res.redirect('/menu');
-  } catch (err) {
-    console.error('Error al registrar donación:', err);
-    res.status(500).send('Error al registrar donación');
-  }
-});
-
-server.get('/reportes', authUser, (req, res) => {
-  res.render('InfoReportes');
-});
-
-server.get('/reportes/formulario', authUser, (req, res) => {
-  res.render('FormularioReporte');
-});
-
-server.post('/reportes/formulario', authUser, async (req, res) => {
-  try {
-    await registrarReporte(req.body);
-    res.redirect('/menu');
-  } catch (err) {
-    console.error('Error al registrar reporte:', err);
-    res.status(500).send('Error al registrar reporte');
-  }
-});
-
-server.get('/adopciones', authUser, async (req, res) => {
-  try {
-    const perros = await obtenerPerros();
-    res.render('Perros', { perros, title: 'Perros disponibles para adopción' });
-  } catch (err) {
-    console.error('Error al obtener perros:', err);
-    res.status(500).send('Error al obtener perros');
-  }
-});
-
-server.get('/adopciones/:id', authUser, async (req, res) => {
-  const id = req.params.id;
-  try {
-    const results = await obtenerPerroPorId(id);
-    if (results.length === 0) return res.status(404).send('Perro no encontrado');
-    const perro = results[0];
-    res.render('DetallesPerros', { perro, title: `Detalle de ${perro.nombre}` });
-  } catch (err) {
-    console.error('Error al obtener perro:', err);
-    res.status(500).send('Error al obtener perro');
-  }
+app.use((err, req, res, next) => {
+  console.error('Error general:', err);
+  res.status(500).render('500', { title: 'Error Interno del Servidor' });
 });
 
 // ============================
 // 🚀 INICIAR SERVIDOR
 // ============================
-const PORT = 4000;
-server.listen(PORT, () => {
-  console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
->>>>>>> c001f92c18387878fd31110a8302fd268c3734e3
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Servidor iniciado en http://localhost:${PORT}`);
 });
