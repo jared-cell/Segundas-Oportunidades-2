@@ -1,0 +1,126 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background: url('/imagenes/fondo_perros.jpg') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  align-items: center;
+}
+
+.formulario-adopcion {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  max-width: 600px;
+  width: 100%;
+}
+
+.formulario-adopcion h1 {
+  text-align: center;
+  color: #574B90;
+  margin-bottom: 30px;
+}
+
+label {
+  font-weight: 700;
+  margin-top: 15px;
+  display: block;
+  color: #5C5F7A;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="tel"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px 12px;
+  margin-top: 6px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+textarea:focus,
+select:focus {
+  border-color: #574B90;
+  outline: none;
+}
+
+.boton-contenedor {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn-adoptar,
+.btn-volver {
+  background: linear-gradient(45deg, #6A67CE, #8E8FFA);
+  color: white;
+  padding: 14px 30px;
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 6px 16px rgba(87, 75, 144, 0.6);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.25s ease;
+  user-select: none;
+}
+
+.btn-adoptar:hover,
+.btn-adoptar:focus,
+.btn-volver:hover,
+.btn-volver:focus {
+  background: linear-gradient(45deg, #574B90, #6A67CE);
+  box-shadow: 0 8px 22px rgba(87, 75, 144, 0.8);
+  transform: scale(1.1);
+  outline: none;
+}
+
+.mensaje {
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.mensaje.error {
+  color: #d32f2f;
+}
+
+.mensaje.success {
+  color: #388e3c;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .formulario-adopcion {
+    padding: 20px;
+    margin: 10px;
+  }
+
+  .boton-contenedor {
+    flex-direction: column;
+  }
+
+  .btn-adoptar,
+  .btn-volver {
+    width: 100%;
+    padding: 14px 0;
+  }
+}

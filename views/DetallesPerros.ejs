@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/styles/Adoptar.css" />
+</head>
+<body>
+  <main class="adoptar-container">
+    <h1>Formulario de Solicitud de Adopción</h1>
+    <p>Por favor, responde las siguientes preguntas para que podamos evaluar tu solicitud.</p>
+
+    <% if (error) { %>
+      <p style="color: red; font-weight: bold;"><%= error %></p>
+    <% } %>
+
+    <form action="/adoptar/<%= perroId %>/enviar" method="POST" novalidate>
+
+      <label for="nombre">Nombre completo:</label>
+      <input type="text" id="nombre" name="nombre" required>
+
+      <label for="edad">Edad:</label>
+      <input type="number" id="edad" name="edad" min="18" required>
+
+      <label for="telefono">Teléfono de contacto:</label>
+      <input type="tel" id="telefono" name="telefono" required>
+
+      <label for="direccion">Dirección completa:</label>
+      <textarea id="direccion" name="direccion" rows="2" required></textarea>
+
+      <label for="vivienda">¿Cuál es tu tipo de vivienda?</label>
+      <select id="vivienda" name="vivienda" required>
+        <option value="">Selecciona una opción</option>
+        <option value="casa">Casa</option>
+        <option value="departamento">Departamento</option>
+        <option value="otro">Otro</option>
+      </select>
+
+      <label for="motivo">¿Por qué quieres adoptar un perro?</label>
+      <textarea id="motivo" name="motivo" rows="3" required></textarea>
+
+      <label for="experiencia">¿Has tenido mascotas antes? ¿Cuál ha sido tu experiencia?</label>
+      <textarea id="experiencia" name="experiencia" rows="3" required></textarea>
+
+      <label for="tiempo">¿Cuánto tiempo podrás dedicarle al cuidado del perro diariamente?</label>
+      <select id="tiempo" name="tiempo" required>
+        <option value="">Selecciona una opción</option>
+        <option value="menos1hora">Menos de 1 hora</option>
+        <option value="1a3horas">1 a 3 horas</option>
+        <option value="mas3horas">Más de 3 horas</option>
+      </select>
+
+      <label for="otros_animales">¿Tienes otros animales en casa? ¿Cuáles?</label>
+      <textarea id="otros_animales" name="otros_animales" rows="2"></textarea>
+
+      <label for="compromiso">¿Estás dispuesto(a) a llevar al perro al veterinario y a cumplir con su alimentación y cuidados?</label>
+      <select id="compromiso" name="compromiso" required>
+        <option value="">Selecciona una opción</option>
+        <option value="si">Sí</option>
+        <option value="no">No</option>
+      </select>
+
+      <div class="botones-container">
+  <a href="/menu" class="btn-regresar">Regresar al menú</a>
+  <a href="/perros" class="btn-perros">Volver a la lista de perros</a>
+  <button type="submit" class="btn-adoptar">Enviar solicitud de adopción</button>
+</div>
+
+
+    </form>
+  </main>
+</body>
+</html>

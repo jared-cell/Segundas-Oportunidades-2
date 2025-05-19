@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Formulario de Reporte de Maltrato Animal</title>
+  <link rel="stylesheet" href="/styles/FormularioReporte.css" />
+</head>
+<body>
+
+<div class="formulario">
+  <h1>Formulario de Reporte de Maltrato Animal</h1>
+
+  <% if (error) { %>
+    <p style="color: red; font-weight: bold;"><%= error %></p>
+  <% } %>
+  <% if (success) { %>
+    <p style="color: green; font-weight: bold;"><%= success %></p>
+  <% } %>
+
+  <form action="/reportes/guardar" method="POST">
+    <input type="hidden" name="id_usuario" value="<%= user?.id || '' %>" />
+
+    <div>
+      <label>Motivo del maltrato:</label><br>
+      <input type="radio" name="tipodemaltrato" value="abandono" required> Abandono<br>
+      <input type="radio" name="tipodemaltrato" value="malnutricion"> Malnutrición<br>
+      <input type="radio" name="tipodemaltrato" value="agresionfisica"> Agresiones físicas<br>
+      <input type="radio" name="tipodemaltrato" value="condicion"> Condición insalubre<br>
+      <input type="radio" name="tipodemaltrato" value="atencion"> Falta de atención veterinaria<br>
+      <input type="radio" name="tipodemaltrato" value="otro"> Otro<br>
+    </div>
+
+    <div>
+      <label>Fecha del incidente:</label>
+      <input type="date" name="fecha" required value="<%= formData.fecha || '' %>" />
+    </div>
+
+    <div>
+      <label>Tipo de pruebas:</label><br>
+      <input type="checkbox" name="pruebas[]" value="fotografias"> Fotografías<br>
+      <input type="checkbox" name="pruebas[]" value="videos"> Videos<br>
+      <input type="checkbox" name="pruebas[]" value="testigos"> Testigos<br>
+      <input type="checkbox" name="pruebas[]" value="otro"> Otro<br>
+    </div>
+
+    <div>
+      <label>Detalles adicionales:</label><br>
+      <textarea name="pruebasOtro" rows="3" placeholder="Opcional"><%= formData.pruebasOtro || '' %></textarea>
+    </div>
+
+    <button type="submit">Enviar Reporte</button>
+  </form>
+
+  <a href="/menu">Volver al Menú</a>
+</div>
+
+</body>
+</html>

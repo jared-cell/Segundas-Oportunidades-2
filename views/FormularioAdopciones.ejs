@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/styles/Adoptar.css" />
+</head>
+<body>
+  <main class="adoptar-container">
+    <h1>Formulario de Solicitud de Adopción</h1>
+    <p>Por favor, dinos por qué quieres adoptar a <strong><%= perro.nombre %></strong>.</p>
+
+    <% if (typeof error !== 'undefined' && error) { %>
+      <p style="color: red; font-weight: bold;"><%= error %></p>
+    <% } %>
+
+    <% if (typeof success !== 'undefined' && success) { %>
+      <p style="color: green; font-weight: bold;"><%= success %></p>
+    <% } %>
+
+<form action="/adoptar/<%= perro.id %>/enviar" method="POST" novalidate>
+      <label for="motivo">Motivo por el cual quieres adoptar:</label>
+      <textarea id="motivo" name="motivo" rows="5" required></textarea>
+
+      <button type="submit" class="btn-submit">Enviar solicitud</button>
+    </form>
+
+    <div class="botones-container">
+      <a href="/menu" class="btn-regresar">Regresar al menú</a>
+      <a href="/perros" class="btn-perros">Volver a la lista de perros</a>
+    </div>
+  </main>
+</body>
+</html>

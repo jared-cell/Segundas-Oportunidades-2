@@ -1,128 +1,183 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Formulario de Donación</title>
-  <link rel="stylesheet" href="/styles/FormularioDonaciones.css">
+  <link rel="stylesheet" href="/styles/FormularioDonaciones.css" />
 </head>
 <body>
-
 <div class="formulario">
   <h1>Formulario de Donación</h1>
 
-  <form id="formDonacion" class="contenedor" novalidate>
+  <form id="formDonacion" class="contenedor" novalidate method="POST" action="/donaciones/guardar">
+    <!-- Campo oculto para el ID del usuario -->
+    <input type="hidden" name="id_usuario" value="<%= user?.id || '' %>" />
 
+    <!-- Información Personal -->
     <div class="seccion">
       <h2>Información Personal</h2>
-
       <label for="nombre">Nombre completo:</label>
-      <input type="text" id="nombre" name="nombre" readonly placeholder="Ej. Juan Pérez" value="<%= user?.nombre || '' %>">
-      <span class="error" id="errorNombre"></span>
+      <input
+        type="text"
+        id="nombre"
+        name="nombre"
+        readonly
+        placeholder="Ej. Juan Pérez"
+        value="<%= user?.nombre || '' %>"
+      />
 
       <label for="email">Correo electrónico:</label>
-      <input type="email" id="email" name="email" readonly placeholder="Ej. correo@ejemplo.com" value="<%= user?.correo || '' %>">
-      <span class="error" id="errorEmail"></span>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        readonly
+        placeholder="Ej. correo@ejemplo.com"
+        value="<%= user?.correo || '' %>"
+      />
     </div>
 
+    <!-- Donación Económica -->
     <div class="seccion">
       <h2>Donación Económica</h2>
-
       <label for="monto">Monto a donar:</label>
-      <input type="text" id="monto" name="monto" placeholder="$0.00" inputmode="numeric">
-      <span class="error" id="errorMonto"></span>
+      <input
+        type="number"
+        id="monto"
+        name="monto"
+        placeholder="0.00"
+        step="0.01"
+        min="0"
+        value="<%= formData?.monto || '' %>"
+      />
 
       <label>Método de pago:</label>
       <div class="checkbox-group">
-        <label><input type="radio" name="metodoPago" value="tarjeta"> Tarjeta de crédito/débito</label>
-        <label><input type="radio" name="metodoPago" value="transferencia"> Transferencia bancaria</label>
-        <label><input type="radio" name="metodoPago" value="paypal"> PayPal</label>
-        <label><input type="radio" name="metodoPago" value="otro"> Otro</label>
+        <label>
+          <input
+            type="radio"
+            name="metodoPago"
+            value="tarjeta"
+            <%= formData?.metodoPago === 'tarjeta' ? 'checked' : '' %>
+          /> Tarjeta de crédito/débito
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="metodoPago"
+            value="transferencia"
+            <%= formData?.metodoPago === 'transferencia' ? 'checked' : '' %>
+          /> Transferencia bancaria
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="metodoPago"
+            value="paypal"
+            <%= formData?.metodoPago === 'paypal' ? 'checked' : '' %>
+          /> PayPal
+        </label>
       </div>
-      <span class="error" id="errorMetodoPago"></span>
     </div>
 
-    <div class="seccion" id="seccionTarjeta" style="display: none;">
-      <h2>Datos de Tarjeta</h2>
-
-      <label for="nombreTarjeta">Nombre en la tarjeta:</label>
-      <input type="text" id="nombreTarjeta" name="nombreTarjeta" placeholder="Nombre tal como aparece">
-      <span class="error" id="errorNombreTarjeta"></span>
-
-      <label for="numeroTarjeta">Número de tarjeta:</label>
-      <input type="text" id="numeroTarjeta" name="numeroTarjeta" placeholder="Ingrese los 16 dígitos" maxlength="16" inputmode="numeric">
-      <span class="error" id="errorNumeroTarjeta"></span>
-
-      <label for="fechaVencimiento">Fecha de vencimiento:</label>
-      <input type="month" id="fechaVencimiento" name="fechaVencimiento">
-      <span class="error" id="errorFechaVencimiento"></span>
-
-      <label for="cvv">Código de seguridad (CVV):</label>
-      <input type="password" id="cvv" name="cvv" maxlength="4" placeholder="XXX">
-      <span class="error" id="errorCvv"></span>
-    </div>
-
+    <!-- Donación de Materiales -->
     <div class="seccion">
       <h2>Donación de Materiales</h2>
-
       <label>Tipo de material:</label>
       <div class="checkbox-group">
-        <label><input type="checkbox" name="material[]" value="comida"> Pienso / Comida húmeda</label>
-        <label><input type="checkbox" name="material[]" value="mantas"> Mantas / Camas</label>
-        <label><input type="checkbox" name="material[]" value="medicamentos"> Medicamentos / Material veterinario</label>
-        <label><input type="checkbox" name="material[]" value="juguetes"> Juguetes / Correas</label>
+        <label>
+          <input
+            type="checkbox"
+            name="material[]"
+            value="comida"
+            <%= (formData?.material && formData.material.includes('comida')) ? 'checked' : '' %>
+          /> Pienso / Comida húmeda
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="material[]"
+            value="mantas"
+            <%= (formData?.material && formData.material.includes('mantas')) ? 'checked' : '' %>
+          /> Mantas / Camas
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="material[]"
+            value="medicamentos"
+            <%= (formData?.material && formData.material.includes('medicamentos')) ? 'checked' : '' %>
+          /> Medicamentos / Material veterinario
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="material[]"
+            value="juguetes"
+            <%= (formData?.material && formData.material.includes('juguetes')) ? 'checked' : '' %>
+          /> Juguetes / Correas
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="material[]"
+            value="otro"
+            <%= (formData?.material && formData.material.includes('otro')) ? 'checked' : '' %>
+          /> Otro
+        </label>
       </div>
 
       <label for="materialOtro">Otro (especificar):</label>
-      <textarea id="materialOtro" name="materialOtro" rows="3" placeholder="Describe otros materiales..."></textarea>
+      <textarea
+        id="materialOtro"
+        name="materialOtro"
+        rows="3"
+        placeholder="Describe otros materiales..."><%= formData?.materialOtro || '' %></textarea>
     </div>
 
-  
+    <!-- Botones -->
     <div class="boton-contenedor">
-  <button type="submit">Enviar Donación</button>
-  <a href="/menu" class="boton-volver">Volver al Menú</a>
-</div>
-
-
+      <button type="submit">Enviar Donación</button>
+      <a href="/menu" class="boton-volver">Volver al Menú</a>
+    </div>
   </form>
 </div>
 
 <script>
   const form = document.getElementById('formDonacion');
-  const metodoPagoRadios = document.querySelectorAll('input[name="metodoPago"]');
-  const seccionTarjeta = document.getElementById('seccionTarjeta');
 
-  metodoPagoRadios.forEach(radio => {
-    radio.addEventListener('change', function() {
-      seccionTarjeta.style.display = (this.value === 'tarjeta') ? 'block' : 'none';
-    });
-  });
-
-  const numeroTarjeta = document.getElementById('numeroTarjeta');
-  numeroTarjeta.addEventListener('input', function () {
-    this.value = this.value.replace(/\D/g, '');
-  });
-
-  form.addEventListener('submit', function(event) {
+  form.addEventListener('submit', function (event) {
     let valid = true;
-    document.querySelectorAll('.error').forEach(span => span.textContent = '');
 
-    const metodoPagoSeleccionado = document.querySelector('input[name="metodoPago"]:checked');
-    if (!metodoPagoSeleccionado) {
-      document.getElementById('errorMetodoPago').textContent = 'Seleccione un método de pago.';
+    // Validar monto
+    const montoValue = document.getElementById('monto').value;
+    const monto = parseFloat(montoValue);
+
+    if (!montoValue || isNaN(monto) || monto <= 0) {
+      alert('Por favor, ingrese un monto válido.');
       valid = false;
     }
 
-    if (metodoPagoSeleccionado && metodoPagoSeleccionado.value === 'tarjeta') {
-      if (numeroTarjeta.value.length !== 16) {
-        document.getElementById('errorNumeroTarjeta').textContent = 'El número de tarjeta debe tener exactamente 16 dígitos.';
-        valid = false;
+    // Validar método de pago
+    const radios = document.getElementsByName('metodoPago');
+    let metodoPagoSeleccionado = null;
+    for (let i = 0; i < radios.length; i++) {
+      if (radios[i].checked) {
+        metodoPagoSeleccionado = radios[i].value;
+        break;
       }
     }
 
-    if (!valid) event.preventDefault();
+    if (!metodoPagoSeleccionado) {
+      alert('Seleccione un método de pago.');
+      valid = false;
+    }
+
+    if (!valid) {
+      event.preventDefault();
+    }
   });
 </script>
-
 </body>
 </html>
