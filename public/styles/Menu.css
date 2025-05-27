@@ -1,0 +1,115 @@
+/* ====== Estilos globales para body ====== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #B8E4F0, #D3C4F3, #C7EBD5);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  transition: background 0.5s ease;
+  color: #333;
+}
+
+/* ====== Header ====== */
+.header {
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: #BFAEF6; /* Lila pastel medio */
+}
+
+.header h1 {
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+.header p {
+  color: #f3f3f3;
+  font-size: 1.1rem;
+}
+
+/* ====== Contenedor de la cuadrícula del menú ====== */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  flex-grow: 1;
+  gap: 1rem;
+  padding: 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ====== Ítems del menú ====== */
+.grid-item {
+  background-color: #A6E3B9; /* Verde menta suave */
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.grid-item:hover {
+  transform: scale(1.03);
+  background-color: #90D6A5; /* Verde un poco más intenso */
+}
+
+.grid-item h2 {
+  color: #4B3F72; /* Morado grisáceo profundo */
+  margin-bottom: 0.5rem;
+  font-size: 1.8rem;
+}
+
+.grid-item p {
+  color: #555;
+  font-size: 1rem;
+}
+
+/* ====== Botón para "Perros Disponibles" (usado en info_adopciones.ejs) ====== */
+.btn-perros {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 1rem 2rem;
+  background-color: #A6E3B9;
+  color: #4B3F72;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn-perros:hover {
+  background-color: #90D6A5;
+}
+
+/* ====== Link "Cerrar sesión" simple ====== */
+a[href="/logout"] {
+  color: #fff;
+  background-color: #4B3F72;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 1rem;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+a[href="/logout"]:hover {
+  background-color: #392d59;
+}
+
+/* ====== Para que el layout sea responsive (opcional) ====== */
+@media (max-width: 600px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+}

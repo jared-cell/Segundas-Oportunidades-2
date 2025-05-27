@@ -1,0 +1,32 @@
+/* Fuente y reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #eceeff; /* Azul lavanda muy claro */
+  color: #2c3e50;
+}
+
+/* Barra superior */
+.top-bar {
+  background-color: #7a5fff; /* Morado vibrante */
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* Botón de regreso */
+.back-button {
+  color: #fff;
+  background-color: #5a4bcf;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 6px
+}

@@ -1,0 +1,99 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #EDE7F6; /* Lavanda suave */
+    color: #333;
+}
+
+/* Navegación superior */
+header nav {
+    background: #B39DDB; /* Lila pastel */
+    padding: 20px;
+    text-align: left;
+    border-bottom: 1px solid #9E7EDC;
+}
+
+header nav h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #2E2E2E;
+}
+
+header nav p {
+    font-size: 1rem;
+    color: #5E5E5E;
+}
+
+/* Contenedor principal */
+.container {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Título principal */
+.container h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: left;
+    color: #5C4C85; /* Morado más profundo */
+}
+
+/* Cards */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    background: #D1C4E9; /* Lavanda clara */
+    padding: 30px 20px;
+    border-radius: 15px;
+    flex: 1 1 220px;
+    min-width: 250px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+    border: 1px solid #B39DDB;
+}
+
+.card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #3C3C3C;
+}
+
+.card p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Botón en las cards */
+.card button {
+    background: #7986CB; /* Azul-morado medio */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.card button:hover {
+    background: #5C6BC0; /* Tono más profundo al pasar el ratón */
+}

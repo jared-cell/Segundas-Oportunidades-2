@@ -1,0 +1,193 @@
+/* Fondo general */
+body {
+  font-family: 'Arial', sans-serif;
+  background: url('/imagenes/fondo_perros.jpg') no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+header {
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #574B90;
+  user-select: none;
+}
+
+/* Contenedor del botón "Regresar al menú" */
+.menu-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+/* Botón "Regresar al menú" */
+.btn-regresar {
+  display: inline-block;
+  padding: 12px 28px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #fff;
+  background: linear-gradient(45deg, #ff6a6a, #ff8787);
+  border-radius: 14px;
+  text-decoration: none;
+  box-shadow: 0 6px 16px rgba(255, 106, 106, 0.6);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.25s ease;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+/* Estilo de la flecha */
+.btn-regresar::before {
+  content: "←";
+  position: absolute;
+  left: 12px;
+  font-size: 1.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Hover para el botón */
+.btn-regresar:hover,
+.btn-regresar:focus {
+  background: linear-gradient(45deg, #e55a5a, #ff6a6a);
+  box-shadow: 0 8px 22px rgba(229, 90, 90, 0.8);
+  transform: scale(1.1);
+  outline: none;
+}
+
+/* Contenedor de las tarjetas */
+.container {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  padding: 30px 40px;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 15px;
+  max-width: 1200px;
+  margin: 30px auto 60px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Tarjetas */
+.card {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+  width: 220px;
+  padding: 18px 16px 22px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 30px rgba(87, 75, 144, 0.3);
+}
+
+/* Imagen dentro de la tarjeta */
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  transition: filter 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover img {
+  filter: brightness(0.85);
+}
+
+/* Título del perro */
+.card h3 {
+  margin: 0 0 8px;
+  font-size: 1.4rem;
+  color: #574B90;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: capitalize;
+}
+
+/* Texto descriptivo */
+.card p {
+  font-size: 1rem;
+  color: #5C5F7A;
+  margin-bottom: 18px;
+  font-weight: 600;
+}
+
+/* Botón "Ver más detalles" */
+.btn-detalle {
+  display: inline-block;
+  padding: 12px 24px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #fff;
+  background: linear-gradient(45deg, #6A67CE, #8E8FFA);
+  border-radius: 14px;
+  text-decoration: none;
+  box-shadow: 0 6px 16px rgba(106, 103, 206, 0.6);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.25s ease;
+  user-select: none;
+}
+
+.btn-detalle:hover,
+.btn-detalle:focus {
+  background: linear-gradient(45deg, #574B90, #6A67CE);
+  box-shadow: 0 8px 22px rgba(87, 75, 144, 0.8);
+  transform: scale(1.1);
+  outline: none;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 18px 0;
+  background-color: rgba(255, 255, 255, 0.85);
+  font-size: 0.9rem;
+  color: #574B90;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+  user-select: none;
+}
+
+/* Responsive - para pantallas pequeñas */
+@media (max-width: 480px) {
+  .menu-container {
+    margin: 15px 0;
+  }
+
+  .btn-regresar {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+
+  .container {
+    padding: 20px;
+    gap: 18px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  header {
+    font-size: 1.8rem;
+  }
+}

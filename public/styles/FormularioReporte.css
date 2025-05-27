@@ -1,0 +1,147 @@
+/* FormularioReporte.css - Estilo Reporte Canino */
+
+/* Contenedor general */
+.formulario {
+  max-width: 600px;
+  margin: 30px auto;
+  background: #fffaf0; /* color crema, cálido */
+  padding: 30px 35px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(139, 69, 19, 0.2); /* sombra marrón suave */
+  font-family: 'Comic Sans MS', cursive, sans-serif; /* más amigable */
+  color: #4e342e; /* marrón oscuro */
+  border: 2px solid #a0522d; /* borde marrón madera */
+}
+
+/* Títulos */
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #d2691e; /* chocolate */
+  text-shadow: 1px 1px 2px #8b4513;
+  font-weight: bold;
+  font-size: 2.2em;
+}
+
+.seccion h2 {
+  margin-bottom: 18px;
+  color: #8b4513;
+  border-bottom: 3px solid #d2691e;
+  padding-bottom: 8px;
+  font-weight: 700;
+}
+
+/* Labels */
+label {
+  display: block;
+  margin-top: 16px;
+  font-weight: 600;
+  font-size: 1.05em;
+}
+
+/* Inputs y textarea */
+input[type="text"],
+input[type="email"],
+input[type="date"],
+textarea {
+  width: 100%;
+  padding: 10px 14px;
+  margin-top: 8px;
+  border: 2px solid #a0522d;
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: border-color 0.3s ease;
+  box-shadow: inset 1px 1px 5px #f5deb3; /* interior cálido */
+  background-color: #fff8dc; /* beige suave */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
+textarea:focus {
+  border-color: #d2691e;
+  outline: none;
+  box-shadow: 0 0 8px #d2691e;
+}
+
+/* Radios y checkboxes */
+.checkbox-group label,
+.radio-group label {
+  font-weight: 500;
+  display: inline-block;
+  margin-right: 22px;
+  cursor: pointer;
+  font-size: 1em;
+  color: #5d4037;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin-right: 6px;
+  cursor: pointer;
+  accent-color: #d2691e; /* para navegadores que soportan */
+}
+
+/* Botones contenedor */
+.boton-contenedor {
+  margin-top: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Botón Enviar */
+button[type="submit"] {
+  background-color: #d2691e; /* chocolate cálido */
+  border: none;
+  padding: 14px 34px;
+  color: #fffaf0;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 5px 12px rgba(210, 105, 30, 0.7);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+button[type="submit"]:hover {
+  background-color: #a0522d;
+  box-shadow: 0 7px 18px rgba(160, 82, 45, 0.9);
+}
+
+/* Botón Volver */
+.boton-volver {
+  background-color: transparent;
+  color: #a0522d;
+  border: 3px solid #a0522d;
+  padding: 12px 30px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.boton-volver:hover {
+  background-color: #a0522d;
+  color: #fffaf0;
+  box-shadow: 0 6px 14px rgba(160, 82, 45, 0.8);
+}
+
+/* Mensajes de error */
+.error {
+  color: #b71c1c;
+  font-size: 14px;
+  margin-top: 6px;
+  font-weight: 600;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Estilo extra para texto y checkbox agrupados */
+.checkbox-group, .radio-group {
+  margin-top: 6px;
+  margin-bottom: 12px;
+}

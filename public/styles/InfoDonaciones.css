@@ -1,0 +1,119 @@
+/* ======= General ======= */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #f9f5e6, #fff7ed); /* Fondo cálido */
+  color: #333;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* ======= Encabezado ======= */
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 3rem;
+  color: #e67e22; /* Naranja cálido */
+  margin-bottom: 0.5rem;
+}
+
+header .subtitle {
+  font-size: 1.2rem;
+  color: #95a5a6; /* Gris suave */
+}
+
+/* ======= Cajas de Información ======= */
+.info-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.box {
+  flex: 1;
+  min-width: 300px;
+  max-width: 500px;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.box p {
+  margin: 0;
+  color: #555;
+  font-size: 1rem;
+  text-align: justify;
+  text-indent: 1.5rem;
+}
+
+/* ======= Botones ======= */
+.button-section {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.menu-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  color: #fff;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.back-button {
+  background: linear-gradient(135deg, #16a085, #1abc9c); /* Verde esperanza */
+}
+
+.back-button:hover {
+  background: linear-gradient(135deg, #1abc9c, #16a085);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(26, 188, 156, 0.4);
+}
+
+.donate-button {
+  background: linear-gradient(135deg, #e74c3c, #c0392b); /* Rojo pasión */
+}
+
+.donate-button:hover {
+  background: linear-gradient(135deg, #c0392b, #e74c3c);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(231, 76, 60, 0.4);
+}
+
+/* ======= Responsivo ======= */
+@media (max-width: 768px) {
+  .info-boxes {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+}

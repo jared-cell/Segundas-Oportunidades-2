@@ -1,0 +1,168 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #D8E1FF, #E3D7FF); /* Azul cielo claro a lila pálido */
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor principal */
+.formulario {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 25px 30px;
+    background: #FFFFFF;
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    color: #4B4E6D; /* Gris azulado */
+}
+
+/* Título principal */
+h1 {
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    color: #574B90; /* Morado elegante */
+    text-align: center;
+    font-weight: 700;
+}
+
+/* Subtítulos */
+.seccion h2 {
+    font-size: 1.6rem;
+    margin-bottom: 18px;
+    color: #574B90;
+    border-bottom: 3px solid #B8A9FF;
+    padding-bottom: 8px;
+    font-weight: 700;
+}
+
+/* Labels */
+label {
+    font-size: 1rem;
+    margin-bottom: 6px;
+    display: block;
+}
+
+/* Inputs y textarea */
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="number"],
+input[type="password"],
+input[type="month"],
+textarea {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 1rem;
+    border: 1.8px solid #B2A4FF; /* Lila pastel */
+    border-radius: 6px;
+    margin-top: 6px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    background-color: #F2F0FF; /* Fondo lavanda claro */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    color: #4B4E6D;
+    font-family: inherit;
+    resize: vertical;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus,
+input[type="number"]:focus,
+input[type="password"]:focus,
+input[type="month"]:focus,
+textarea:focus {
+    border-color: #8E8FFA; /* Azul lavanda */
+    box-shadow: 0 0 5px rgba(142, 143, 250, 0.5);
+    outline: none;
+}
+
+/* Radio y checkbox groups */
+.checkbox-group label {
+    display: inline-block;
+    margin-right: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #5C5F7A;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 6px;
+    cursor: pointer;
+    accent-color: #8E8FFA; /* para navegadores modernos */
+}
+
+/* Botón Enviar */
+button[type="submit"] {
+    width: 100%;
+    max-width: 300px;
+    padding: 14px 0;
+    font-size: 1.1rem;
+    background-color: #6A67CE; /* Azul-morado vibrante */
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+    font-family: inherit;
+    box-shadow: 0 6px 12px rgba(106, 103, 206, 0.6);
+    box-sizing: border-box;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+button[type="submit"]:hover {
+    background-color: #5C59C7; /* Un poco más oscuro */
+}
+
+button[type="submit"]:active {
+    background-color: #4E4AB6; /* Azul más profundo */
+}
+
+/* Contenedor de botones (Enviar y Volver) */
+.boton-contenedor {
+    display: flex;
+    flex-direction: column; /* Uno debajo del otro */
+    align-items: center;
+    margin-top: 30px;
+    gap: 15px;
+}
+
+/* Botón Volver al Menú */
+.boton-volver {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    padding: 12px 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 8px;
+    border: 2px solid #574B90;
+    color: #574B90;
+    background-color: #E3D7FF; /* Color suave liláceo */
+    cursor: pointer;
+    font-family: inherit;
+    box-sizing: border-box;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-top: 0; /* ya se controla con gap */
+}
+
+.boton-volver:hover {
+    background-color: #574B90;
+    color: #FFFFFF;
+}
+
+/* Mensajes de error */
+.error {
+    color: #b71c1c;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: -10px;
+    margin-bottom: 12px;
+    display: block;
+}

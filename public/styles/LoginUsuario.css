@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #EBD8FD, #CDEFFC); /* Lila a azul pastel */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #5E35B1; /* Morado elegante */
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #D0BFFF; /* Borde lila claro */
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: #F3F0FF; /* Fondo lavanda suave */
+}
+
+input:focus {
+    border-color: #A084E8;
+    outline: none;
+}
+
+.btn {
+    display: inline-block;
+    width: 100%;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #A084E8;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #8661C1;
+}
+
+.message {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.message.error {
+    background-color: #CE93D8; /* Rosa lila tenue */
+    color: #4A148C;
+}
+
+.message.success {
+    background-color: #B39DDB; /* Lila claro */
+    color: #2E1B5F;
+}
+
+.register-link {
+    margin-top: 10px;
+}
+
+.register-link a {
+    color: #7E57C2;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}

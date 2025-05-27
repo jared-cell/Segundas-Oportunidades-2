@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/styles/Menu.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>Bienvenido <%= user ? user.nombre : 'invitado' %> al Albergue</h1>
+    <p>Haz clic en cualquiera de los recuadros para navegar por la información o realizar una acción.</p>
+    <a href="/logout" class="logout-btn">Cerrar sesión</a>
+  </header>
+
+  <main class="grid-container">
+    <!-- 🐾 Acerca del Albergue -->
+    <a href="/acerca_del_albergue" class="grid-item">
+      <h2>🐾 Acerca del Albergue</h2>
+      <p>Conoce nuestra misión, visión y valores.</p>
+    </a>
+
+    <!-- 🏠 Adopciones -->
+    <a href="/infoadopcion" class="grid-item">
+      <h2>🏠 Adopciones</h2>
+      <p>Explora perros disponibles y cómo adoptar.</p>
+    </a>
+
+    <!-- 💰 Donaciones -->
+    <a href="/InfoDonaciones" class="grid-item">
+      <h2>💰 Donaciones</h2>
+      <p>Apoya con alimentos, dinero o tiempo voluntario.</p>
+    </a>
+
+    <!-- 📢 Reportes -->
+    <a href="/infoReportar" class="grid-item">
+      <h2>📢 Reporte</h2>
+      <p>Denuncia casos de abandono o maltrato animal.</p>
+    </a>
+  </main>
+</body>
+</html>

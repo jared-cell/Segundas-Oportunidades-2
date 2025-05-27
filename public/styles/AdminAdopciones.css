@@ -1,0 +1,133 @@
+/* Tipografía y colores */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f4f7ff; /* azul muy claro */
+  margin: 0;
+  padding: 0;
+  color: #2d3748;
+}
+
+.top-bar {
+  background-color: #7a5fff; /* morado vibrante */
+  padding: 20px;
+}
+
+.back-button {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  background-color: #5a4bcf;
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #2d3748;
+}
+
+.table-container {
+  overflow-x: auto;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px;
+}
+
+th, td {
+  text-align: left;
+  padding: 16px 20px;
+  font-size: 15px;
+}
+
+thead {
+  background-color: #7a5fff;
+  color: white;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #edf2fa; /* azul muy claro */
+}
+
+.status {
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.status.pendiente {
+  background-color: #fcdcae;
+  color: #744210;
+}
+
+.status.aprobada {
+  background-color: #c8f5ea;
+  color: #276749;
+}
+
+/* Botones */
+.btn {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-right: 6px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.btn.aprobar {
+  background-color: #48bb78;
+  color: white;
+}
+
+.btn.aprobar:hover {
+  background-color: #38a169;
+}
+
+.btn.rechazar {
+  background-color: #e53e3e;
+  color: white;
+}
+
+.btn.rechazar:hover {
+  background-color: #c53030;
+}
+
+.btn.ver {
+  background-color: #5a67d8; /* morado azulado */
+  color: white;
+}
+
+.btn.ver:hover {
+  background-color: #434190;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  table, thead, tbody, th, td, tr {
+    font-size: 13px;
+  }
+
+  .btn {
+    padding: 6px 10px;
+  }
+}
