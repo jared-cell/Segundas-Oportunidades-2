@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title><%= title || 'Formulario de Donación' %></title>
+  <link rel="stylesheet" href="/styles/FormularioDonaciones.css" />
+</head>
+<body>
+<div class="formulario">
+  <h1>Formulario de Donación</h1>
+
+  <% if (error) { %>
+    <p style="color: red; font-weight: bold;"><%= error %></p>
+  <% } %>
+  <% if (success) { %>
+    <p style="color: green; font-weight: bold;"><%= success %></p>
+  <% } %>
+
+  <form id="formDonacion" class="contenedor" method="POST" action="/donaciones/guardar" novalidate>
+    <!-- Campo oculto para el ID del usuario -->
+    <input type="hidden" name="id_usuario" value="<%= user?.id || '' %>" />
+
+    <!-- Información Personal -->
+    <div class="seccion">
+      <h2>Información Personal</h2>
+      <label for="nombre">Nombre completo:</label>
+      <input type="text" id="nombre" name="nombre" readonly placeholder="Ej. Juan Pérez" value="<%= user?.nombre || '' %>" />
+      <span class="error" id="errorNombre"></span>
+
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" name="email" readonly placeholder="Ej. correo@ejemplo.com" value="<%= user?.correo || '' %>" />
+      <span class="error" id="errorEmail"></span>
+    </div>
+
+    <!-- Donación Económica -->
+    <div class="seccion">
+      <h2>Donación Económica</h2>
+      <label for="monto">Monto a donar:</label>
+      <input type="number" id="monto" name="monto" placeholder="0.00" step="0.01" min="0" value="<%= formData?.monto || '' %>" />
+      <span class="error" id="errorMonto"></span>
+
+      <label>Método de pago:</label>
+      <div class="checkbox-group">
+        <label>
+          <input type="radio" name="metodoPago" value="tarjeta" <%= formData?.metodoPago === 'tarjeta' ? 'checked' : '' %> />
+          Tarjeta de crédito/débito
+        </label>
+        <label>
+          <input type="radio" name="metodoPago" value="transferencia" <%= formData?.metodoPago === 'transferencia' ? 'checked' : '' %> />
+          Transferencia bancaria
+        </label>
+        <label>
+          <input type="radio" name="metodoPago" value="paypal" <%= formData?.metodoPago === 'paypal' ? 'checked' : '' %> />
+          PayPal
+        </label>
+        <label>
+          <input type="radio" name="metodoPago" value="otro" <%= formData?.metodoPago === 'otro' ? 'checked' : '' %> />
+          Otro
+        </label>
+      </div>
+    </div>
+
+    <!-- Donación de Materiales -->
+    <div class="seccion">
+      <h2>Donación de Materiales</h2>
+      <label>Tipo de material:</label>
+      <div class="checkbox-group">
+        <label>
+          <input type="checkbox" name="material[]" value="comida" <%= formData?.material?.includes('comida') ? 'checked' : '' %> />
+          Pienso / Comida húmeda
+        </label>
+        <label>
+          <input type="checkbox" name="material[]" value="mantas" <%= formData?.material?.includes('mantas') ? 'checked' : '' %> />
+          Mantas / Camas
+        </label>
+        <label>
+          <input type="checkbox" name="material[]" value="medicamentos" <%= formData?.material?.includes('medicamentos') ? 'checked' : '' %> />
+          Medicamentos / Material veterinario
+        </label>
+        <label>
+          <input type="checkbox" name="material[]" value="juguetes" <%= formData?.material?.includes('juguetes') ? 'checked' : '' %> />
+          Juguetes / Correas
+        </label>
+        <label>
+          <input type="checkbox" name="material[]" value="otro" <%= formData?.material?.includes('otro') ? 'checked' : '' %> />
+          Otro
+        </label>
+      </div>
+
+      <label for="materialOtro">Otro (especificar):</label>
+      <textarea id="materialOtro" name="materialOtro" rows="3" placeholder="Describe otros materiales..."><%= formData?.materialOtro || '' %></textarea>
+    </div>
+
+    <!-- Botones -->
+    <div class="boton-contenedor">
+      <button type="submit">Enviar Donación</button>
+      <a href="/menu" class="boton-volver">Volver al Menú</a>
+    </div>
+  </form>
+</div>
+
+<script>
+  const form = document.getElementById('formDonacion');
+
+  form.addEventListener('submit', function (event) {
+    let valid = true;
+
+    // Validar monto
+    const montoValue = document.getElementById('monto').value;
+    const monto = parseFloat(montoValue);
+
+    if (!montoValue || isNaN(monto) || monto <= 0) {
+      document.getElementById('errorMonto').textContent = 'Ingrese un monto válido mayor a 0.';
+      valid = false;
+    }
+
+    // Validar método de pago
+    const radios = document.getElementsByName('metodoPago');
+    let metodoPagoSeleccionado = false;
+    for (let i = 0; i < radios.length; i++) {
+      if (radios[i].checked) {
+        metodoPagoSeleccionado = true;
+        break;
+      }
+    }
+
+    if (!metodoPagoSeleccionado) {
+      alert('Seleccione un método de pago.');
+      valid = false;
+    }
+
+    if (!valid) {
+      event.preventDefault();
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/styles/FormularioReporte.css" />
+</head>
+<body>
+
+<div class="formulario">
+  <h1>Formulario de Reporte de Maltrato Animal</h1>
+
+  <% if (typeof error !== 'undefined' && error) { %>
+    <p style="color: red; font-weight: bold;"><%= error %></p>
+  <% } %>
+  <% if (typeof success !== 'undefined' && success) { %>
+    <p style="color: green; font-weight: bold;"><%= success %></p>
+  <% } %>
+
+  <form id="formReporte" class="contenedor" action="/Form_Reporte" method="POST" novalidate>
+
+    <input type="hidden" name="id_usuario" value="<%= user?.id || '' %>" />
+
+    <div class="seccion">
+      <h2>Información Personal</h2>
+
+      <label for="nombre">Nombre completo:</label>
+      <input type="text" id="nombre" name="nombre" value="<%= user?.nombre || '' %>" required readonly>
+      <span class="error" id="errorNombre"></span>
+
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" name="email" value="<%= user?.correo || '' %>" required readonly>
+      <span class="error" id="errorEmail"></span>
+    </div>
+
+    <div class="seccion">
+      <h2>Motivo del maltrato</h2>
+      <div class="radio-group">
+        <label><input type="radio" name="tipodemaltrato" value="abandono" required> Abandono</label>
+        <label><input type="radio" name="tipodemaltrato" value="malnutricion"> Malnutrición</label>
+        <label><input type="radio" name="tipodemaltrato" value="agresionfisica"> Agresiones físicas</label>
+        <label><input type="radio" name="tipodemaltrato" value="condicion"> Condición insalubre</label>
+        <label><input type="radio" name="tipodemaltrato" value="atencion"> Falta de atención veterinaria</label>
+        <label><input type="radio" name="tipodemaltrato" value="otro"> Otro</label>
+      </div>
+      <span class="error" id="errorTipoMaltrato"></span>
+    </div>
+
+    <div class="seccion">
+      <h2>Datos del maltrato</h2>
+      <label for="fecha">Fecha aproximada del incidente:</label>
+      <input type="date" id="fecha" name="fecha" value="<%= formData.fecha || '' %>" required>
+      <span class="error" id="errorFecha"></span>
+
+      <label>Tipo de pruebas:</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="pruebas" value="fotografias"> Fotografías</label>
+        <label><input type="checkbox" name="pruebas" value="videos"> Videos</label>
+        <label><input type="checkbox" name="pruebas" value="testigos"> Testigos</label>
+      </div>
+
+      <label for="pruebasOtro">Otro (especificar):</label>
+      <textarea id="pruebasOtro" name="pruebasOtro" rows="3" placeholder="Describe otro tipo de pruebas"><%= formData.pruebasOtro || '' %></textarea>
+    </div>
+
+    <div class="boton-contenedor">
+      <button type="submit">Enviar Reporte</button>
+      <a href="/menu" class="boton-volver">Volver al Menú</a>
+    </div>
+
+  </form>
+</div>
+
+<script>
+  const form = document.getElementById('formReporte');
+
+  form.addEventListener('submit', function(event) {
+    let valid = true;
+    document.querySelectorAll('.error').forEach(span => span.textContent = '');
+
+    const nombre = document.getElementById('nombre').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const tipodemaltrato = document.querySelector('input[name="tipodemaltrato"]:checked');
+    const fecha = document.getElementById('fecha').value;
+
+    if (!nombre) {
+      document.getElementById('errorNombre').textContent = 'El nombre es obligatorio.';
+      valid = false;
+    }
+    if (!email) {
+      document.getElementById('errorEmail').textContent = 'El correo es obligatorio.';
+      valid = false;
+    }
+    if (!tipodemaltrato) {
+      document.getElementById('errorTipoMaltrato').textContent = 'Seleccione un motivo de maltrato.';
+      valid = false;
+    }
+    if (!fecha) {
+      document.getElementById('errorFecha').textContent = 'Ingrese la fecha aproximada.';
+      valid = false;
+    }
+
+    if (!valid) event.preventDefault();
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/styles/Perros.css" />
+</head>
+<body>
+  <header>
+    <h1>🐶 Perros en Adopción</h1>
+  </header>
+
+  <!-- Botón Regresar al menú -->
+  <nav class="menu-container" aria-label="Navegación principal">
+    <a href="/menu" class="btn-regresar">← Regresar al menú</a>
+  </nav>
+
+  <main class="container">
+    <% if (perros && perros.length > 0) { %>
+      <% perros.forEach(perro => { %>
+        <article class="card" tabindex="0" aria-label="Información del perro <%= perro.nombre %>">
+          <img src="/imagenes/<%= perro.imagen %>" alt="Foto de <%= perro.nombre %>" />
+          <h3><%= perro.nombre %></h3>
+
+          <!-- Botón de detalles (ajustado a una sola ruta coherente) -->
+          <a href="/perros/<%= perro.id %>" class="btn-detalle" aria-describedby="detalle-<%= perro.id %>">Ver más detalles</a>
+          <span id="detalle-<%= perro.id %>" class="visually-hidden">Detalles completos del perro <%= perro.nombre %></span>
+        </article>
+      <% }) %>
+    <% } else { %>
+      <p>No hay perros disponibles en este momento.</p>
+    <% } %>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Albergue Segundas Oportunidades</p>
+  </footer>
+</body>
+</html>

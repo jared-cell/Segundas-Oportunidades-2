@@ -1,0 +1,18 @@
+{
+    "sourceFile": "views/InfoReportes.ejs",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1748451576889,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1748451576889,
+            "name": "Commit-0",
+            "content": "<!DOCTYPE html>\r\n<html lang=\"es\">\r\n<head>\r\n  <meta charset=\"UTF-8\" />\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\r\n  <title>Reportar Maltrato Animal</title>\r\n  <link rel=\"stylesheet\" href=\"/styles/InfoReportes.css\" />\r\n</head>\r\n<body>\r\n  <div class=\"container\">\r\n    <header>\r\n      <h1>Reportar Maltrato Animal</h1>\r\n      <p class=\"subtitle\">Juntos podemos proteger a quienes no tienen voz</p>\r\n    </header>\r\n\r\n    <section class=\"info-boxes\">\r\n      <article class=\"box\">\r\n        <h2>¿Qué es el maltrato animal?</h2>\r\n        <p>\r\n          El maltrato animal incluye cualquier acción que cause sufrimiento innecesario, daño físico o psicológico a un animal. \r\n          Esto puede incluir abuso, negligencia, abandono o explotación. ¡Es importante actuar!\r\n        </p>\r\n      </article>\r\n      <article class=\"box\">\r\n        <h2>¿Cómo puedes reportar?</h2>\r\n        <ol>\r\n          <li>Recoge evidencia: fotos, videos o testigos del incidente.</li>\r\n          <li>Llama a las autoridades locales o a una organización de protección animal.</li>\r\n          <li>Proporciona información precisa como ubicación y detalles del incidente.</li>\r\n        </ol>\r\n      </article>\r\n    </section>\r\n\r\n   \r\n\r\n   <section class=\"button-section\">\r\n  <a href=\"/menu\" class=\"menu-button back-button\">Volver al Menú</a>\r\n  <a href=\"/FormularioReportes\" class=\"menu-button report-button\">Hacer Reporte</a>\r\n</section>\r\n\r\n  </div>\r\n</body>\r\n</html>\r\n"
+        }
+    ]
+}

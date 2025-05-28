@@ -1,0 +1,18 @@
+{
+    "sourceFile": "views/FormularioAdopciones.ejs",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1748450667896,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1748450667896,
+            "name": "Commit-0",
+            "content": "<!DOCTYPE html>\r\n<html lang=\"es\">\r\n<head>\r\n  <meta charset=\"UTF-8\" />\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\r\n  <title><%= title %></title>\r\n  <link rel=\"stylesheet\" href=\"/styles/Adoptar.css\" />\r\n</head>\r\n<body>\r\n  <main class=\"adoptar-container\">\r\n    <h1>Formulario de Solicitud de Adopción</h1>\r\n    <p>Por favor, dinos por qué quieres adoptar a <strong><%= perro.nombre %></strong>.</p>\r\n\r\n    <% if (typeof error !== 'undefined' && error) { %>\r\n      <p style=\"color: red; font-weight: bold;\"><%= error %></p>\r\n    <% } %>\r\n\r\n    <% if (typeof success !== 'undefined' && success) { %>\r\n      <p style=\"color: green; font-weight: bold;\"><%= success %></p>\r\n    <% } %>\r\n\r\n<form action=\"/adoptar/<%= perro.id %>/enviar\" method=\"POST\" novalidate>\r\n      <label for=\"motivo\">Motivo por el cual quieres adoptar:</label>\r\n      <textarea id=\"motivo\" name=\"motivo\" rows=\"5\" required></textarea>\r\n\r\n      <button type=\"submit\" class=\"btn-submit\">Enviar solicitud</button>\r\n    </form>\r\n\r\n    <div class=\"botones-container\">\r\n      <a href=\"/menu\" class=\"btn-regresar\">Regresar al menú</a>\r\n      <a href=\"/perros\" class=\"btn-perros\">Volver a la lista de perros</a>\r\n    </div>\r\n  </main>\r\n</body>\r\n</html>\r\n"
+        }
+    ]
+}

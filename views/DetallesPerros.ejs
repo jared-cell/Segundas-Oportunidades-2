@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/styles/DetallesPerros.css" />
+</head>
+<body>
+  <header>
+    <h1>🐶 Detalles de <%= perro.nombre %></h1>
+  </header>
+
+  <nav class="menu-container">
+    <a href="/menu" class="btn-regresar">← Regresar al menú</a>
+    <a href="/perros" class="btn-perros">Volver a la lista de perros</a>
+  </nav>
+
+  <main class="container">
+    <article class="card">
+      <img src="/imagenes/<%= perro.imagen %>" alt="Foto de <%= perro.nombre %>" />
+      <h2><%= perro.nombre %></h2>
+      <p><strong>Raza:</strong> <%= perro.raza %></p>
+      <p><strong>Edad:</strong> <%= perro.edad %> años</p>
+      <p><strong>Descripción:</strong> <%= perro.descripcion %></p>
+      <p><strong>Estado:</strong> <%= perro.estado %></p>
+    </article>
+
+    <section class="formulario-adopcion">
+      <h3>Formulario de Solicitud de Adopción</h3>
+      <form action="/adoptar/<%= perro.id %>/enviar" method="POST">
+        <!-- Aquí van los campos del formulario de adopción -->
+        <button type="submit" class="btn-adoptar">Enviar solicitud de adopción</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Albergue Segundas Oportunidades</p>
+  </footer>
+</body>
+</html>

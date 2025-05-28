@@ -1,0 +1,18 @@
+{
+    "sourceFile": "views/Perros.ejs",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1748450630229,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1748450630229,
+            "name": "Commit-0",
+            "content": "<!DOCTYPE html>\r\n<html lang=\"es\">\r\n<head>\r\n  <meta charset=\"UTF-8\" />\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\r\n  <title><%= title %></title>\r\n  <link rel=\"stylesheet\" href=\"/styles/Perros.css\" />\r\n</head>\r\n<body>\r\n  <header>\r\n    <h1>🐶 Perros en Adopción</h1>\r\n  </header>\r\n\r\n  <!-- Botón Regresar al menú -->\r\n  <nav class=\"menu-container\" aria-label=\"Navegación principal\">\r\n    <a href=\"/menu\" class=\"btn-regresar\">← Regresar al menú</a>\r\n  </nav>\r\n\r\n  <main class=\"container\">\r\n    <% if (perros && perros.length > 0) { %>\r\n      <% perros.forEach(perro => { %>\r\n        <article class=\"card\" tabindex=\"0\" aria-label=\"Información del perro <%= perro.nombre %>\">\r\n          <img src=\"/imagenes/<%= perro.imagen %>\" alt=\"Foto de <%= perro.nombre %>\" />\r\n          <h3><%= perro.nombre %></h3>\r\n\r\n          <!-- Botón de detalles (ajustado a una sola ruta coherente) -->\r\n          <a href=\"/perros/<%= perro.id %>\" class=\"btn-detalle\" aria-describedby=\"detalle-<%= perro.id %>\">Ver más detalles</a>\r\n          <span id=\"detalle-<%= perro.id %>\" class=\"visually-hidden\">Detalles completos del perro <%= perro.nombre %></span>\r\n        </article>\r\n      <% }) %>\r\n    <% } else { %>\r\n      <p>No hay perros disponibles en este momento.</p>\r\n    <% } %>\r\n  </main>\r\n\r\n  <footer>\r\n    <p>&copy; 2025 Albergue Segundas Oportunidades</p>\r\n  </footer>\r\n</body>\r\n</html>\r\n"
+        }
+    ]
+}

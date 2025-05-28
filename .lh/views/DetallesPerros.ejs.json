@@ -1,0 +1,18 @@
+{
+    "sourceFile": "views/DetallesPerros.ejs",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1748450684897,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1748450684897,
+            "name": "Commit-0",
+            "content": "<!DOCTYPE html>\r\n<html lang=\"es\">\r\n<head>\r\n  <meta charset=\"UTF-8\" />\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\r\n  <title><%= title %></title>\r\n  <link rel=\"stylesheet\" href=\"/styles/DetallesPerros.css\" />\r\n</head>\r\n<body>\r\n  <header>\r\n    <h1>🐶 Detalles de <%= perro.nombre %></h1>\r\n  </header>\r\n\r\n  <nav class=\"menu-container\">\r\n    <a href=\"/menu\" class=\"btn-regresar\">← Regresar al menú</a>\r\n    <a href=\"/perros\" class=\"btn-perros\">Volver a la lista de perros</a>\r\n  </nav>\r\n\r\n  <main class=\"container\">\r\n    <article class=\"card\">\r\n      <img src=\"/imagenes/<%= perro.imagen %>\" alt=\"Foto de <%= perro.nombre %>\" />\r\n      <h2><%= perro.nombre %></h2>\r\n      <p><strong>Raza:</strong> <%= perro.raza %></p>\r\n      <p><strong>Edad:</strong> <%= perro.edad %> años</p>\r\n      <p><strong>Descripción:</strong> <%= perro.descripcion %></p>\r\n      <p><strong>Estado:</strong> <%= perro.estado %></p>\r\n    </article>\r\n\r\n    <section class=\"formulario-adopcion\">\r\n      <h3>Formulario de Solicitud de Adopción</h3>\r\n      <form action=\"/adoptar/<%= perro.id %>/enviar\" method=\"POST\">\r\n        <!-- Aquí van los campos del formulario de adopción -->\r\n        <button type=\"submit\" class=\"btn-adoptar\">Enviar solicitud de adopción</button>\r\n      </form>\r\n    </section>\r\n  </main>\r\n\r\n  <footer>\r\n    <p>&copy; 2025 Albergue Segundas Oportunidades</p>\r\n  </footer>\r\n</body>\r\n</html>\r\n"
+        }
+    ]
+}

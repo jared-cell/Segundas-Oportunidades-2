@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crear Cuenta</title>
+    <link rel="stylesheet" href="/styles/CrearCuenta.css" />
+</head>
+<body>
+    <div class="container">
+        <h2>Crear Cuenta</h2>
+
+        <!-- Mensajes de error -->
+        <% if (error) { %>
+            <p class="message error" role="alert"><%= error %></p>
+        <% } %>
+
+        <!-- Formulario de registro -->
+        <form action="/registro" method="POST" onsubmit="return validarFormularioRegistro()">
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input
+                    type="text"
+                    id="nombre"
+                    name="nombre"
+                    placeholder="Tu nombre completo"
+                    autocomplete="off"
+                    required
+                    aria-required="true"
+                />
+            </div>
+            <div class="form-group">
+                <label for="direccion">Dirección</label>
+                <input
+                    type="text"
+                    id="direccion"
+                    name="direccion"
+                    placeholder="Tu dirección"
+                    autocomplete="off"
+                    required
+                    aria-required="true"
+                />
+            </div>
+            <div class="form-group">
+                <label for="telefono">Teléfono</label>
+                <input
+                    type="text"
+                    id="telefono"
+                    name="telefono"
+                    placeholder="Tu teléfono"
+                    autocomplete="off"
+                    required
+                    aria-required="true"
+                />
+            </div>
+            <div class="form-group">
+                <label for="correo">Correo</label>
+                <input
+                    type="email"
+                    id="correo"
+                    name="correo"
+                    placeholder="Tu correo electrónico"
+                    autocomplete="off"
+                    required
+                    aria-required="true"
+                />
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Tu contraseña"
+                    autocomplete="off"
+                    required
+                    aria-required="true"
+                />
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn">Registrar</button>
+                <button type="button" class="btn secondary" onclick="window.location.href='/login'">Volver</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Script de validación -->
+    <script>
+        function validarFormularioRegistro() {
+            const nombre = document.getElementById('nombre').value.trim();
+            const direccion = document.getElementById('direccion').value.trim();
+            const telefono = document.getElementById('telefono').value.trim();
+            const correo = document.getElementById('correo').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            if (!nombre || !direccion || !telefono || !correo || !password) {
+                alert('Por favor, completa todos los campos.');
+                return false;
+            }
+
+            // Validación de formato de correo
+            const correoRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!correoRegex.test(correo)) {
+                alert('Por favor, introduce un correo válido.');
+                return false;
+            }
+
+            // Validación básica de teléfono (sólo números, mínimo 8 dígitos)
+            const telefonoRegex = /^\d{8,}$/;
+            if (!telefonoRegex.test(telefono)) {
+                alert('Por favor, introduce un número de teléfono válido (mínimo 8 dígitos).');
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>

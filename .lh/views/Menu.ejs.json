@@ -1,0 +1,26 @@
+{
+    "sourceFile": "views/Menu.ejs",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1748451190451,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1748451200861,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,25 +13,30 @@\n     <a href=\"/logout\" class=\"logout-btn\">Cerrar sesión</a>\r\n   </header>\r\n \r\n   <main class=\"grid-container\">\r\n- <!-- 🏠 Adopciones -->\r\n-<a href=\"/infoadopciones\" class=\"grid-item\">\r\n-  <h2>🏠 Adopciones</h2>\r\n-  <p>Explora perros disponibles y cómo adoptar.</p>\r\n-</a>\r\n+    <!-- 🐾 Acerca del Albergue -->\r\n+    <a href=\"/acerca_del_albergue\" class=\"grid-item\">\r\n+      <h2>🐾 Acerca del Albergue</h2>\r\n+      <p>Conoce nuestra misión, visión y valores.</p>\r\n+    </a>\r\n \r\n-<!-- 💰 Donaciones -->\r\n-<a href=\"/infodonaciones\" class=\"grid-item\">\r\n-  <h2>💰 Donaciones</h2>\r\n-  <p>Apoya con alimentos, dinero o tiempo voluntario.</p>\r\n-</a>\r\n+    <!-- 🏠 Adopciones -->\r\n+    <a href=\"/infoadopcion\" class=\"grid-item\">\r\n+      <h2>🏠 Adopciones</h2>\r\n+      <p>Explora perros disponibles y cómo adoptar.</p>\r\n+    </a>\r\n \r\n-<!-- 📢 Reportes (info + formulario) -->\r\n-<a href=\"/inforeportes\" class=\"grid-item\">\r\n-  <h2>📢 Reportes</h2>\r\n-  <p>Denuncia casos de abandono o maltrato animal.</p>\r\n-</a>\r\n+    <!-- 💰 Donaciones -->\r\n+    <a href=\"/InfoDonaciones\" class=\"grid-item\">\r\n+      <h2>💰 Donaciones</h2>\r\n+      <p>Apoya con alimentos, dinero o tiempo voluntario.</p>\r\n+    </a>\r\n \r\n+    <!-- 📢 Reportes -->\r\n+    <a href=\"/infoReportar\" class=\"grid-item\">\r\n+      <h2>📢 Reporte</h2>\r\n+      <p>Denuncia casos de abandono o maltrato animal.</p>\r\n+    </a>\r\n   </main>\r\n </body>\r\n </html>\r\n"
+                },
+                {
+                    "date": 1748451206678,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,24 +19,25 @@\n       <h2>🐾 Acerca del Albergue</h2>\r\n       <p>Conoce nuestra misión, visión y valores.</p>\r\n     </a>\r\n \r\n-    <!-- 🏠 Adopciones -->\r\n-    <a href=\"/infoadopcion\" class=\"grid-item\">\r\n-      <h2>🏠 Adopciones</h2>\r\n-      <p>Explora perros disponibles y cómo adoptar.</p>\r\n-    </a>\r\n+   <!-- 🏠 Adopciones -->\r\n+<a href=\"/infoadopciones\" class=\"grid-item\">\r\n+  <h2>🏠 Adopciones</h2>\r\n+  <p>Explora perros disponibles y cómo adoptar.</p>\r\n+</a>\r\n \r\n-    <!-- 💰 Donaciones -->\r\n-    <a href=\"/InfoDonaciones\" class=\"grid-item\">\r\n-      <h2>💰 Donaciones</h2>\r\n-      <p>Apoya con alimentos, dinero o tiempo voluntario.</p>\r\n-    </a>\r\n+<!-- 💰 Donaciones -->\r\n+<a href=\"/infodonaciones\" class=\"grid-item\">\r\n+  <h2>💰 Donaciones</h2>\r\n+  <p>Apoya con alimentos, dinero o tiempo voluntario.</p>\r\n+</a>\r\n \r\n-    <!-- 📢 Reportes -->\r\n-    <a href=\"/infoReportar\" class=\"grid-item\">\r\n-      <h2>📢 Reporte</h2>\r\n-      <p>Denuncia casos de abandono o maltrato animal.</p>\r\n-    </a>\r\n+<!-- 📢 Reportes (info + formulario) -->\r\n+<a href=\"/inforeportes\" class=\"grid-item\">\r\n+  <h2>📢 Reportes</h2>\r\n+  <p>Denuncia casos de abandono o maltrato animal.</p>\r\n+</a>\r\n+\r\n   </main>\r\n </body>\r\n </html>\r\n"
+                }
+            ],
+            "date": 1748451190451,
+            "name": "Commit-0",
+            "content": "<!DOCTYPE html>\r\n<html lang=\"es\">\r\n<head>\r\n  <meta charset=\"UTF-8\" />\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\r\n  <title><%= title %></title>\r\n  <link rel=\"stylesheet\" href=\"/styles/Menu.css\" />\r\n</head>\r\n<body>\r\n  <header class=\"header\">\r\n    <h1>Bienvenido <%= user ? user.nombre : 'invitado' %> al Albergue</h1>\r\n    <p>Haz clic en cualquiera de los recuadros para navegar por la información o realizar una acción.</p>\r\n    <a href=\"/logout\" class=\"logout-btn\">Cerrar sesión</a>\r\n  </header>\r\n\r\n  <main class=\"grid-container\">\r\n <!-- 🏠 Adopciones -->\r\n<a href=\"/infoadopciones\" class=\"grid-item\">\r\n  <h2>🏠 Adopciones</h2>\r\n  <p>Explora perros disponibles y cómo adoptar.</p>\r\n</a>\r\n\r\n<!-- 💰 Donaciones -->\r\n<a href=\"/infodonaciones\" class=\"grid-item\">\r\n  <h2>💰 Donaciones</h2>\r\n  <p>Apoya con alimentos, dinero o tiempo voluntario.</p>\r\n</a>\r\n\r\n<!-- 📢 Reportes (info + formulario) -->\r\n<a href=\"/inforeportes\" class=\"grid-item\">\r\n  <h2>📢 Reportes</h2>\r\n  <p>Denuncia casos de abandono o maltrato animal.</p>\r\n</a>\r\n\r\n  </main>\r\n</body>\r\n</html>\r\n"
+        }
+    ]
+}
