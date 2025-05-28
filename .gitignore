@@ -1,0 +1,7 @@
+# Ignorar el directorio Segundas-Oportunidades/
+Segundas-Oportunidades/
+
+# Ignorar dependencias y archivos temporales
+node_modules/
+*.log
+.env
