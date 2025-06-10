@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #FADADD, #D9B8FF); /* De rosa pastel a lila */
+    background: linear-gradient(to right, #7E57C2, #42A5F5); /* Morado fuerte a azul brillante */
     height: 100vh;
     margin: 0;
     display: flex;
@@ -19,18 +19,18 @@ body {
 }
 
 h1 {
-    color: #5C5470; /* Gris morado elegante */
+    color: #512DA8; /* Morado elegante y fuerte */
     margin-bottom: 1rem;
 }
 
 p {
-    color: #666;
+    color: #444;
     margin-bottom: 2rem;
 }
 
 button {
-    background-color: #B39DDB; /* Lila pastel */
-    color: #2C2C2C;
+    background-color: #EC407A; /* Rosa intenso */
+    color: #fff;
     padding: 0.7rem 1.2rem;
     border: none;
     border-radius: 10px;
@@ -40,5 +40,5 @@ button {
 }
 
 button:hover {
-    background-color: #9575CD; /* Lila más intenso al pasar el ratón */
+    background-color: #D81B60; /* Rosa más profundo al pasar el ratón */
 }

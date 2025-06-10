@@ -2,7 +2,7 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to right, #B8E4F0, #D3C4F3, #C7EBD5);
+  background: linear-gradient(to right, #B8D8F7, #CDB6F6, #F9C6E4); /* Azul claro, morado suave, rosa pastel */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -14,7 +14,7 @@ body {
 .header {
   text-align: center;
   padding: 2rem 1rem;
-  background-color: #BFAEF6; /* Lila pastel medio */
+  background-color: #C79DF0; /* Lila brillante */
 }
 
 .header h1 {
@@ -24,7 +24,7 @@ body {
 }
 
 .header p {
-  color: #f3f3f3;
+  color: #f0eaff;
   font-size: 1.1rem;
 }
 
@@ -42,7 +42,7 @@ body {
 
 /* ====== Ítems del menú ====== */
 .grid-item {
-  background-color: #A6E3B9; /* Verde menta suave */
+  background-color: #F4D1F3; /* Rosa lavanda suave */
   border-radius: 15px;
   padding: 2rem;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
@@ -58,11 +58,11 @@ body {
 
 .grid-item:hover {
   transform: scale(1.03);
-  background-color: #90D6A5; /* Verde un poco más intenso */
+  background-color: #E9B9E9; /* Rosa más intenso */
 }
 
 .grid-item h2 {
-  color: #4B3F72; /* Morado grisáceo profundo */
+  color: #5A3E90; /* Morado grisáceo profundo */
   margin-bottom: 0.5rem;
   font-size: 1.8rem;
 }
@@ -77,8 +77,8 @@ body {
   display: inline-block;
   margin-top: 1rem;
   padding: 1rem 2rem;
-  background-color: #A6E3B9;
-  color: #4B3F72;
+  background-color: #f8a6c4; /* Rosa pastel */
+  color: #5A3E90;
   border-radius: 12px;
   text-decoration: none;
   font-weight: 600;
@@ -86,13 +86,13 @@ body {
 }
 
 .btn-perros:hover {
-  background-color: #90D6A5;
+  background-color: #f38bb0;
 }
 
 /* ====== Link "Cerrar sesión" simple ====== */
 a[href="/logout"] {
   color: #fff;
-  background-color: #4B3F72;
+  background-color: #5A3E90; /* Morado */
   padding: 0.5rem 1rem;
   border-radius: 8px;
   text-decoration: none;
@@ -103,7 +103,7 @@ a[href="/logout"] {
 }
 
 a[href="/logout"]:hover {
-  background-color: #392d59;
+  background-color: #402a6b;
 }
 
 /* ====== Para que el layout sea responsive (opcional) ====== */

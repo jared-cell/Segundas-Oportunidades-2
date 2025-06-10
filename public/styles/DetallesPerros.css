@@ -1,187 +1,38 @@
-/* Fondo general */
-body {
-  font-family: 'Arial', sans-serif;
-  background: url('/imagenes/fondo_perros.jpg') no-repeat center center fixed;
-  background-size: cover;
-  margin: 0;
-  padding: 0;
-  color: #333;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Header */
-header {
-  background-color: rgba(255, 255, 255, 0.85);
-  padding: 20px 0;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #574B90;
-  user-select: none;
-}
-
-/* Contenedor principal */
-.detalle-container {
-  flex: 1;
-  max-width: 900px;
-  margin: 40px auto 60px;
-  padding: 30px 40px;
-  background-color: rgba(255, 255, 255, 0.85);
-  border-radius: 15px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 25px;
-}
-
-/* Imagen del perro */
-.detalle-container img {
-  width: 320px;
-  max-width: 90vw;
-  border-radius: 15px;
-  box-shadow: 0 6px 18px rgba(87, 75, 144, 0.25);
-  object-fit: cover;
-}
-
-/* Título */
-.detalle-container h1 {
-  font-size: 2.8rem;
-  color: #574B90;
-  font-weight: 800;
-  margin: 0;
-  text-transform: capitalize;
-}
-
-/* Información adicional */
-.detalle-container p {
-  font-size: 1.2rem;
-  color: #5C5F7A;
-  font-weight: 600;
-  margin: 6px 0;
-  max-width: 600px;
-  text-align: center;
-}
-
-/* Botones contenedor */
-.botones-container {
-  display: flex;
-  gap: 25px;
-  justify-content: center;
-  margin-top: 20px;
-  flex-wrap: wrap;
-}
-
-/* Botones para regresar */
-.btn-regresar,
-.btn-perros,
-.btn-adoptar {
-  display: inline-block;
-  padding: 14px 30px;
-  font-weight: 700;
-  font-size: 1rem;
-  color: #fff;
-  border-radius: 14px;
-  text-decoration: none;
-  box-shadow: 0 6px 16px rgba(87, 75, 144, 0.6);
-  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.25s ease;
-  user-select: none;
-  position: relative;
-  white-space: nowrap;
-}
-
-/* Botón Regresar */
-.btn-regresar {
-  background: linear-gradient(45deg, #6A67CE, #8E8FFA);
-}
-
-.btn-regresar::before {
-  content: "←";
-  position: absolute;
-  left: 14px;
-  font-size: 1.2rem;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.btn-regresar:hover,
-.btn-regresar:focus {
-  background: linear-gradient(45deg, #574B90, #6A67CE);
-  box-shadow: 0 8px 22px rgba(87, 75, 144, 0.8);
-  transform: scale(1.1);
-  outline: none;
-}
-
-/* Botón Volver a lista de perros */
-.btn-perros {
-  background: linear-gradient(45deg, #6A67CE, #8E8FFA);
-}
-
-.btn-perros::before {
-  content: "↩";
-  position: absolute;
-  left: 14px;
-  font-size: 1.2rem;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.btn-perros:hover,
-.btn-perros:focus {
-  background: linear-gradient(45deg, #574B90, #6A67CE);
-  box-shadow: 0 8px 22px rgba(87, 75, 144, 0.8);
-  transform: scale(1.1);
-  outline: none;
-}
-
-/* Botón Adoptar */
-.btn-adoptar {
-  background: linear-gradient(45deg, #4CAF50, #81C784);
-  box-shadow: 0 6px 16px rgba(90, 150, 100, 0.6);
-}
-
-.btn-adoptar::before {
-  content: "🐾";
-  position: absolute;
-  left: 14px;
-  font-size: 1.2rem;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.btn-adoptar:hover,
-.btn-adoptar:focus {
-  background: linear-gradient(45deg, #388E3C, #4CAF50);
-  box-shadow: 0 8px 22px rgba(90, 150, 100, 0.8);
-  transform: scale(1.1);
-  outline: none;
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-  .detalle-container {
-    padding: 20px;
-    margin: 20px 15px 50px;
-  }
-
-  .detalle-container h1 {
-    font-size: 2rem;
-  }
-
-  .botones-container {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .btn-regresar,
-  .btn-perros,
-  .btn-adoptar {
+/* Botón de envío en rosa */
+button {
     width: 100%;
-    text-align: center;
-    padding: 12px 0;
-  }
+    padding: 12px;
+    font-size: 1.2rem;
+    background-color: #F78FB3; /* Rosa suave */
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Efecto hover del botón en rosa más vivo */
+button:hover {
+    background-color: #F56FA1; /* Rosa intenso */
+}
+
+/* Efecto de activación del botón */
+button:active {
+    background-color: #D94F90; /* Rosa oscuro */
+}
+
+/* Ejemplo de detalle adicional */
+.highlight {
+    color: #A084E8; /* Morado pastel */
+    font-weight: bold;
+}
+
+/* Enlaces en azul/lila para mantener la paleta */
+a {
+    color: #6C63FF;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #5A54E0;
 }

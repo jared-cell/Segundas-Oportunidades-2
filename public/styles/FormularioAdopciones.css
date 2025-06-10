@@ -22,7 +22,7 @@ body {
 
 .formulario-adopcion h1 {
   text-align: center;
-  color: #574B90;
+  color: #A84CB8; /* Lila rosado */
   margin-bottom: 30px;
 }
 
@@ -30,7 +30,7 @@ label {
   font-weight: 700;
   margin-top: 15px;
   display: block;
-  color: #5C5F7A;
+  color: #6C4F77; /* Gris morado */
 }
 
 input[type="text"],
@@ -42,10 +42,11 @@ select {
   width: 100%;
   padding: 10px 12px;
   margin-top: 6px;
-  border: 2px solid #ccc;
+  border: 2px solid #E3B5FF; /* Lila pastel */
   border-radius: 8px;
   font-size: 1rem;
   transition: border-color 0.3s ease;
+  background-color: #FDF4FF; /* Rosa lavanda muy claro */
 }
 
 input[type="text"]:focus,
@@ -54,7 +55,7 @@ input[type="number"]:focus,
 input[type="tel"]:focus,
 textarea:focus,
 select:focus {
-  border-color: #574B90;
+  border-color: #C084FC; /* Morado suave */
   outline: none;
 }
 
@@ -68,7 +69,7 @@ select:focus {
 
 .btn-adoptar,
 .btn-volver {
-  background: linear-gradient(45deg, #6A67CE, #8E8FFA);
+  background: linear-gradient(45deg, #F78FB3, #FDC3D0); /* De rosa suave a más claro */
   color: white;
   padding: 14px 30px;
   font-weight: 700;
@@ -78,7 +79,7 @@ select:focus {
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
-  box-shadow: 0 6px 16px rgba(87, 75, 144, 0.6);
+  box-shadow: 0 6px 16px rgba(247, 143, 179, 0.4);
   transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.25s ease;
   user-select: none;
 }
@@ -87,8 +88,8 @@ select:focus {
 .btn-adoptar:focus,
 .btn-volver:hover,
 .btn-volver:focus {
-  background: linear-gradient(45deg, #574B90, #6A67CE);
-  box-shadow: 0 8px 22px rgba(87, 75, 144, 0.8);
+  background: linear-gradient(45deg, #F56FA1, #F78FB3);
+  box-shadow: 0 8px 22px rgba(247, 143, 179, 0.6);
   transform: scale(1.1);
   outline: none;
 }
@@ -100,11 +101,11 @@ select:focus {
 }
 
 .mensaje.error {
-  color: #d32f2f;
+  color: #D43F57; /* Rojo más suave */
 }
 
 .mensaje.success {
-  color: #388e3c;
+  color: #7BB274; /* Verde más tenue */
 }
 
 /* Responsive */

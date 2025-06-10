@@ -13,13 +13,13 @@ body {
 
 /* Header */
 header {
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(207, 178, 255, 0.9); /* Morado suave */
   padding: 20px 0;
   text-align: center;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   font-size: 2.2rem;
   font-weight: 700;
-  color: #574B90;
+  color: #fff;
   user-select: none;
 }
 
@@ -36,16 +36,15 @@ header {
   font-weight: 700;
   font-size: 1rem;
   color: #fff;
-  background: linear-gradient(45deg, #ff6a6a, #ff8787);
+  background: linear-gradient(45deg, #ff79c6, #ff9acb); /* Rosa suave */
   border-radius: 14px;
   text-decoration: none;
-  box-shadow: 0 6px 16px rgba(255, 106, 106, 0.6);
+  box-shadow: 0 6px 16px rgba(255, 121, 198, 0.5);
   transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.25s ease;
   margin-bottom: 20px;
   position: relative;
 }
 
-/* Estilo de la flecha */
 .btn-regresar::before {
   content: "←";
   position: absolute;
@@ -55,11 +54,10 @@ header {
   transform: translateY(-50%);
 }
 
-/* Hover para el botón */
 .btn-regresar:hover,
 .btn-regresar:focus {
-  background: linear-gradient(45deg, #e55a5a, #ff6a6a);
-  box-shadow: 0 8px 22px rgba(229, 90, 90, 0.8);
+  background: linear-gradient(45deg, #ff5cad, #ff79c6);
+  box-shadow: 0 8px 22px rgba(255, 121, 198, 0.7);
   transform: scale(1.1);
   outline: none;
 }
@@ -96,10 +94,9 @@ header {
 
 .card:hover {
   transform: scale(1.08);
-  box-shadow: 0 10px 30px rgba(87, 75, 144, 0.3);
+  box-shadow: 0 10px 30px rgba(175, 139, 245, 0.3);
 }
 
-/* Imagen dentro de la tarjeta */
 .card img {
   width: 100%;
   height: 160px;
@@ -118,7 +115,7 @@ header {
 .card h3 {
   margin: 0 0 8px;
   font-size: 1.4rem;
-  color: #574B90;
+  color: #6A67CE;
   font-weight: 800;
   letter-spacing: 0.03em;
   text-transform: capitalize;
@@ -139,18 +136,18 @@ header {
   font-weight: 700;
   font-size: 1rem;
   color: #fff;
-  background: linear-gradient(45deg, #6A67CE, #8E8FFA);
+  background: linear-gradient(45deg, #8E8FFA, #CFA6F6);
   border-radius: 14px;
   text-decoration: none;
-  box-shadow: 0 6px 16px rgba(106, 103, 206, 0.6);
+  box-shadow: 0 6px 16px rgba(143, 138, 255, 0.5);
   transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.25s ease;
   user-select: none;
 }
 
 .btn-detalle:hover,
 .btn-detalle:focus {
-  background: linear-gradient(45deg, #574B90, #6A67CE);
-  box-shadow: 0 8px 22px rgba(87, 75, 144, 0.8);
+  background: linear-gradient(45deg, #6A67CE, #A983F0);
+  box-shadow: 0 8px 22px rgba(106, 103, 206, 0.8);
   transform: scale(1.1);
   outline: none;
 }
@@ -161,12 +158,12 @@ footer {
   padding: 18px 0;
   background-color: rgba(255, 255, 255, 0.85);
   font-size: 0.9rem;
-  color: #574B90;
+  color: #6A67CE;
   box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
   user-select: none;
 }
 
-/* Responsive - para pantallas pequeñas */
+/* Responsive */
 @media (max-width: 480px) {
   .menu-container {
     margin: 15px 0;

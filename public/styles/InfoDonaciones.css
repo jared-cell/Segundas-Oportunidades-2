@@ -3,8 +3,8 @@ body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #f9f5e6, #fff7ed); /* Fondo cálido */
-  color: #333;
+  background: linear-gradient(135deg, #6a11cb, #2575fc); /* Fondo azul-morado */
+  color: #f0f0f0;
   line-height: 1.6;
 }
 
@@ -22,13 +22,13 @@ header {
 
 header h1 {
   font-size: 3rem;
-  color: #e67e22; /* Naranja cálido */
+  color: #ff66b2; /* Rosa fuerte */
   margin-bottom: 0.5rem;
 }
 
 header .subtitle {
   font-size: 1.2rem;
-  color: #95a5a6; /* Gris suave */
+  color: #d1b3ff; /* Lavanda clara */
 }
 
 /* ======= Cajas de Información ======= */
@@ -44,7 +44,7 @@ header .subtitle {
   flex: 1;
   min-width: 300px;
   max-width: 500px;
-  background: #fff;
+  background: #ffffff;
   padding: 1.5rem;
   border-radius: 15px;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
@@ -58,7 +58,7 @@ header .subtitle {
 
 .box p {
   margin: 0;
-  color: #555;
+  color: #444;
   font-size: 1rem;
   text-align: justify;
   text-indent: 1.5rem;
@@ -86,23 +86,23 @@ header .subtitle {
 }
 
 .back-button {
-  background: linear-gradient(135deg, #16a085, #1abc9c); /* Verde esperanza */
+  background: linear-gradient(135deg, #a18cd1, #fbc2eb); /* Lila y rosa pastel */
 }
 
 .back-button:hover {
-  background: linear-gradient(135deg, #1abc9c, #16a085);
+  background: linear-gradient(135deg, #fbc2eb, #a18cd1);
   transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 10px 25px rgba(26, 188, 156, 0.4);
+  box-shadow: 0 10px 25px rgba(161, 140, 209, 0.4);
 }
 
 .donate-button {
-  background: linear-gradient(135deg, #e74c3c, #c0392b); /* Rojo pasión */
+  background: linear-gradient(135deg, #ff6ec4, #7873f5); /* Rosa fucsia a morado */
 }
 
 .donate-button:hover {
-  background: linear-gradient(135deg, #c0392b, #e74c3c);
+  background: linear-gradient(135deg, #7873f5, #ff6ec4);
   transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 10px 25px rgba(231, 76, 60, 0.4);
+  box-shadow: 0 10px 25px rgba(255, 110, 196, 0.4);
 }
 
 /* ======= Responsivo ======= */

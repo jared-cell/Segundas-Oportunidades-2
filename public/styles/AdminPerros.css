@@ -1,13 +1,13 @@
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #eceeff; /* Azul lavanda muy claro */
+  background-color: #e3f2fd; /* Azul muy claro */
   margin: 0;
   padding: 0;
-  color: #2d3748;
+  color: #1a237e; /* Azul profundo */
 }
 
 .top-bar {
-  background-color: #7a5fff; /* Morado vibrante */
+  background-color: #6a1b9a; /* Morado profundo */
   padding: 20px;
   display: flex;
   justify-content: flex-start;
@@ -17,14 +17,14 @@ body {
   color: white;
   text-decoration: none;
   font-weight: 600;
-  background-color: #5a4bcf; /* Morado más oscuro */
+  background-color: #f06292; /* Rosa */
   padding: 10px 20px;
   border-radius: 8px;
   transition: background-color 0.3s ease;
 }
 
 .btn-back:hover {
-  background-color: #453bc9;
+  background-color: #ec407a; /* Rosa más fuerte */
 }
 
 .container {
@@ -44,11 +44,11 @@ body {
 h1 {
   font-size: 2rem;
   margin: 0;
-  color: #4a3b8a; /* Tono morado sobrio */
+  color: #4527a0; /* Morado profundo */
 }
 
 .add-button {
-  background-color: #5a67d8; /* Azul-morado */
+  background-color: #f06292; /* Rosa */
   color: white;
   font-weight: 600;
   padding: 10px 20px;
@@ -59,13 +59,13 @@ h1 {
 }
 
 .add-button:hover {
-  background-color: #4c51bf;
+  background-color: #ec407a;
 }
 
 .dog-section h2 {
   font-size: 1.5rem;
   margin-bottom: 15px;
-  color: #4a3b8a;
+  color: #4527a0;
 }
 
 .table-container {
@@ -89,7 +89,7 @@ th, td {
 }
 
 thead {
-  background-color: #7a5fff; /* Encabezado con morado principal */
+  background-color: #7e57c2; /* Morado medio */
   color: white;
 }
 
@@ -114,11 +114,11 @@ img {
 }
 
 .action-button.edit:hover {
-  color: #5a67d8; /* Azul morado suave */
+  color: #64b5f6; /* Azul claro */
 }
 
 .action-button.delete:hover {
-  color: #e53e3e; /* Rojo para eliminar */
+  color: #e53935; /* Rojo */
 }
 
 /* Estados */
@@ -131,18 +131,18 @@ img {
 }
 
 .status.disponible {
-  background-color: #d1c4e9; /* Lavanda claro */
-  color: #4a3b8a;
+  background-color: #c5cae9; /* Lavanda claro */
+  color: #311b92;
 }
 
 .status.adoptado {
-  background-color: #f3c7f3; /* Rosa lavanda */
-  color: #97266d;
+  background-color: #f8bbd0; /* Rosa suave */
+  color: #ad1457;
 }
 
 .status.revision {
-  background-color: #c3dafe; /* Azul cielo muy claro */
-  color: #2b6cb0;
+  background-color: #bbdefb; /* Azul cielo claro */
+  color: #0d47a1;
 }
 
 /* Responsive */

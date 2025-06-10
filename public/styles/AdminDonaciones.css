@@ -7,13 +7,13 @@
 }
 
 body {
-  background-color: #eceeff; /* Azul lavanda muy claro */
-  color: #2c3e50;
+  background-color: #e3f2fd; /* Azul muy claro */
+  color: #1a237e; /* Azul profundo */
 }
 
 /* Barra superior */
 .top-bar {
-  background-color: #7a5fff; /* Morado vibrante */
+  background-color: #6a1b9a; /* Morado profundo */
   padding: 1rem 2rem;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -24,9 +24,9 @@ body {
 /* Botón de regreso */
 .back-button {
   color: #fff;
-  background-color: #5a4bcf;
+  background-color: #f06292; /* Rosa */
   text-decoration: none;
   font-weight: 600;
   padding: 10px 18px;
-  border-radius: 6px
+  border-radius: 6px;
 }

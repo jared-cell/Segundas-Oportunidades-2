@@ -1,32 +1,32 @@
-/* FormularioReporte.css - Estilo Reporte Canino */
+/* FormularioReporte.css - Estilo Reporte Canino en tonos azul, morado y rosa */
 
 /* Contenedor general */
 .formulario {
   max-width: 600px;
   margin: 30px auto;
-  background: #fffaf0; /* color crema, cálido */
+  background: #f9f4ff; /* lila muy claro */
   padding: 30px 35px;
   border-radius: 15px;
-  box-shadow: 0 6px 15px rgba(139, 69, 19, 0.2); /* sombra marrón suave */
-  font-family: 'Comic Sans MS', cursive, sans-serif; /* más amigable */
-  color: #4e342e; /* marrón oscuro */
-  border: 2px solid #a0522d; /* borde marrón madera */
+  box-shadow: 0 6px 15px rgba(164, 146, 255, 0.3);
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  color: #574b90; /* morado profundo */
+  border: 2px solid #d8b4f8; /* lila brillante */
 }
 
 /* Títulos */
 h1 {
   text-align: center;
   margin-bottom: 25px;
-  color: #d2691e; /* chocolate */
-  text-shadow: 1px 1px 2px #8b4513;
+  color: #8e44ad; /* morado intenso */
+  text-shadow: 1px 1px 2px #dba3e3;
   font-weight: bold;
   font-size: 2.2em;
 }
 
 .seccion h2 {
   margin-bottom: 18px;
-  color: #8b4513;
-  border-bottom: 3px solid #d2691e;
+  color: #8e44ad;
+  border-bottom: 3px solid #dba3e3;
   padding-bottom: 8px;
   font-weight: 700;
 }
@@ -47,22 +47,22 @@ textarea {
   width: 100%;
   padding: 10px 14px;
   margin-top: 8px;
-  border: 2px solid #a0522d;
+  border: 2px solid #8e8ffa;
   border-radius: 10px;
   font-size: 16px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   transition: border-color 0.3s ease;
-  box-shadow: inset 1px 1px 5px #f5deb3; /* interior cálido */
-  background-color: #fff8dc; /* beige suave */
+  background-color: #fefaff;
+  box-shadow: inset 1px 1px 5px #f2e9ff;
 }
 
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="date"]:focus,
 textarea:focus {
-  border-color: #d2691e;
+  border-color: #a983f0;
   outline: none;
-  box-shadow: 0 0 8px #d2691e;
+  box-shadow: 0 0 8px #a983f0;
 }
 
 /* Radios y checkboxes */
@@ -73,14 +73,14 @@ textarea:focus {
   margin-right: 22px;
   cursor: pointer;
   font-size: 1em;
-  color: #5d4037;
+  color: #5c5470;
 }
 
 input[type="radio"],
 input[type="checkbox"] {
   margin-right: 6px;
   cursor: pointer;
-  accent-color: #d2691e; /* para navegadores que soportan */
+  accent-color: #9b59b6;
 }
 
 /* Botones contenedor */
@@ -93,29 +93,29 @@ input[type="checkbox"] {
 
 /* Botón Enviar */
 button[type="submit"] {
-  background-color: #d2691e; /* chocolate cálido */
+  background-color: #9b59b6; /* morado brillante */
   border: none;
   padding: 14px 34px;
-  color: #fffaf0;
+  color: #fff;
   font-size: 18px;
   font-weight: 700;
   border-radius: 12px;
   cursor: pointer;
-  box-shadow: 0 5px 12px rgba(210, 105, 30, 0.7);
+  box-shadow: 0 5px 12px rgba(155, 89, 182, 0.7);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   font-family: 'Comic Sans MS', cursive, sans-serif;
 }
 
 button[type="submit"]:hover {
-  background-color: #a0522d;
-  box-shadow: 0 7px 18px rgba(160, 82, 45, 0.9);
+  background-color: #8e44ad;
+  box-shadow: 0 7px 18px rgba(142, 68, 173, 0.9);
 }
 
 /* Botón Volver */
 .boton-volver {
   background-color: transparent;
-  color: #a0522d;
-  border: 3px solid #a0522d;
+  color: #8e44ad;
+  border: 3px solid #8e44ad;
   padding: 12px 30px;
   border-radius: 12px;
   text-decoration: none;
@@ -126,14 +126,14 @@ button[type="submit"]:hover {
 }
 
 .boton-volver:hover {
-  background-color: #a0522d;
-  color: #fffaf0;
-  box-shadow: 0 6px 14px rgba(160, 82, 45, 0.8);
+  background-color: #8e44ad;
+  color: #fff;
+  box-shadow: 0 6px 14px rgba(142, 68, 173, 0.8);
 }
 
 /* Mensajes de error */
 .error {
-  color: #b71c1c;
+  color: #c0392b;
   font-size: 14px;
   margin-top: 6px;
   font-weight: 600;

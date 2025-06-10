@@ -1,15 +1,15 @@
 /* Estilos generales */
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #eceeff; /* Lavanda muy claro */
+  background-color: #e3f2fd; /* Azul muy claro */
   margin: 0;
   padding: 0;
-  color: #2d3748;
+  color: #1a237e; /* Azul profundo */
 }
 
 /* Barra superior */
 .top-bar {
-  background-color: #7a5fff; /* Morado vibrante */
+  background-color: #6a1b9a; /* Morado profundo */
   padding: 20px;
   display: flex;
   justify-content: space-between;
@@ -21,7 +21,7 @@ body {
   color: white;
   text-decoration: none;
   font-weight: 600;
-  background-color: #5a4bcf; /* Morado oscuro */
+  background-color: #f06292; /* Rosa */
   padding: 10px 20px;
   border-radius: 8px;
   margin-bottom: 10px;
@@ -30,7 +30,7 @@ body {
 
 .btn-back:hover,
 .btn-home:hover {
-  background-color: #453bc9;
+  background-color: #ec407a; /* Rosa más fuerte */
 }
 
 /* Contenido */
@@ -43,7 +43,7 @@ body {
 h1 {
   font-size: 2rem;
   margin-bottom: 20px;
-  color: #4a3b8a; /* Morado sobrio */
+  color: #4527a0; /* Morado sobrio */
 }
 
 /* Tabla */
@@ -67,7 +67,7 @@ th, td {
 }
 
 thead {
-  background-color: #7a5fff; /* Morado principal */
+  background-color: #7e57c2; /* Morado medio */
   color: white;
 }
 

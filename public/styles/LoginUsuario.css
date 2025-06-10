@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #EBD8FD, #CDEFFC); /* Lila a azul pastel */
+    background: linear-gradient(135deg, #C084F5, #6EC6FF); /* Lila más fuerte a azul claro intenso */
     margin: 0;
     padding: 0;
     display: flex;
@@ -13,14 +13,14 @@ body {
     background-color: #fff;
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
     width: 300px;
     text-align: center;
 }
 
 h2 {
     margin-bottom: 20px;
-    color: #5E35B1; /* Morado elegante */
+    color: #7E57C2; /* Morado fuerte */
 }
 
 .form-group {
@@ -31,21 +31,21 @@ h2 {
 label {
     display: block;
     margin-bottom: 5px;
-    color: #666;
+    color: #444;
 }
 
 input {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #D0BFFF; /* Borde lila claro */
+    border: 1px solid #B39DDB; /* Borde lila intenso */
     border-radius: 8px;
     font-size: 14px;
-    background-color: #F3F0FF; /* Fondo lavanda suave */
+    background-color: #EDE7F6; /* Lavanda más marcada */
 }
 
 input:focus {
-    border-color: #A084E8;
+    border-color: #9575CD;
     outline: none;
 }
 
@@ -54,7 +54,7 @@ input:focus {
     width: 100%;
     padding: 10px 20px;
     color: #fff;
-    background-color: #A084E8;
+    background-color: #EC407A; /* Rosa fuerte */
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -63,7 +63,7 @@ input:focus {
 }
 
 .btn:hover {
-    background-color: #8661C1;
+    background-color: #D81B60; /* Rosa más profundo */
 }
 
 .message {
@@ -75,13 +75,13 @@ input:focus {
 }
 
 .message.error {
-    background-color: #CE93D8; /* Rosa lila tenue */
-    color: #4A148C;
+    background-color: #F06292; /* Rosa vivo */
+    color: #880E4F;
 }
 
 .message.success {
-    background-color: #B39DDB; /* Lila claro */
-    color: #2E1B5F;
+    background-color: #BA68C8; /* Lila fuerte */
+    color: #4A148C;
 }
 
 .register-link {
@@ -94,5 +94,5 @@ input:focus {
 }
 
 .register-link a:hover {
-    text-decoration: underline;
+    text-decoration: underline;
 }

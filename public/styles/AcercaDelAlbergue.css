@@ -1,12 +1,12 @@
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #E6E6FA; /* lavanda suave */
+    background-color: #D1C4E9; /* lavanda intensa */
     margin: 0;
     padding: 0;
 }
 
 header {
-    background-color: #7E57C2; /* morado profundo */
+    background-color: #512DA8; /* morado profundo más intenso */
     padding: 20px;
     text-align: center;
     font-size: 26px;
@@ -23,13 +23,13 @@ header {
 }
 
 .card {
-    background-color: #D1C4E9; /* lavanda claro */
+    background-color: #B39DDB; /* lila más fuerte */
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     width: 300px;
     padding: 20px;
     text-align: center;
-    border: 1px solid #B39DDB; /* morado suave */
+    border: 1px solid #9575CD; /* morado más intenso */
 }
 
 .card img {
@@ -45,7 +45,7 @@ header {
 }
 
 .button {
-    background-color: #64B5F6; /* azul suave */
+    background-color: #EC407A; /* rosa fuerte */
     color: #FFFFFF;
     padding: 12px 24px;
     text-decoration: none;
@@ -56,5 +56,5 @@ header {
 }
 
 .button:hover {
-    background-color: #42A5F5; /* azul más oscuro al pasar el mouse */
+    background-color: #D81B60; /* rosa más oscuro */
 }

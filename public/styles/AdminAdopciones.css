@@ -1,14 +1,14 @@
 /* Tipografía y colores */
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #f4f7ff; /* azul muy claro */
+  background-color: #e3f2fd; /* azul muy claro */
   margin: 0;
   padding: 0;
-  color: #2d3748;
+  color: #1a237e; /* azul profundo */
 }
 
 .top-bar {
-  background-color: #7a5fff; /* morado vibrante */
+  background-color: #6a1b9a; /* morado profundo */
   padding: 20px;
 }
 
@@ -16,7 +16,7 @@ body {
   color: #fff;
   text-decoration: none;
   font-weight: 600;
-  background-color: #5a4bcf;
+  background-color: #8e24aa;
   padding: 10px 20px;
   border-radius: 8px;
 }
@@ -30,7 +30,7 @@ body {
 h1 {
   font-size: 2rem;
   margin-bottom: 20px;
-  color: #2d3748;
+  color: #311b92; /* morado muy oscuro */
 }
 
 .table-container {
@@ -53,12 +53,12 @@ th, td {
 }
 
 thead {
-  background-color: #7a5fff;
+  background-color: #7e57c2; /* morado medio */
   color: white;
 }
 
 tbody tr:nth-child(even) {
-  background-color: #edf2fa; /* azul muy claro */
+  background-color: #e8eaf6; /* azul/morado claro */
 }
 
 .status {
@@ -69,13 +69,13 @@ tbody tr:nth-child(even) {
 }
 
 .status.pendiente {
-  background-color: #fcdcae;
-  color: #744210;
+  background-color: #fcd1e3; /* rosa claro */
+  color: #ad1457;
 }
 
 .status.aprobada {
-  background-color: #c8f5ea;
-  color: #276749;
+  background-color: #c5e1f9;
+  color: #0d47a1;
 }
 
 /* Botones */
@@ -91,30 +91,30 @@ tbody tr:nth-child(even) {
 }
 
 .btn.aprobar {
-  background-color: #48bb78;
+  background-color: #64b5f6; /* azul claro */
   color: white;
 }
 
 .btn.aprobar:hover {
-  background-color: #38a169;
+  background-color: #42a5f5;
 }
 
 .btn.rechazar {
-  background-color: #e53e3e;
+  background-color: #ef5350; /* rojo suave */
   color: white;
 }
 
 .btn.rechazar:hover {
-  background-color: #c53030;
+  background-color: #e53935;
 }
 
 .btn.ver {
-  background-color: #5a67d8; /* morado azulado */
+  background-color: #f06292; /* rosa */
   color: white;
 }
 
 .btn.ver:hover {
-  background-color: #434190;
+  background-color: #ec407a;
 }
 
 /* Responsivo */
